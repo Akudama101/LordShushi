@@ -28,7 +28,7 @@ import { Footer } from './MainHomePage'
 import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/src/assets/images/interpost_logo.png"
 import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
-import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon } from 'lucide-react'
+import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X } from 'lucide-react'
 
 
 
@@ -391,129 +391,17 @@ export function Section8() {
 export function CustomerService() {
 
     const countries = [
-        { value: 'Afghanistan', label: 'Afghanistan' },
-        { value: 'Albania', label: 'Albania' },
-        { value: 'Algeria', label: 'Algeria' },
-        { value: 'Andorra', label: 'Andorra' },
-        { value: 'Angola', label: 'Angola' },
-        { value: 'Antigua and Barbuda', label: 'Antigua and Barbuda' },
-        { value: 'Argentina', label: 'Argentina' },
-        { value: 'Armenia', label: 'Armenia' },
-        { value: 'Australia', label: 'Australia' },
-        { value: 'Austria', label: 'Austria' },
-        { value: 'Azerbaijan', label: 'Azerbaijan' },
-        { value: 'Bahamas', label: 'Bahamas' },
-        { value: 'Bahrain', label: 'Bahrain' },
-        { value: 'Bangladesh', label: 'Bangladesh' },
-        { value: 'Barbados', label: 'Barbados' },
-        { value: 'Belarus', label: 'Belarus' },
-        { value: 'Belgium', label: 'Belgium' },
-        { value: 'Belize', label: 'Belize' },
-        { value: 'Benin', label: 'Benin' },
-        { value: 'Bhutan', label: 'Bhutan' },
-        { value: 'Bolivia', label: 'Bolivia' },
-        { value: 'Bosnia and Herzegovina', label: 'Bosnia and Herzegovina' },
-        { value: 'Botswana', label: 'Botswana' },
-        { value: 'Brazil', label: 'Brazil' },
-        { value: 'Brunei', label: 'Brunei' },
-        { value: 'Bulgaria', label: 'Bulgaria' },
-        { value: 'Burkina Faso', label: 'Burkina Faso' },
-        { value: 'Burundi', label: 'Burundi' },
-        { value: 'Cabo Verde', label: 'Cabo Verde' },
-        { value: 'Cambodia', label: 'Cambodia' },
-        { value: 'Cameroon', label: 'Cameroon' },
         { value: 'Canada', label: 'Canada' },
-        { value: 'Central African Republic', label: 'Central African Republic' },
-        { value: 'Chad', label: 'Chad' },
-        { value: 'Chile', label: 'Chile' },
-        { value: 'China', label: 'China' },
-        { value: 'Colombia', label: 'Colombia' },
-        { value: 'Comoros', label: 'Comoros' },
-        { value: 'Congo (Congo-Brazzaville)', label: 'Congo (Congo-Brazzaville)' },
-        { value: 'Congo (Congo-Kinshasa)', label: 'Congo (Congo-Kinshasa)' },
-        { value: 'Costa Rica', label: 'Costa Rica' },
-        { value: 'Croatia', label: 'Croatia' },
-        { value: 'Cuba', label: 'Cuba' },
-        { value: 'Cyprus', label: 'Cyprus' },
-        { value: 'Czechia', label: 'Czechia' },
-        { value: 'Denmark', label: 'Denmark' },
-        { value: 'Djibouti', label: 'Djibouti' },
-        { value: 'Dominica', label: 'Dominica' },
-        { value: 'Dominican Republic', label: 'Dominican Republic' },
-        { value: 'Ecuador', label: 'Ecuador' },
-        { value: 'Egypt', label: 'Egypt' },
-        { value: 'El Salvador', label: 'El Salvador' },
-        { value: 'Equatorial Guinea', label: 'Equatorial Guinea' },
-        { value: 'Eritrea', label: 'Eritrea' },
-        { value: 'Estonia', label: 'Estonia' },
-        { value: 'Eswatini', label: 'Eswatini' },
-        { value: 'Ethiopia', label: 'Ethiopia' },
-        { value: 'Fiji', label: 'Fiji' },
-        { value: 'Finland', label: 'Finland' },
-        { value: 'France', label: 'France' },
-        { value: 'Gabon', label: 'Gabon' },
-        { value: 'Gambia', label: 'Gambia' },
-        { value: 'Georgia', label: 'Georgia' },
-        { value: 'Germany', label: 'Germany' },
         { value: 'Ghana', label: 'Ghana' },
-        { value: 'Greece', label: 'Greece' },
-        { value: 'Grenada', label: 'Grenada' },
-        { value: 'Guatemala', label: 'Guatemala' },
-        { value: 'Guinea', label: 'Guinea' },
-        { value: 'Guinea-Bissau', label: 'Guinea-Bissau' },
-        { value: 'Guyana', label: 'Guyana' },
-        { value: 'Haiti', label: 'Haiti' },
-        { value: 'Honduras', label: 'Honduras' },
-        { value: 'Hungary', label: 'Hungary' },
-        { value: 'Iceland', label: 'Iceland' },
-        { value: 'India', label: 'India' },
-        { value: 'Indonesia', label: 'Indonesia' },
-        { value: 'Iran', label: 'Iran' },
-        { value: 'Iraq', label: 'Iraq' },
-        { value: 'Ireland', label: 'Ireland' },
-        { value: 'Israel', label: 'Israel' },
-        { value: 'Italy', label: 'Italy' },
-        { value: 'Jamaica', label: 'Jamaica' },
-        { value: 'Japan', label: 'Japan' },
-        { value: 'Jordan', label: 'Jordan' },
-        { value: 'Kazakhstan', label: 'Kazakhstan' },
-        { value: 'Kenya', label: 'Kenya' },
-        { value: 'Kuwait', label: 'Kuwait' },
-        { value: 'Kyrgyzstan', label: 'Kyrgyzstan' },
-        { value: 'Laos', label: 'Laos' },
-        { value: 'Latvia', label: 'Latvia' },
-        { value: 'Lebanon', label: 'Lebanon' },
-        { value: 'Lesotho', label: 'Lesotho' },
-        { value: 'Liberia', label: 'Liberia' },
-        { value: 'Libya', label: 'Libya' },
-        { value: 'Liechtenstein', label: 'Liechtenstein' },
-        { value: 'Lithuania', label: 'Lithuania' },
-        { value: 'Luxembourg', label: 'Luxembourg' },
-        { value: 'Madagascar', label: 'Madagascar' },
-        { value: 'Malawi', label: 'Malawi' },
-        { value: 'Malaysia', label: 'Malaysia' },
-        { value: 'Maldives', label: 'Maldives' },
-        { value: 'Mali', label: 'Mali' },
-        { value: 'Malta', label: 'Malta' },
-        { value: 'Mexico', label: 'Mexico' },
-        { value: 'Monaco', label: 'Monaco' },
-        { value: 'Mongolia', label: 'Mongolia' },
-        { value: 'Morocco', label: 'Morocco' },
-        { value: 'Mozambique', label: 'Mozambique' },
-        { value: 'Myanmar', label: 'Myanmar' },
-        { value: 'Namibia', label: 'Namibia' },
-        { value: 'Nepal', label: 'Nepal' },
-        { value: 'Netherlands', label: 'Netherlands' },
-        { value: 'New Zealand', label: 'New Zealand' },
-        { value: 'Nigeria', label: 'Nigeria' },
-        { value: 'North Korea', label: 'North Korea' },
-        { value: 'United States', label: 'United States' }
+        { value: 'United States', label: 'United States' },
       ];
+
+      const PurposeOfContact = [
+        {value:"General Enquiry", label:"General Enquiry"},
+        {value:"Payment of Clearance Fee", label:"Payment of Clearance Fee"},
+        {value:"Tracking Issues", label:"Tracking Issues"},
+      ]
     
-
-
-
-
 
 
 const AgentINforGhana = 
@@ -548,7 +436,8 @@ const AgentINforGhana =
 
     const [selectValue1, setSelectValue1 ] = useState('');
     const [selectValue2, setSelectValue2] = useState('');
-    const [hideFilter, setHideFilter] = useState("")
+    const [hideFilter, setHideFilter] = useState("");
+    const [showNumberBar, setShownumberbar]= useState('hidden');
 
     const [showDetails, setShowDetails] = useState("hidden")
 
@@ -594,6 +483,17 @@ const GetAgent = () => {
 
 }
 
+const showNumberBar32 = () =>{
+    if(showNumberBar === "hidden"){
+        setShownumberbar("block")
+    }
+    else {
+        setShownumberbar("hidden")
+    }
+   
+
+}
+
 
 
 
@@ -616,100 +516,145 @@ const GetAgent = () => {
         <>
         <HeaderPage/>
 
-         
-     
-        
-         
-
-         <section className='py-10'>
-       
-            <h1 className='text-3xl font-bold text-red-600 ml-4 mt-10 text-center'>Customer Service</h1>
-            
-            <p className=' my-4 px-5'>Talk to Our Agent Representative Now!! , They are Available 24/7 for you the customers convinience. responce is usually immidiately or within the hour. </p>
-
-
-
-
-<div className={`px-10 space-y-5 bg-gray-300 py-2 ${hideFilter}`} >
+<div className='relative '>
     
-
-
-<div>
-                    <p>Select Country  of Service</p>
-                   <select name="" id="" placeholder="" className='w-full border py-2 px-5' onChange={handleChange1}>
-                    <option value="">Select Country</option>
-                    <option value="Ghana" >Ghana</option>
-                    <option value="USA" >USA</option>
-                   </select>
-                </div>
-
-                <div>
-                    <p>Purpose of Contact</p>
-                    <select name="" id="" className='w-full border py-2 px-5'onChange={handleChange2} >
-                        <option value="">Purpose of Contact</option>
-                        <option value="General">General Enquiry</option>
-                        <option value="clearance">Payment Of Clearance Fee</option>
-                        <option value="Tracking">Tracking Issues</option>
-                    </select>
-                </div>
-
-                <div className='bg-red-700 w-fit px-5 text-white  py-2 uppercase' onClick={GetAgent} >Confirm</div>
-
-</div>
-
-
-
-
-
-
-
-
-     <span className={`${showDetails}`} >
-     <div className='px-5 mt-10' >
-
-
-<div className='p-5' >
-  <div className='outline-20 rounded outline-red-700' > <img src={AgentData.imageID} alt="icon" /></div>
-  </div>
-
-</div>
-   <div className='px-5' >
-       <div className='shadow shadow-red-700 my-10 space-y-2 p-2'>
-           <span className='flex  justify-between' ><h1 className='font-bold uppercase '>Name:</h1> <p>{AgentData.name}</p></span>
-           <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Country:</h1> <p>{AgentData.country}</p></span>
-           <span className='flex  justify-between' ><h1 className='font-bold uppercase '>Number:</h1> <p>{AgentData.number}</p></span>
-           <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Administrator:</h1> <p>{AgentData.admin}</p></span>
-           <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Working Hours</h1> <p>8:am - 8pm GMT </p></span>
-
-       </div>
-       <div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center' > <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div>
-   </div>
-
-     </span>
-
-
-
-
-
-            
-         </section>
+<div className={`h-full bg-white absolute w-full overflow-auto ${showNumberBar}`}>
+    
+    <div className={`fixed p-5 bg-gray-700 top-1/4 w-4/5 left-1/2 -translate-x-1/2 space-y-5 text-white  shadow shadow-black rounded-2xl`} >
+          <div className='w-full relative mb-10' > <X color="red" className='absolute right-0 bg-white rounded-full shadow-black shadow-2xl p-1' onClick={showNumberBar32} /></div>
+            <span className='flex justify-between' >
+                <p>Number :</p>
+            <p>{AgentData.number}</p></span>
+            <span className='flex justify-between' >
+                <p>Email :</p>
+                <p>{AgentData.Email}</p>
+            </span>
+            <p className='bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold' >Copy Number</p>
+           </div>
+    </div>
+    
+             
          
-         <section className='mt-10 px-5' >
-          <div className='border border-white shadow shadow-red-700 p-5 '>
-            <h1 className='text-xl font-bold text-red-700 flex gap-2'><PackageCheck size={20} className='mt-1' /> <p>Clearance</p></h1>
-            <p className='my-2'>Click here to talk to an agent about the clearing of your package</p>
-          </div>
-
-          <div className='my-10 shadow border border-white  shadow-red-700 p-5'>
-            <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
-            <p className=' my-2'>Talk to our Agent about the delivery of your package to your doorstep</p>
-          </div>
-          
-         </section>
+            
+             
+    
+             <section className='py-10 lg:py-20'>
+           
+                <h1 className='text-3xl font-bold text-red-600 ml-4 mt-10 text-center'>Customer Service</h1>
+                
+                <p className=' my-4 px-5'>Talk to Our Agent Representative Now!! , They are Available 24/7 for you the customers convinience. responce is usually immidiately or within the hour. </p>
+    
+    
+    
+    
+    <div className={`px-10 space-y-5 bg-gray-700 py-5 ${hideFilter} text-white w-11/12 mx-auto shadow-2xl shadow-gray-300 rounded-xl`} >
+    
+        <h2 className='font-bold uppercase text-center' >Agent Search Filter</h2>
+        
+    
+    
+    <div>
+                        <p className='my-1'>Select Country  of Service</p>
+                       <select name="" id="" placeholder="" className='w-full border py-2 px-5 outline-none  ' onChange={handleChange1}>
+                        <option  className='text-black' >Select Country</option>
+                        <option  className='text-black' value="Ghana" >Ghana</option>
+                        <option  className='text-black' value="USA" >United States</option>
+                        <option  className='text-black' value="Canada" >Canada</option>
+                       </select>
+                    </div>
+    
+                    <div>
+                        <p className='my-1'>Purpose of Contact</p>
+                        <select name="" id="" className='w-full border py-2 px-5 outline-none 'onChange={handleChange2} >
+                            <option className='text-black' >Purpose Of Contact</option>
+                            <option className='text-black' value="General">General Enquiry</option>
+                            <option className='text-black' value="clearance">Payment Of Clearance Fee</option>
+                            <option className='text-black' value="Tracking">Tracking Issues</option>
+                        </select>
+                    </div>
+    
+                    <div className='bg-red-700 w-fit px-5 text-white  py-2 uppercase text-xs shadow shadow-gray-400'  onClick={GetAgent} >Confirm</div>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+         <span className={`${showDetails}`} >
+         <div className='px-7 mt-10' >
+    
+    
+    <div className='' >
+      <div className='outline-10 rounded outline-red-700' > <img src={AgentData.imageID} alt="icon" /></div>
+      </div>
+    
+    </div>
+       <div className='px-5' >
+           <div className='shadow shadow-red-700 my-10 space-y-2 p-2'>
+               <span className='flex  justify-between' ><h1 className='font-bold uppercase '>Name:</h1> <p>{AgentData.name}</p></span>
+               <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Country:</h1> <p>{AgentData.country}</p></span>
+               <span className='flex  justify-between' ><h1 className='font-bold uppercase '>Number:</h1> <p>{AgentData.number}</p></span>
+               <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Administrator:</h1> <p>{AgentData.admin}</p></span>
+               <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Working Hours</h1> <p>8:am - 8pm GMT </p></span>
+    
+           </div>
+           <div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center'onClick={showNumberBar32} > <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div>
+       </div>
+    
+    
+    
+    
+         </span>
+    
+    
+    
+    
+    
+                
+             </section>
+             
+             <section className='mt-10 px-5 grid lg:grid-cols-2 w-11/12 mx-auto lg:gap-5 gap-2' >
+              <div className='border border-white shadow shadow-red-700 p-5 '>
+                <h1 className='text-xl font-bold text-red-700 flex gap-2'><PackageCheck size={20} className='mt-1' /> <p>Clearance</p></h1>
+                <p className='my-2'>We Privide Swift Payment Methods and Fast Processing of Clearance Payment</p>
+              </div>
+    
+              <div className=' shadow border border-white  shadow-red-700 p-5'>
+                <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
+                <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
+              </div>
+    
+    
+              <div className=' shadow border border-white  shadow-red-700 p-5'>
+                <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
+                <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
+              </div>
+    
+    
+              <div className=' shadow border border-white  shadow-red-700 p-5 mb-20'>
+                <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
+                <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
+              </div>
+    
+    
+    
+    
+    
+    
+    
+    
+              
+             </section>
+    
 
         
 
       <Footer/>
+      </div>
         </>
     )
 }
