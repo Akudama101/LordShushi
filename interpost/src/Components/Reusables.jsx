@@ -28,9 +28,10 @@ import { Footer } from './MainHomePage'
 import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/src/assets/images/interpost_logo.png"
 import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
-import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon } from 'lucide-react'
+import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X } from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/src/assets/images/Countrkkokok.jpg'
+import inindn from '/src/assets/images/Interposkkkkkk.webp'
 
 
 
@@ -748,7 +749,7 @@ export function HeaderPage(){
 </div>
 
 
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'>
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'   onClick={() => handleNav('../About_Us')} >
     <QuoteIcon size={20} className='mt-1'/>
     <p>About Us</p>
 </div>
@@ -883,6 +884,64 @@ export function Blog_Card({blog}) {
       </div>
     </div>
 
+        </section>
+        </>
+    )
+}
+
+export function About_Us() {
+
+    return(
+        <>
+        <section>
+        <HeaderPage/>
+            <section>
+            <section className="max-w-4xl mx-auto p-6 text-gray-800 leading-relaxed">
+            <img src={inindn} alt=""  className='w-full h-50'/>
+  <h1 className="text-3xl font-bold mb-4 text-gray-900">
+    Interpost: A Global Leader in Logistics and Delivery
+  </h1>
+      
+  <p>Interpost is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, Interpost has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of Interpost, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">1. Origins and Evolution</h2>
+  <p>Founded in the early 1980s in the United States, Interpost started as a small courier company with a vision of making international shipping seamless and reliable. As global commerce grew in the late 20th century, so did Interpost’s ambitions. By the mid-1990s, the company had expanded to major cities in Europe and Asia, establishing itself as a key player in cross-border logistics. The decision to move its headquarters to Bonn, Germany, reflected its commitment to serving European markets and optimizing its presence in the heart of the EU.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">2. Global Reach and Infrastructure</h2>
+  <p>Interpost operates in over 220 countries and territories, with more than 600 logistics hubs worldwide. These facilities include sorting centers, distribution warehouses, regional depots, and last-mile delivery stations. With a fleet of over 40,000 vehicles and partnerships with local couriers in remote regions, Interpost ensures packages are delivered efficiently, even in the most hard-to-reach areas.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">3. Technology and Tracking</h2>
+  <p>One of Interpost’s core strengths is its investment in technology. The company offers real-time tracking for all parcels, allowing customers to follow their package from dispatch to delivery. Its systems integrate GPS, barcode scanning, RFID, and cloud-based logistics data, enabling transparency and operational efficiency. The Interpost tracking app is a customer favorite, offering updates, delivery customization, and chat support all in one place.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">4. Services Offered</h2>
+  <ul className="list-disc ml-6">
+    <li>Standard and Express Parcel Delivery</li>
+    <li>International Freight Forwarding</li>
+    <li>Customs Brokerage and Documentation</li>
+    <li>Business Fulfillment and Warehousing Solutions</li>
+    <li>Subscription-Based eCommerce Delivery Services</li>
+  </ul>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">5. Commitment to Sustainability</h2>
+  <p>Environmental sustainability is a key part of Interpost’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">6. Customer Experience</h2>
+  <p>Interpost places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, the company has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">7. Competitive Position</h2>
+  <p>In a market crowded with giants like FedEx, DHL, UPS, and regional players, Interpost stands out for its balance of reliability, pricing, and technology. By focusing on efficiency and customer satisfaction, Interpost has cultivated strong loyalty among businesses and individual customers alike.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">8. Challenges and Resilience</h2>
+  <p>The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. Interpost’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">9. Innovation and the Future</h2>
+  <p>Looking ahead, Interpost plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
+
+  <h2 className="text-2xl font-semibold mt-8 text-gray-800">10. Conclusion</h2>
+  <p>Interpost’s journey from a small U.S. courier to a global logistics powerhouse is a testament to innovation, resilience, and strategic vision. With its strong foothold in Europe and a growing global presence, the company continues to redefine delivery standards, making the world smaller one package at a time.</p>
+</section>
+
+            </section>
         </section>
         </>
     )

@@ -18,7 +18,7 @@ import { Routes, Route } from "react-router-dom"
 import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import whatsAppLogo from "/src/assets/images/whatsAppLogo.png"
-import {HeaderPage} from './Reusables'
+import {About_Us} from './Reusables'
 import {TrackPage} from './Shipment'
 
 
@@ -41,6 +41,7 @@ export function RoutesPage (){
         <Route path="How_Package_Tracking_Works" element={<How_Package_Tracking_Works/>} ></Route>
         <Route path="Safe_Package_Delivery_Tips" element={<Safe_Package_Delivery_Tips/>} ></Route>
         <Route path="Package_delay_solutions" element={<Package_delay_solutions/>} ></Route>
+        <Route path="About_Us" element={<About_Us/>} ></Route>
       
       </Routes>
     </>
