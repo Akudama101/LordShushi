@@ -28,14 +28,9 @@ import { Footer } from './MainHomePage'
 import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/src/assets/images/interpost_logo.png"
 import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
-<<<<<<< Updated upstream
-import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X } from 'lucide-react'
-
-=======
 import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon } from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/src/assets/images/Countrkkokok.jpg'
->>>>>>> Stashed changes
 
 
 
