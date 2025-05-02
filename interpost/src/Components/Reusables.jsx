@@ -830,7 +830,12 @@ export function Blog() {
         <section id='sandwitch' className='scroll-mt-30 border border-transparent'>
             <HeaderPage/>
             <img src={asusas} alt="" className='mt-15'/>
-            <h1 className='text-xl text-center font-bold  underline my-3'>Blog</h1>
+            <div class="text-center my-8">
+  <h1 class="text-4xl font-bold mb-2">Our Latest Insights</h1>
+  <p class="text-gray-600 text-lg max-w-xl mx-auto">
+    Explore expert articles, industry updates, and valuable tips to stay informed and inspired.
+  </p>
+</div>
         <section className='gap-5 py-5 mx-auto flex overflow-auto px-3'>
             {blogData.map((data, index) => (
           <Blog_Card key={index} blog={data}/>
