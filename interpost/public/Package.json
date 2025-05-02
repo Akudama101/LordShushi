@@ -30,7 +30,7 @@
     {
       "id": 4,
       "title": "Understanding Delivery Statuses: From Sent to Delivered",
-      "slug": "delivery-status-explained",
+      "slug": "../Delivery_Status_Explained",
       "date": "2025-04-05",
       "author": "Courier Central",
       "summary": "Ever wonder what 'Out for Delivery' or 'Pending' really means? We break down each status.",
@@ -41,7 +41,7 @@
     {
       "id": 5,
       "title": "The Future of Delivery: Drones and Autonomous Vehicles",
-      "slug": "future-of-delivery",
+      "slug": "../Future_of_delivery",
       "date": "2025-04-01",
       "author": "TechLogiX",
       "summary": "Explore how automation is transforming package delivery as we know it.",
@@ -52,138 +52,103 @@
       {
         "id": 6,
         "title": "How to File a Claim for Lost Packages",
-        "slug": "file-lost-package-claim",
+        "slug": "../File_lost_package_claim",
         "date": "2025-03-30",
         "author": "Interpost Claims Team",
         "summary": "Step-by-step guide to filing claims and getting compensated for missing packages.",
-        "image": "/src/assets/images/lostpackage.jpg"
+        "image": "/src/assets/images/maxresdefault.jpg"
       },
       {
         "id": 7,
         "title": "International Shipping: What You Need to Know",
-        "slug": "international-shipping-basics",
+        "slug": "../International_Shipping_Basics",
         "date": "2025-03-25",
         "author": "Global Freight Co.",
         "summary": "Customs, documentation, and delivery times — a must-read before sending items abroad.",
-        "image": "/src/assets/images/international.jpg"
+        "image": "/src/assets/images/Stacked_Cargo_Containers_in_Port.jpg"
       },
       {
         "id": 8,
         "title": "Eco-Friendly Delivery Options That Make a Difference",
-        "slug": "green-shipping-methods",
+        "slug": "../Green_Shipping_Methods",
         "date": "2025-03-18",
         "author": "GreenLogistics",
         "summary": "Sustainable choices in packaging and transport that reduce your carbon footprint.",
-        "image": "/src/assets/images/eco_delivery.jpg"
+        "image": "/src/assets/images/Shutterstock_2078560180.webp"
       },
       {
         "id": 9,
         "title": "How COVID-19 Changed the Delivery Industry Forever",
-        "slug": "covid-impact-on-shipping",
+        "slug": "../Covid_Impact_On_Shipping",
         "date": "2025-03-10",
         "author": "Supply Chain Weekly",
         "summary": "A look back at how the pandemic reshaped global logistics and delivery trends.",
-        "image": "/src/assets/images/covidshipping.jpg"
+        "image": "/src/assets/images/covid_banner_new_section-03.jpg"
       },
       {
         "id": 10,
         "title": "Behind the Scenes: A Day in the Life of a Delivery Driver",
-        "slug": "delivery-driver-daily",
+        "slug": "../Delivery_driver_daily",
         "date": "2025-03-05",
         "author": "Courier Insights",
         "summary": "Discover the challenges and experiences of modern delivery professionals.",
-        "image": "/src/assets/images/driverlife.jpg"
+        "image": "/src/assets/images/dssdsdsdsd.jpg"
       },
       {
         "id": 11,
         "title": "Why Tracking Numbers Matter More Than You Think",
-        "slug": "importance-of-tracking-numbers",
+        "slug": "../Importance_of_tracking_numbers",
         "date": "2025-02-28",
         "author": "Logistics Watch",
         "summary": "Your tracking number holds the key to real-time updates and lost package prevention.",
-        "image": "/src/assets/images/trackingcode.jpg"
+        "image": "/src/assets/images/AdobeStock_270177382.jpg"
       },
       {
         "id": 12,
         "title": "The Rise of Same-Day Delivery: What to Expect",
-        "slug": "same-day-delivery-explained",
+        "slug": "../Same_Day_Delivery_Explained",
         "date": "2025-02-20",
         "author": "Express Courier Review",
         "summary": "Explore how retailers and couriers are working together to meet rising demand for fast service.",
-        "image": "/src/assets/images/sameday.jpg"
+        "image": "/src/assets/images/bestduununudn.jpg"
       },
       {
         "id": 13,
         "title": "Packaging Tips to Prevent Damage in Transit",
-        "slug": "damage-prevention-packaging",
+        "slug": "../Damage_Prevention_Through_Packaging",
         "date": "2025-02-15",
         "author": "ShipSmart Guides",
         "summary": "Learn how to package your items securely and reduce the risk of transit damage.",
-        "image": "/src/assets/images/securepackage.jpg"
+        "image": "/src/assets/images/istockphoto0.jpg"
       },
       {
         "id": 14,
         "title": "How Weather Affects Delivery Timelines",
-        "slug": "weather-and-shipping",
+        "slug": "../Weather_and_Shipping",
         "date": "2025-02-10",
         "author": "Forecast Logistics",
         "summary": "From snowstorms to heatwaves, see how weather can delay or reroute your shipment.",
-        "image": "/src/assets/images/weatherimpact.jpg"
+        "image": "/src/assets/images/ahhhhhhhhhhhhfffff.jpg"
       },
       {
         "id": 15,
         "title": "The Role of Barcode Scanning in Modern Logistics",
-        "slug": "barcode-scanning-logistics",
+        "slug": "../Barcode_Scanning_in_Logistics",
         "date": "2025-02-05",
         "author": "Supply Chain Journal",
         "summary": "How barcodes and scanners keep track of millions of packages every day.",
-        "image": "/src/assets/images/barcode.jpg"
+        "image": "/src/assets/images/Scannidsfsds.jpg"
       },
       {
         "id": 16,
         "title": "How to Track Multiple Packages at Once",
-        "slug": "multi-package-tracking",
+        "slug": "../Multi_Package_Tracking",
         "date": "2025-01-30",
         "author": "Parcel Manager Pro",
         "summary": "Efficient tools and apps for managing shipments across different couriers.",
-        "image": "/src/assets/images/multitrack.jpg"
-      },
-      {
-        "id": 17,
-        "title": "What Happens When a Package Gets Stuck in Customs?",
-        "slug": "customs-delay-explained",
-        "date": "2025-01-25",
-        "author": "Global Shipping Helpdesk",
-        "summary": "Understand customs processes and how to resolve delays in international deliveries.",
-        "image": "/src/assets/images/customs.jpg"
-      },
-      {
-        "id": 18,
-        "title": "The Cost Breakdown of Shipping a Package",
-        "slug": "shipping-cost-explained",
-        "date": "2025-01-18",
-        "author": "Postal Rate Insights",
-        "summary": "From fuel surcharges to handling fees — why shipping prices vary.",
-        "image": "/src/assets/images/shippingcost.jpg"
-      },
-      {
-        "id": 19,
-        "title": "Returns and Reverse Logistics: How It Works",
-        "slug": "reverse-logistics-returns",
-        "date": "2025-01-10",
-        "author": "ReturnMate",
-        "summary": "The logistics behind returning packages and what happens after you send it back.",
-        "image": "/src/assets/images/returns.jpg"
-      },
-      {
-        "id": 20,
-        "title": "How Smart Lockers Are Changing Package Pickup",
-        "slug": "smart-lockers-delivery",
-        "date": "2025-01-01",
-        "author": "TechLogiX",
-        "summary": "Automated lockers are offering safe, 24/7 access for package retrieval.",
-        "image": "/src/assets/images/lockers.jpg"
+        "image": "/src/assets/images/infinifningsf.png"
       }
+     
     ]
     
     

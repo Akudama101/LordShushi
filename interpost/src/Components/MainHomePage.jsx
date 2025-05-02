@@ -10,7 +10,23 @@ import { Section6 } from "./Reusables"
 import { Section7 } from "./Reusables"
 import { Section8 } from "./Reusables"
 import { Blog } from "./Reusables"
-import { How_Package_Tracking_Works, Safe_Package_Delivery_Tips , Package_delay_solutions} from "./Blog_Pages"
+import { How_Package_Tracking_Works, 
+         Safe_Package_Delivery_Tips, 
+         Package_delay_solutions,
+         Delivery_Status_Explained,
+         Future_of_delivery,
+         File_lost_package_claim,
+         International_Shipping_Basics,
+         Green_Shipping_Methods,
+         Covid_Impact_On_Shipping,
+         Delivery_driver_daily,
+         Importance_of_tracking_numbers,
+         Same_Day_Delivery_Explained,
+         Damage_Prevention_Through_Packaging,
+         Weather_and_Shipping,
+         Barcode_Scanning_in_Logistics,
+         Multi_Package_Tracking
+        } from "./Blog_Pages"
 
 
 
@@ -42,6 +58,19 @@ export function RoutesPage (){
         <Route path="Safe_Package_Delivery_Tips" element={<Safe_Package_Delivery_Tips/>} ></Route>
         <Route path="Package_delay_solutions" element={<Package_delay_solutions/>} ></Route>
         <Route path="About_Us" element={<About_Us/>} ></Route>
+        <Route path="Delivery_Status_Explained" element={<Delivery_Status_Explained/>} ></Route>
+        <Route path="Future_of_delivery" element={<Future_of_delivery/>} ></Route>
+        <Route path="File_lost_package_claim" element={<File_lost_package_claim/>} ></Route>
+        <Route path="International_Shipping_Basics" element={<International_Shipping_Basics/>} ></Route>
+        <Route path="Green_Shipping_Methods" element={<Green_Shipping_Methods/>} ></Route>
+        <Route path="Covid_Impact_On_Shipping" element={<Covid_Impact_On_Shipping/>} ></Route>
+        <Route path="Delivery_driver_daily" element={<Delivery_driver_daily/>} ></Route>
+        <Route path="Importance_of_tracking_numbers" element={<Importance_of_tracking_numbers/>} ></Route>
+        <Route path="Same_Day_Delivery_Explained" element={<Same_Day_Delivery_Explained/>} ></Route>
+        <Route path="Damage_Prevention_Through_Packaging" element={<Damage_Prevention_Through_Packaging/>} ></Route>
+        <Route path="Weather_and_Shipping" element={<Weather_and_Shipping/>} ></Route>
+        <Route path="Barcode_Scanning_in_Logistics" element={<Barcode_Scanning_in_Logistics/>} ></Route>
+        <Route path="Multi_Package_Tracking" element={<Multi_Package_Tracking/>} ></Route>
       
       </Routes>
     </>
