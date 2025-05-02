@@ -2,7 +2,7 @@
     {
       "id": 1,
       "title": "How Package Tracking Works in Modern Logistics",
-      "slug": "How_Package_Tracking_Works",
+      "slug": "../How_Package_Tracking_Works",
       "date": "2025-04-20",
       "author": "Logistics Hub",
       "summary": "Discover how real-time tracking systems keep you updated from dispatch to doorstep.",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "title": "Top 5 Tips for Safe Package Delivery",
-      "slug": "Safe_Package_Delivery_Tips",
+      "slug": "../Safe_Package_Delivery_Tips",
       "date": "2025-04-15",
       "author": "MDC Shipping Experts",
       "summary": "Follow these key tips to ensure your package arrives safely and on time.",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "title": "What To Do If Your Package Is Delayed",
-      "slug": "Package_delay_solutions",
+      "slug": "../Package_delay_solutions",
       "date": "2025-04-10",
       "author": "Customer Support Desk",
       "summary": "Learn the best steps to take if your package doesn’t arrive on time.",

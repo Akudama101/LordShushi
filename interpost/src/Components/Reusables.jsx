@@ -837,6 +837,12 @@ export function Blog() {
             ))}
             
         </section>
+
+        
+
+
+
+
         <Footer/>
         </section>
         </>
