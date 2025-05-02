@@ -9,15 +9,18 @@ import { Section5 } from "./Reusables"
 import { Section6 } from "./Reusables"
 import { Section7 } from "./Reusables"
 import { Section8 } from "./Reusables"
+import { Blog } from "./Reusables"
+import { How_Package_Tracking_Works, Safe_Package_Delivery_Tips , Package_delay_solutions} from "./Blog_Pages"
 
 
 
 import { Routes, Route } from "react-router-dom"
 import { LocateFixed, Phone, Mail } from "lucide-react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import whatsAppLogo from "/src/assets/images/whatsAppLogo.png"
 import {HeaderPage} from './Reusables'
 import {TrackPage} from './Shipment'
+
 
 
 
@@ -34,14 +37,17 @@ export function RoutesPage (){
         <Route path="/" element={<HomePage />} />
         <Route path="CustomerService" element={<CustomerService />} />
         <Route path="TrackPage" element={<TrackPage/>} ></Route>
+        <Route path="Blog" element={<Blog/>} ></Route>
+        <Route path="How_Package_Tracking_Works" element={<How_Package_Tracking_Works/>} ></Route>
+        <Route path="Safe_Package_Delivery_Tips" element={<Safe_Package_Delivery_Tips/>} ></Route>
+        <Route path="Package_delay_solutions" element={<Package_delay_solutions/>} ></Route>
+      
       </Routes>
     </>
   );
 }
 
 export function HomePage() {
- 
-   
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -53,6 +59,7 @@ export function HomePage() {
         <div className="pb-10 lg:pb-40 md:pb-40">
         <Section1/>
         </div>
+       
         <div className="pb-10">
         <Section2/>
         </div>
@@ -67,12 +74,14 @@ export function HomePage() {
       <div className="pb-10">
         <Section2 />
       </div>
+
       <div className="pb-10">
         <Section3 />
       </div>
       <div className="pb-10">
         <Section4 />
       </div>
+    
       <div className="pb-10">
         <Section5 />
       </div>
@@ -122,6 +131,7 @@ export function Footer(){
     </div>
   )
 }
+
 
 
 

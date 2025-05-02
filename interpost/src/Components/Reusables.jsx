@@ -28,8 +28,14 @@ import { Footer } from './MainHomePage'
 import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/src/assets/images/interpost_logo.png"
 import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
+<<<<<<< Updated upstream
 import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X } from 'lucide-react'
 
+=======
+import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon } from 'lucide-react'
+import {AnimatePresence, motion} from 'framer-motion'
+import asusas from '/src/assets/images/Countrkkokok.jpg'
+>>>>>>> Stashed changes
 
 
 
@@ -661,22 +667,29 @@ const showNumberBar32 = () =>{
 
 
 export function HeaderPage(){
-
     const navigate = useNavigate()
+   
+   const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+   }
 
-    const [showDashBoard, setshowDashBoard] = useState("hidden");
+    
+
+    const [showDashBoard, setshowDashBoard] = useState(false);
     const [flipMenu, setFlipMenu] = useState("text-white");
     const [movetodirector, setMovetodirector] = useState("")
 
 
     const showDash = () => {
-       if(showDashBoard === "hidden"){
+        setshowDashBoard(!showDashBoard);
+       if(!showDashBoard){
         setFlipMenu("rotate-90 bg-white text-black");
-        setshowDashBoard("block");
+        
        }
        else{
         setFlipMenu("rotate-0 text-white");
-        setshowDashBoard("hidden");
+       
        }
     }
 
@@ -703,64 +716,77 @@ export function HeaderPage(){
                 </div>
 
 
-
-                <div className={`bg-white h-screen w-3/5 py-10 shadow shadow-black space-y-5 ${showDashBoard}`}>
+                
+               <AnimatePresence>
+               {showDashBoard && ( 
+                <motion.div 
+                initial={{ opacity: 0, x: -100 }}
+                 animate={{ opacity: 1, x: 0, }}
+                  exit={{ opacity: 0, x: -100 }}
+                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
 
                 
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-                    <HomeIcon size={20} className='mt-1'/>
-                    <Link to="/" >
-                    <p>Home</p>
-                    </Link>
-                </div>
-               
-
-
-               
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-                    <PhoneCallIcon size={20} className='mt-1'/>
-                    <Link to="../CustomerService">
-                    <p>Contact us</p>
-                    </Link>
-                </div>
-
-
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-                    <NewspaperIcon size={20} className='mt-1' />
-                <p>BLog</p>
-                </div>
-
-
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'>
-                    <QuoteIcon size={20} className='mt-1'/>
-                    <p>About Us</p>
-                </div>
-
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-                    <UserIcon size={20} className='mt-1' />
-                    <p onClick={openDirector} > Manager</p>
-                </div>
-
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'>
-                <BookCheck size={20} className='mt-1'/>
-                    <p>Create Shipment</p>
-                </div>
-
-
-
-                <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' > 
-                    <TruckIcon size={20} className='mt-1' />
-                    <Link to="../TrackPage" > <p>Track Package</p> </Link>
-                    
-                </div>
-                
+                  <div className='flex'>
+                    <div className={`bg-white h-screen w-3/5 py-10 shadow shadow-black space-y-5 `} >
+                    <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
+    <HomeIcon size={20} className='mt-1'/>
+    <Link to="/" >
+    <p>Home</p>
+    </Link>
+</div>
 
 
 
 
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
+    <PhoneCallIcon size={20} className='mt-1'/>
+    <Link to="../CustomerService">
+    <p>Contact us</p>
+    </Link>
+</div>
 
 
-                </div>
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
+    <NewspaperIcon size={20} className='mt-1' />
+<p>BLog</p>
+</div>
+
+
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'>
+    <QuoteIcon size={20} className='mt-1'/>
+    <p>About Us</p>
+</div>
+
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
+    <UserIcon size={20} className='mt-1' />
+    <p onClick={openDirector} > Manager</p>
+</div>
+
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'>
+<BookCheck size={20} className='mt-1'/>
+    <p>Create Shipment</p>
+</div>
+
+
+
+<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' > 
+    <TruckIcon size={20} className='mt-1' />
+    <Link to="../TrackPage" > <p>Track Package</p> </Link>
+    
+</div>
+
+
+
+                    </div>
+                    <div className='w-2/5' onClick={() => showDash()}></div>
+                  </div>
+
+
+
+
+               </motion.div>)}
+               </AnimatePresence>
       
               </section>
 
@@ -796,3 +822,62 @@ export function HeaderPage(){
       </>
     )
   }
+
+export function Blog() {
+    
+    const [blogData, setBlogData] = useState([]);
+    useEffect(() => {
+        fetch("Package.json").then((res) => res.json()).then((data) => setBlogData(data))
+    })
+
+    return (
+        <>
+        <section id='sandwitch' className='scroll-mt-30 border border-transparent'>
+            <HeaderPage/>
+            <img src={asusas} alt="" className='mt-15'/>
+            <h1 className='text-xl text-center font-bold  underline my-3'>Blog</h1>
+        <section className='gap-5 py-5 mx-auto flex overflow-auto px-3'>
+            {blogData.map((data, index) => (
+          <Blog_Card key={index} blog={data}/>
+            ))}
+            
+        </section>
+        <Footer/>
+        </section>
+        </>
+    )
+}
+
+export function Blog_Card({blog}) {
+   
+     const navigate = useNavigate()
+
+    const handleNav = (path) => {
+      navigate(path);
+      window.location.reload();
+    }
+  
+
+    return(
+        <>
+        <section className=''>
+        <div className=" rounded-2xl  shadow-2xl bg-white  hover:shadow-xl  w-90 mx-auto">
+            <img src={blog.image} alt={blog.title}  className='h-50 w-full rounded-t-2xl'/>
+            <div className="flex justify-between p-5 items-center text-xs text-gray-500">
+          <span>By {blog.author}</span>
+          <span>{new Date(blog.date).toLocaleDateString()}</span>
+        </div>
+      <div className="px-5">
+        <h2 className="text-xl font-semibold mb-5 text-gray-800">{blog.title}</h2>
+        <p className="text-sm text-gray-600">{blog.summary}</p>
+     
+       <div className="inline-block my-4 text-blue-600 hover:underline font-medium" onClick={() => handleNav(blog.slug)}><p> Read More →</p></div>
+         
+       
+      </div>
+    </div>
+
+        </section>
+        </>
+    )
+}

@@ -1,0 +1,52 @@
+[
+    {
+      "id": 1,
+      "title": "How Package Tracking Works in Modern Logistics",
+      "slug": "How_Package_Tracking_Works",
+      "date": "2025-04-20",
+      "author": "Logistics Hub",
+      "summary": "Discover how real-time tracking systems keep you updated from dispatch to doorstep.",
+      "image" : "/src/assets/images/Globaccvfe.jpg"
+     
+    },
+    {
+      "id": 2,
+      "title": "Top 5 Tips for Safe Package Delivery",
+      "slug": "Safe_Package_Delivery_Tips",
+      "date": "2025-04-15",
+      "author": "MDC Shipping Experts",
+      "summary": "Follow these key tips to ensure your package arrives safely and on time.",
+       "image" : "/src/assets/images/packageskmm.jpg"
+    },
+    {
+      "id": 3,
+      "title": "What To Do If Your Package Is Delayed",
+      "slug": "Package_delay_solutions",
+      "date": "2025-04-10",
+      "author": "Customer Support Desk",
+      "summary": "Learn the best steps to take if your package doesn’t arrive on time.",
+       "image" : "/src/assets/images/Bloffffffffff.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Understanding Delivery Statuses: From Sent to Delivered",
+      "slug": "delivery-status-explained",
+      "date": "2025-04-05",
+      "author": "Courier Central",
+      "summary": "Ever wonder what 'Out for Delivery' or 'Pending' really means? We break down each status.",
+       "image" : "/src/assets/images/Difflkiminin.webp"
+   
+   
+    },
+    {
+      "id": 5,
+      "title": "The Future of Delivery: Drones and Autonomous Vehicles",
+      "slug": "future-of-delivery",
+      "date": "2025-04-01",
+      "author": "TechLogiX",
+      "summary": "Explore how automation is transforming package delivery as we know it.",
+       "image" : "/src/assets/images/hero.jpg"
+   
+    }
+  ]
+  
