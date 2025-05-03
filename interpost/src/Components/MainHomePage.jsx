@@ -33,7 +33,7 @@ import { How_Package_Tracking_Works,
 import { Routes, Route } from "react-router-dom"
 import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
-import whatsAppLogo from "/src/assets/images/whatsAppLogo.png"
+import whatsAppLogo from "/images/whatsAppLogo.png"
 import {About_Us} from './Reusables'
 import {TrackPage, CreateShipment} from './Shipment'
 

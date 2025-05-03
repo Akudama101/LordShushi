@@ -1,6 +1,6 @@
 import { HeaderPage } from "./Reusables"
 import React, { useState, useEffect } from "react";
-import siinsid from '/src/assets/images/Group.png';
+import siinsid from '/images/Group.png';
 import {MyMap} from "./Maps";
 
 

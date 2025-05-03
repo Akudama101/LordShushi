@@ -6,7 +6,7 @@
       "date": "2025-04-20",
       "author": "Logistics Hub",
       "summary": "Discover how real-time tracking systems keep you updated from dispatch to doorstep.",
-      "image" : "/src/assets/images/Globaccvfe.jpg"
+      "image" : "/images/Globaccvfe.jpg"
      
     },
     {
@@ -16,7 +16,7 @@
       "date": "2025-04-15",
       "author": "Interpost Shipping Experts",
       "summary": "Follow these key tips to ensure your package arrives safely and on time.",
-       "image" : "/src/assets/images/packageskmm.jpg"
+       "image" : "/images/packageskmm.jpg"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "date": "2025-04-10",
       "author": "Customer Support Desk",
       "summary": "Learn the best steps to take if your package doesn’t arrive on time.",
-       "image" : "/src/assets/images/Bloffffffffff.jpg"
+       "image" : "/images/Bloffffffffff.jpg"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "date": "2025-04-05",
       "author": "Courier Central",
       "summary": "Ever wonder what 'Out for Delivery' or 'Pending' really means? We break down each status.",
-       "image" : "/src/assets/images/Difflkiminin.webp"
+       "image" : "/images/Difflkiminin.webp"
    
    
     },
@@ -45,7 +45,7 @@
       "date": "2025-04-01",
       "author": "TechLogiX",
       "summary": "Explore how automation is transforming package delivery as we know it.",
-       "image" : "/src/assets/images/hero.jpg"
+       "image" : "/images/hero.jpg"
    
     },
     
@@ -56,7 +56,7 @@
         "date": "2025-03-30",
         "author": "Interpost Claims Team",
         "summary": "Step-by-step guide to filing claims and getting compensated for missing packages.",
-        "image": "/src/assets/images/maxresdefault.jpg"
+        "image": "/images/maxresdefault.jpg"
       },
       {
         "id": 7,
@@ -65,7 +65,7 @@
         "date": "2025-03-25",
         "author": "Global Freight Co.",
         "summary": "Customs, documentation, and delivery times — a must-read before sending items abroad.",
-        "image": "/src/assets/images/Stacked_Cargo_Containers_in_Port.jpg"
+        "image": "/images/Stacked_Cargo_Containers_in_Port.jpg"
       },
       {
         "id": 8,
@@ -74,7 +74,7 @@
         "date": "2025-03-18",
         "author": "GreenLogistics",
         "summary": "Sustainable choices in packaging and transport that reduce your carbon footprint.",
-        "image": "/src/assets/images/Shutterstock_2078560180.webp"
+        "image": "/images/Shutterstock_2078560180.webp"
       },
       {
         "id": 9,
@@ -83,7 +83,7 @@
         "date": "2025-03-10",
         "author": "Supply Chain Weekly",
         "summary": "A look back at how the pandemic reshaped global logistics and delivery trends.",
-        "image": "/src/assets/images/covid_banner_new_section-03.jpg"
+        "image": "/images/covid_banner_new_section-03.jpg"
       },
       {
         "id": 10,
@@ -92,7 +92,7 @@
         "date": "2025-03-05",
         "author": "Courier Insights",
         "summary": "Discover the challenges and experiences of modern delivery professionals.",
-        "image": "/src/assets/images/dssdsdsdsd.jpg"
+        "image": "/images/dssdsdsdsd.jpg"
       },
       {
         "id": 11,
@@ -101,7 +101,7 @@
         "date": "2025-02-28",
         "author": "Logistics Watch",
         "summary": "Your tracking number holds the key to real-time updates and lost package prevention.",
-        "image": "/src/assets/images/AdobeStock_270177382.jpg"
+        "image": "/images/AdobeStock_270177382.jpg"
       },
       {
         "id": 12,
@@ -110,7 +110,7 @@
         "date": "2025-02-20",
         "author": "Express Courier Review",
         "summary": "Explore how retailers and couriers are working together to meet rising demand for fast service.",
-        "image": "/src/assets/images/bestduununudn.jpg"
+        "image": "/images/bestduununudn.jpg"
       },
       {
         "id": 13,
@@ -119,7 +119,7 @@
         "date": "2025-02-15",
         "author": "ShipSmart Guides",
         "summary": "Learn how to package your items securely and reduce the risk of transit damage.",
-        "image": "/src/assets/images/istockphoto0.jpg"
+        "image": "/images/istockphoto0.jpg"
       },
       {
         "id": 14,
@@ -128,7 +128,7 @@
         "date": "2025-02-10",
         "author": "Forecast Logistics",
         "summary": "From snowstorms to heatwaves, see how weather can delay or reroute your shipment.",
-        "image": "/src/assets/images/ahhhhhhhhhhhhfffff.jpg"
+        "image": "/images/ahhhhhhhhhhhhfffff.jpg"
       },
       {
         "id": 15,
@@ -137,7 +137,7 @@
         "date": "2025-02-05",
         "author": "Supply Chain Journal",
         "summary": "How barcodes and scanners keep track of millions of packages every day.",
-        "image": "/src/assets/images/Scannidsfsds.jpg"
+        "image": "/images/Scannidsfsds.jpg"
       },
       {
         "id": 16,
@@ -146,7 +146,7 @@
         "date": "2025-01-30",
         "author": "Parcel Manager Pro",
         "summary": "Efficient tools and apps for managing shipments across different couriers.",
-        "image": "/src/assets/images/infinifningsf.png"
+        "image": "/images/infinifningsf.png"
       }
      
     ]

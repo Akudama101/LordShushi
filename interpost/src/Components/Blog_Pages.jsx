@@ -1,19 +1,19 @@
-import digini from '/src/assets/images/17_Global_kkkkkkkkkk9.webp';
-import ieisno from '/src/assets/images/shuttlkoooooo.jpg';
-import bdubuf from '/src/assets/images/usps_paciniililils.jpg';
-import efsrsa from '/src/assets/images/Out_foliverrdetification.webp';
-import idnigo from '/src/assets/images/AdobeStock_39923.webp';
-import singosd from '/src/assets/images/file_hero_desktop.jpg';
-import sinios from '/src/assets/images/types-of-shipping-containers6527d77f86bfc.jpg';
-import isnogsa from '/src/assets/images/Greenfdfefsf2.jpg';
-import sinoeis from '/src/assets/images/cruise_coronavirus.1200x800.jpg';
-import sinoano from '/src/assets/images/Deliveryijuununu.jpg';
-import isnongo from '/src/assets/images/unified-tracking.webp';
-import sijipg from '/src/assets/images/666dddddddddds.webp';
-import sinisng from '/src/assets/images/shipping-damages.webp';
-import ishinfa from '/src/assets/images/nuimi075765818.webp';
-import sinina from '/src/assets/images/21_logistics_xcoverpro_sssssas.jpg';
-import ainosn from '/src/assets/images/Shipmedddddddd.webp'
+import digini from '/images/17_Global_kkkkkkkkkk9.webp';
+import ieisno from '/images/shuttlkoooooo.jpg';
+import bdubuf from '/images/usps_paciniililils.jpg';
+import efsrsa from '/images/Out_foliverrdetification.webp';
+import idnigo from '/images/AdobeStock_39923.webp';
+import singosd from '/images/file_hero_desktop.jpg';
+import sinios from '/images/types-of-shipping-containers6527d77f86bfc.jpg';
+import isnogsa from '/images/Greenfdfefsf2.jpg';
+import sinoeis from '/images/cruise_coronavirus.1200x800.jpg';
+import sinoano from '/images/Deliveryijuununu.jpg';
+import isnongo from '/images/unified-tracking.webp';
+import sijipg from '/images/666dddddddddds.webp';
+import sinisng from '/images/shipping-damages.webp';
+import ishinfa from '/images/nuimi075765818.webp';
+import sinina from '/images/21_logistics_xcoverpro_sssssas.jpg';
+import ainosn from '/images/Shipmedddddddd.webp'
 import { HeaderPage } from './Reusables';
 import { Footer } from './MainHomePage';
 import { ArrowLeft } from 'lucide-react';

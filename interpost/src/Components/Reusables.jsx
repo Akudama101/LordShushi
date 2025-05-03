@@ -1,37 +1,37 @@
-import logo from '/src/assets/images/cartoon-delivery-man-.svg'
-import ship from '/src/assets/images/ship-now.svg'
-import building from '/src/assets/images/building.svg'
-import quote from "/src/assets/images/quote.svg"
-import xpa from '/src/assets/images/woman-box.jpg'
-import xpc from '/src/assets/images/parcel-shipping-.jpg'
-import xpd from '/src/assets/images/plane.svg'
-import xpe from '/src/assets/images/fast-bus.svg'
+import logo from '/images/cartoon-delivery-man-.svg'
+import ship from '/images/ship-now.svg'
+import building from '/images/building.svg'
+import quote from "/images/quote.svg"
+import xpa from '/images/woman-box.jpg'
+import xpc from '/images/parcel-shipping-.jpg'
+import xpd from '/images/plane.svg'
+import xpe from '/images/fast-bus.svg'
 
-import xpg from "/src/assets/images/Warehouse.jpg"
-import xph from "/src/assets/images/parcel-delivery.jpg"
-import xpi from "/src/assets/images/New-innovations.jpg"
-import xpj from "/src/assets/images/seaship.jpg"
-import ibm from "/src/assets/images/cheerful-woman-with-box.jpg"
-import ibn from '/src/assets/images/360_F_603227348_Hpid47cSby44NH5CEYXu1Io2F94utpu5.jpg'
+import xpg from "/images/Warehouse.jpg"
+import xph from "/images/parcel-delivery.jpg"
+import xpi from "/images/New-innovations.jpg"
+import xpj from "/images/seaship.jpg"
+import ibm from "/images/cheerful-woman-with-box.jpg"
+import ibn from '/images/360_F_603227348_Hpid47cSby44NH5CEYXu1Io2F94utpu5.jpg'
 import { Newspaper, Headset, User, Phone, Contact, Mail, ChevronUp, PackageCheck, Truck } from 'lucide-react'
-import cb1 from "/src/assets/images/what-is-a-courier-driver-HERO.webp"
-import cb2 from "/src/assets/images/driver.webp"
-import cb3 from "/src/assets/images/lady driver.jpeg"
-import cb4 from "/src/assets/images/Delivery-Driver5.jpeg"
-import cb5 from "/src/assets/images/delivery man.jpg"
+import cb1 from "/images/what-is-a-courier-driver-HERO.webp"
+import cb2 from "/images/driver.webp"
+import cb3 from "/images/lady driver.jpeg"
+import cb4 from "/images/Delivery-Driver5.jpeg"
+import cb5 from "/images/delivery man.jpg"
 import { useState, useEffect } from 'react'
-import bb1 from "/src/assets/images/Cathay-Pacific.jpg"
-import bb2 from "/src/assets/images/Airbus-Wing-.webp"
-import bb3 from "/src/assets/images/plane6.webp"
+import bb1 from "/images/Cathay-Pacific.jpg"
+import bb2 from "/images/Airbus-Wing-.webp"
+import bb3 from "/images/plane6.webp"
 import { Link, useNavigate } from 'react-router-dom'
 import { Footer } from './MainHomePage'
-import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
-import agentPic from "/src/assets/images/2go_logo_main.png"
-import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
+import directorPic from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
+import agentPic from "/images/2go_logo_main.png"
+import agentRealPic  from "/images/Tax-Agents.jpg"
 import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon} from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
-import asusas from '/src/assets/images/World_blank_map_countries.png'
-import inindn from '/src/assets/images/Interposkkkkkk.webp'
+import asusas from '/images/World_blank_map_countries.png'
+import inindn from '/images/Interposkkkkkk.webp'
 
 
 
@@ -53,7 +53,7 @@ export function Section1() {
      
 
 
-        <section className='bg-[url("/src/assets/images/Groupbd.png")] lg:bg-[url("/src/assets/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
+        <section className='bg-[url("/images/Groupbd.png")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
          
         
 <span>
@@ -929,7 +929,7 @@ export function About_Us() {
 
 
   <div className='my-10 shadow-2xl rounded-sm '>
-    <img src="\src\assets\images\cruise_coronavirus.1200x800.jpg" alt="cruise Image" className='h-40 lg:h-70 w-full'  />
+    <img src="\images\cruise_coronavirus.1200x800.jpg" alt="cruise Image" className='h-40 lg:h-70 w-full'  />
   </div>
       
   <p>Interpost is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, Interpost has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of Interpost, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
