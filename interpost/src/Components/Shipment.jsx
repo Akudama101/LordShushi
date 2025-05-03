@@ -30,7 +30,7 @@ export function Tracking_Page({ stages }) {
     setError('');
     setShipmentData(null);
     try {
-      const res = await fetch(`http://localhost:7001/progress/${trackingnumber}`);
+      const res = await fetch(`https://interpost-backend.onrender.com/progress/${trackingnumber}`);
 
       if (res.status === 200) {
         const data = await res.json();
@@ -217,7 +217,7 @@ export function CreateShipment() {
     };
 
     try {
-      const res = await fetch('http://localhost:7001/progress', {
+      const res = await fetch('https://interpost-backend.onrender.com/progress', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(fullData),
