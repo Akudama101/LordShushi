@@ -37,7 +37,7 @@ export function Tracking_Page({ stages }) {
         setShipmentData(data);
         setStartTime(new Date(data.startTime)); // Convert to Date
       } else if (res.status === 404) {
-        setError('Package not found');
+        setError('Package not found, Check Tracking Number and Try Again');
       } else {
         setError('Server error occurred');
       }
@@ -89,7 +89,7 @@ export function Tracking_Page({ stages }) {
           >
             {loading ? 'Tracking...' : 'Track Package'}
           </button>
-          {error && <p className="text-red-600 mt-2">{error}</p>}
+          {error && <p className="text-red-600 mt-20">{error}</p>}
         </div>
       )}
 
@@ -110,7 +110,7 @@ export function Tracking_Page({ stages }) {
                   ✓
                 </div>
                 <div className="flex gap-2">
-                  <img src={label.image} alt="" className="border h-10 w-10" />
+                  <img src={label.image} alt="" className="h-10 w-10" />
                   <div>
                     <span className="text-sm font-bold">{label.title}</span>
                     <p className="text-[11px]">{label.description}</p>
@@ -120,15 +120,15 @@ export function Tracking_Page({ stages }) {
             ))}
           </div>
 
-          <div className="mt-6 bg-white p-4 rounded shadow">
-            <h2 className="text-lg font-semibold mb-2">Shipment Information</h2>
+          <div className="mt-6 bg-white p-4 rounded shadow space-y-3">
+            <h2 className="text-lg font-semibold mb-2 text-center">Shipment Information</h2>
             <p><strong>Tracking Number:</strong> {shipmentData.trackingnumber}</p>
             <p><strong>Sender:</strong> {shipmentData.sendersname}</p>
             <p><strong>Sender Address:</strong> {shipmentData.sendersaddress}</p>
             <p><strong>Phone:</strong> {shipmentData.phone}</p>
             <p><strong>Recipient:</strong> {shipmentData.receipientname}</p>
             <p><strong>Recipient Address:</strong> {shipmentData.receipientaddress}</p>
-            <p><strong>Clearance Fee:</strong> ${shipmentData.clearancefee}</p>
+            <p><strong>Clearance Fee:</strong> $ {shipmentData.clearancefee}</p>
           </div>
         </section>
       )}
