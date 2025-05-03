@@ -89,13 +89,13 @@ export function Tracking_Page({ stages }) {
        <div className="relative z-2"> <MyMap/></div>
          <div className=" justify-between mt-8">
           {stages.map((label, index) => (
-            <div key={label} className=" items-center">
+            <div key={label} className=" flex gap-5 space-y-2 items-center">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}
               >
                 ✓
               </div>
-              <span className="mt-2 text-sm">{label}</span>
+              <span className="">{label}</span>
             </div>
           ))}
         </div>
@@ -116,7 +116,7 @@ export function Tracking_Page({ stages }) {
 }
 
 export function TrackPage(){
-    const stages = ['Sent', 'In Transit', 'Out for Delivery', 'Delivered'];
+    const stages = ['Sent', 'In Transit', 'Delivered to Main Office in Ghana', 'Ready For Clearance'];
 
     return(
         <>
