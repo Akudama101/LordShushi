@@ -43,7 +43,7 @@ export function Tracking_Page({ stages }) {
 
     const interval = setInterval(() => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 300000); // Use 60000 for real minutes
+      const elapsed = Math.floor((now - startTime) / 60000); // Use 60000 for real minutes
       console.log('Elapsed:', elapsed);
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
@@ -53,7 +53,7 @@ export function Tracking_Page({ stages }) {
       }
     
 
-    }, 300000); // Change to 60000 for real 1-min intervals
+    }, 60000); // Change to 60000 for real 1-min intervals
 
     return () => clearInterval(interval);
   }, [startTime]);
