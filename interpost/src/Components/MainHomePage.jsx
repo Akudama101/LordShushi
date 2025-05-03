@@ -35,7 +35,7 @@ import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import whatsAppLogo from "/src/assets/images/whatsAppLogo.png"
 import {About_Us} from './Reusables'
-import {TrackPage} from './Shipment'
+import {TrackPage, CreateShipment} from './Shipment'
 
 
 
@@ -71,6 +71,7 @@ export function RoutesPage (){
         <Route path="Weather_and_Shipping" element={<Weather_and_Shipping/>} ></Route>
         <Route path="Barcode_Scanning_in_Logistics" element={<Barcode_Scanning_in_Logistics/>} ></Route>
         <Route path="Multi_Package_Tracking" element={<Multi_Package_Tracking/>} ></Route>
+        <Route path="CreateShipment" element={<CreateShipment/>} ></Route>
       
       </Routes>
     </>
@@ -86,46 +87,38 @@ export function HomePage() {
     return (
         <>
       
-        <div className="pb-10 lg:pb-40 md:pb-40">
+    <div className="text-slate-800 bg-slate-100">
+    <div className="pb-10 lg:pb-40 md:pb-40">
         <Section1/>
         </div>
        
-        <div className="pb-10">
+        <div className="lg:pb-10 pb-5">
         <Section2/>
         </div>
         
-        <div className="pb-10">
+        <div className="lg:pb-10 pb-5">
         <Section3/>
         </div>
      
-      <div className="pb-10">
+      <div className="lg:pb-10 pb-5">
       <Section4/>
       </div>
-      <div className="pb-10">
-        <Section2 />
-      </div>
-
-      <div className="pb-10">
-        <Section3 />
-      </div>
-      <div className="pb-10">
-        <Section4 />
-      </div>
     
-      <div className="pb-10">
+      <div className="lg:pb-10 pb-5">
         <Section5 />
       </div>
-      <div className="pb-10">
+      <div className="lg:pb-10 pb-5">
         <Section6 />
       </div>
-      <div className="pb-20">
+      <div className="lg:pb-10 pb-5">
         <Section7 />
       </div>
-      <div className="pb-10" id="director">
-      <a href='#director_Page' ><p className='bg-blue-600 px-5 py-4' >Next</p></a>
+      <div className="lg:pb-10 pb-5" >
+      
         <Section8 />
       </div>
       <Footer/>
+    </div>
    
     </>
   );
@@ -140,20 +133,20 @@ export function Footer(){
   return(
     <div>
 
-<div className="p-5 bg-gray-700 space-y-10 py-10" >
-<ul className="space-y-2 text-sm text-white " >
-  <li className="flex gap-5 text-white" ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>Airport Residence Terminal 2 <span className="font-bold" >Accra, Ghana</span></p> </li>
-  <li className="flex gap-5 text-white" ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+ 233 57 000 000  </span> </p> </li>
-  <li className="flex gap-5 text-white" ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >interpostsupport@company.com</span></p> </li>
+<div className="p-5 bg-slate-900 space-y-10 py-10 text-white" >
+<ul className="space-y-2 text-sm " >
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>Airport Residence Terminal 2 <span className="font-bold" >Accra, Ghana</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+ 233 57 000 000  </span> </p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-500" >interpostsupport@company.com</span></p> </li>
 </ul>
 
 
 <ul className="space-y-5" >
-  <li className="text-white font-bold text-lg" ><h1>About InterPost</h1></li>
-  <li className="text-white text-sm" > <span className="font-bold" >Interpost </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
-  <li className="text-white" ><div className="bg-gray-800 w-fit p-2" ><img src={whatsAppLogo} alt="whatsPPiCON" /></div></li>
+  <li className=" font-bold text-lg" ><h1>About InterPost</h1></li>
+  <li className=" text-sm" > <span className="font-bold" >Interpost </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
+  <li className="" ><div className="bg-green-500 w-fit p-2" ><img src={whatsAppLogo} alt="whatsPPiCON" /></div></li>
 </ul>
-<div className="text-center text-white text-xs" ><p>&copy; interpost-service</p></div>
+<div className="text-center  text-xs" ><p>&copy; interpost-service</p></div>
 </div>
 
 

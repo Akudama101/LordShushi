@@ -1,9 +1,4 @@
 import { HeaderPage } from "./Reusables"
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 
 
@@ -110,16 +105,6 @@ export function Tracking_Page({ stages }) {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
 export function TrackPage(){
     const stages = ['Sent', 'In Transit', 'Out for Delivery', 'Delivered'];
 
@@ -144,5 +129,20 @@ export function TrackPage(){
         
         </>
     )
+}
+
+
+export function CreateShipment(){
+
+
+
+  return(
+    <>
+    <HeaderPage/>
+    <div>
+      this is the shipment page
+    </div>
+    </>
+  )
 }
 

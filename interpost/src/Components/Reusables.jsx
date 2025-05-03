@@ -26,9 +26,9 @@ import bb3 from "/src/assets/images/plane6.webp"
 import { Link, useNavigate } from 'react-router-dom'
 import { Footer } from './MainHomePage'
 import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
-import agentPic from "/src/assets/images/interpost_logo.png"
+import agentPic from "/src/assets/images/2go logo main.png"
 import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
-import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X } from 'lucide-react'
+import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon} from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/src/assets/images/Countrkkokok.jpg'
 import inindn from '/src/assets/images/Interposkkkkkk.webp'
@@ -53,11 +53,20 @@ export function Section1() {
      
 
 
-        <section className='bg-[url("/src/assets/images/pickLopaju.webp")] h-screen bg-cover bg-center grid items-center'>
+        <section className='bg-[url("/src/assets/images/Groupbd.png")] lg:bg-[url("/src/assets/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
          
         
 <span>
-    <p className='font-bold text-white text-5xl px-5' > <span className='text-red-700' >Interpost</span> Delivery is here to serve you.</p>
+    <p className='font-bold text-white text-5xl px-5 lg:hidden' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
+
+
+    <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-5 shadow-2xl' >
+    <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
+
+        <div className='bg-red-500 w-fit px-10 text-white uppercase py-2 mt-50 mx-auto flex gap-2 rounded-sm' > <Truck/> <p>Track Package</p></div>
+
+
+    </div>
 </span>
        
           
@@ -84,7 +93,7 @@ export function Section2() {
         <>
                   <section className='grid lg:grid-cols-2 px-5'>
           
-                 <div className=" w-full h-full overflow-hidden">
+                 <div className=" w-full h-full overflow-hidden shadow-lg rounded-sm">
               <div style={{ transform: `translateX(-${index * 100}%)` }} className="flex transition-transform duration-[800ms] ease-in-out w-full h-full 2xl:h-full" >
                     {images.map((img, i) => (
                         <img
@@ -96,10 +105,10 @@ export function Section2() {
                     ))}
                 </div>
             </div>
-            <div className='bg-[#41134E] border border-[#41134E]'>
-                <h1 className='text-2xl text-white font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
-                <p className='text-xl text-white text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
-               <Link to="../CustomerService" >  <button className='h-15 w-4/5 ml-10 my-15 text-white  bg-red-700 font-bold 2xl:text-3xl 2xl:ml-25 lg:text-xl lg:mt-30'>Explore Our Business Solutions</button></Link>
+            <div className=' text-slate-800 '>
+                <h1 className='text-2xl  font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
+                <p className='text-xl  text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
+               <Link to="../TrackPage" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg'><span className='flex gap-5 px-5 w-fit mx-auto' ><Truck/><p>Track Package</p></span></div></Link>
             </div>
         </section>
         </>
@@ -131,13 +140,13 @@ export function Section3() {
         <>
         <section className='grid lg:grid-cols-2 px-5'>
 
-            <div className=' lg:w-4/5 lg:ml-10  bg-white 2xl:w-5/8 2xl:ml-40 py-5 mb-10'>
+            <div className=' lg:w-4/5 lg:ml-10   2xl:w-5/8 2xl:ml-40 py-5 mb-10 text-slate-800'>
                 <h1 className='text-3xl font-bold 2xl:text-6xl 2xl:mt-5'>Document and Parcel Shipping</h1>
                 <h1 className='text-xl  my-5 2xl:text-4xl'>For All Shippers</h1>
                 <hr className='bg-black h-1' />
-                <p className='text-xl my-5  2xl:text-3xl'>Learn about Interpost Express - the undisputed global leader in international experss shipping</p>
+                <p className='text-lg my-5  2xl:text-2xl'>Learn about Interpost Express - the undisputed global leader in international experss shipping</p>
                
-                <div className=' py-5' >
+                <div  className=' py-5 space-y-10 border-l-4 p-4 shadow-xl border-blue-500 bg-white mb-10 rounded-sm' >
                     <h1 className='font-bold text-center text-2xl uppercase underline mb-10' > Services</h1>
                     <div className='space-y-5' >
                        
@@ -173,9 +182,9 @@ export function Section3() {
                     </div>
                 </div>
 
-                <div className=' text-center py-5 w-fit mx-auto px-20 my-8 bg-red-700 text-xs text-white 2xl:text-3xl uppercase'> <Link to="../CustomerService" > Contact Us now</Link> </div>
+                <div className=' text-center py-5 w-fit mx-auto px-20 mt-10 bg-blue-500 text-xs text-white 2xl:text-3xl uppercase shadow-lg rounded-sm'> <Link to="../CustomerService" > <span className='flex gap-2' ><PhoneIcon className='h-4 w-4'/>  <p>Contact Us now</p></span></Link> </div>
             </div>
-            <div className="w-full overflow-hidden 2xl:h-200 lg:h-full">
+            <div className="w-full overflow-hidden 2xl:h-200 lg:h-full shadow-lg rounded-sm">
                 <div className="flex transition-transform duration-[800ms] ease-in-out w-full h-full" style={{ transform: `translateX(-${index * 100}%)` }}>
                     {images2.map((img, i) => (
                         <img key={i} src={img} alt="man with box" className="w-full h-100 lg:h-150 2xl:h-screen object-cover flex-shrink-0" />
@@ -199,22 +208,22 @@ export function Section4() {
             <div className=' px-4 pb-15 2xl:h-200' >
                 <h1 className='text-3xl px-4 font-bold mt-3 2xl:text-6xl 2xl:pr-30'>Retailer or Volume Shipping</h1>
                 <h1 className='text-2xl ml-4 my-3 2xl:text-4xl 2xl:my-10'>Business Only</h1>
-                <hr className='bg-black h-1 my-5' />
-                <p className='text-xl ml-4 2xl:text-3xl 2xl:pr-20 2xl:mt-15'>We have two divisions the offer reliable business shipping for e-commerce, supplier or manufacturing companies</p>
+                <hr className='bg-blue-500 border-blue-500 h-1 my-5' />
+                <p className='text-lg ml-4 2xl:text-2xl 2xl:pr-20 2xl:mt-15'>We have two divisions the offer reliable business shipping for e-commerce, supplier or manufacturing companies</p>
 
-                <div className='flex h-30 text-white bg-[#41134E] my-10 2xl:mt-17'>
-                    <img src={xpd} alt="plane" className='h-20 mt-5 ml-2'/>
+                <div className='flex h-30 text-black border-l-4 border-blue-500 shadow-xl bg-white my-5 lg:my-10 2xl:mt-17'>
+                    <img src={xpd} alt="plane" className='h-20 w-27 mt-6 ml-2'/>
                    <div className='flex ml-2'>
-                   <div className='h-25 mt-2 border w-0 shadow shadow-black'></div>
-                   <p className='text-sm lg:text-lg grid items-center ml-5 mt-1'>Fast, door-to-door, courier delivered. Time definite delivery to 220+ countries</p>
+                   <div className=' h-10 my-10 w-5 bg-blue-500'></div>
+                   <p className='text-sm lg:text-lg grid items-center ml-5 mt-1'>Fast, door-to-door, courier delivered. Time definite delivery to 220+ countries.</p>
                    </div>
                 </div>
 
-                <div className='flex h-30 text-white bg-[#41134E] 2xl:mt-15'>
+                <div className='flex h-30 text-black border-l-4 border-blue-500 shadow-xl bg-white 2xl:mt-15'>
                   <img src={xpe} alt="bus" className='h-15 w-27 mt-6 ml-2'/>
                  <div className='flex ml-2'>
-                 <div className='border w-0 h-25 mt-2 shadow shadow-black'></div>
-                 <p className='text-sm lg:text-lg grid items-center ml-5 mt-1'>Fast, door-to-door, courier delivered. Time definite delivery to 220+ countries</p>
+                 <div className=' h-10 my-10 w-5 bg-red-500'></div>
+                 <p className='text-sm lg:text-lg grid items-center ml-5 mt-1'>Fast, door-to-door, courier delivered. Time definite delivery to 220+ countries.</p>
                  </div>
                 </div>
             </div>
@@ -253,7 +262,7 @@ export function Section5() {
             <button className='h-15 bg-red-600 text-white text-xl w-4/5 ml-10 rounded-2xl mb-8 lg:mt-10 2xl:text-2xl lg:font-bold'>Explore Interpost Global Forwarding</button>
            </div>
 
-           <div className='overflow-hidden w-full h-full'>
+           <div className='overflow-hidden w-full h-full shadow-lg'>
            <div className='flex transition-transform duration-[800ms] ease-in-out w-full h-full' style={ {transform: `translateX(-${index * 100}%)`}}>
             {images3.map((img, i) => ( <img key={i} src={img} alt="Cargo" className='w-full h-full object-cover flex-shrink-0' />))}
             </div>
@@ -281,18 +290,18 @@ export function Section6() {
 
     return (
         <>
-        <section className='lg:grid-cols-2 lg:h-140 grid 2xl:h-200 2xl:px-15'>
+        <section className='lg:grid-cols-2 lg:h-140 grid 2xl:h-200 2xl:px-15 text-slate-800'>
            
             <div className='border border-white h-full 2xl:w-4/5 2xl:ml-20 2xl:shadow 2xl:shadow-black 2xl:rounded-2xl px-5'>
-                <h1 className='text-3xl  font-bold mt-5 2xl:text-6xl'>Enterprise Logistics Services</h1>
+                <h1 className='text-3xl  font-bold mt-5 lg:mt-10 2xl:text-6xl'>Enterprise Logistics Services</h1>
                 <h1 className=' text-2xl my-3 2xl:text-4xl 2xl:my-8'>Business Only</h1>
 
-                <hr className='bg-black h-1' />
+                <hr className='bg-blue-500 border-blue-500 h-1' />
                 
-                <p className='text-xl my-4 2xl:text-3xl 2xl:mt-10'>Find out how Interpost supply chain can revolutionize your business as 3PL Provider.</p>
+                <p className='text-lg my-4 2xl:text-2xl 2xl:mt-10'>Find out how Interpost supply chain can revolutionize your business as 3PL Provider.</p>
 
 
-                <div className=' py-10 space-y-10'>
+                <div className=' py-5 space-y-10 border-l-4 p-4 shadow-xl border-blue-500 bg-white mb-5'>
                     <h1 className='text-xl font-bold 2xl:text-3xl uppercase text-center underline'>Services</h1>
                     <div className='space-y-5'>
 
@@ -329,7 +338,7 @@ export function Section6() {
                 </div>
 
 
-                <div className=' bg-red-700 text-white  w-fit px-20 py-5  mx-auto uppercase text-xs'> <Link to="../CustomerService" >contact Us Now</Link> </div>
+                <div className=' bg-blue-500 text-white  w-fit px-20 py-5  mx-auto uppercase text-xs my-10'> <Link to="../CustomerService" >contact Us Now</Link> </div>
             </div>
 
             <div><img src={xpg} alt="warehouse" className='h-full hidden lg:block 2xl:rounded-2xl'/></div>
@@ -372,13 +381,15 @@ export function Section8() {
         <>
     
         <section className='' id="director_Page">
-            <hr className='h-1 w-4/5 mx-auto bg-black mb-10' />
+            <hr className='h-1 w-4/5 mx-auto bg-black mb-10 ' />
             <div className='px-5' >
+                <div className='shadow-lg' >
                 <img src={directorPic} alt="director Picture" />
-                <div className='bg-gray-700 pt-5 pb-20 px-5 space-y-2 text-white' >
+                <div className='bg-gray-700 pt-5 pb-20 px-5 space-y-2 text-white shadow-lg' >
                     <h1 className='font-bold' >Interpost Director</h1>
                     <p className='text-xs' >Mr Cam Odie</p>
-                    <span className='flex  gap-2 text-xs' ><Mail size={15} className='mt-0.5'/> <p>director@email.com</p> </span>
+                 
+                </div>
                 </div>
             </div>
           
@@ -540,16 +551,16 @@ const showNumberBar32 = () =>{
             
              
     
-             <section className='py-10 lg:py-20'>
+             <section className='py-10 lg:py-20 bg-slate-100'>
            
-                <h1 className='text-3xl font-bold text-red-600 ml-4 mt-10 text-center'>Customer Service</h1>
+                <h1 className='text-2xl uppercase font-bold text-red-600 ml-4 mt-10 text-center'>Customer Service</h1>
                 
-                <p className=' my-4 px-5'>Talk to Our Agent Representative Now!! , They are Available 24/7 for you the customers convinience. responce is usually immidiately or within the hour. </p>
+                <p className='text-sm lg:text-xl my-4 px-5'>Talk to Our Agent Representative Now!! , They are Available 24/7 for you the customers convinience. responce is usually immidiately or within the hour. </p>
     
     
     
     
-    <div className={`px-10 space-y-5 bg-gray-700 py-5 ${hideFilter} text-white w-11/12 mx-auto shadow-2xl shadow-gray-300 rounded-xl`} >
+    <div className={`px-10 space-y-5 bg-white py-5 ${hideFilter} text-slate-800 w-11/12 mx-auto shadow-2xl shadow-gray-300 rounded-xl mt-10`} >
     
         <h2 className='font-bold uppercase text-center' >Agent Search Filter</h2>
         
@@ -619,29 +630,32 @@ const showNumberBar32 = () =>{
                 
              </section>
              
-             <section className='mt-10 px-5 grid lg:grid-cols-2 w-11/12 mx-auto lg:gap-5 gap-2' >
-              <div className='border border-white shadow shadow-red-700 p-5 '>
+             <section className=' grid lg:grid-cols-2  mx-auto lg:gap-5 gap-2 bg-slate-100' >
+
+             <div className='w-11/12 mx-auto space-y-2'>
+             <div className='border border-white shadow bg-white border-l-4  shadow-blue-500 p-5 '>
                 <h1 className='text-xl font-bold text-red-700 flex gap-2'><PackageCheck size={20} className='mt-1' /> <p>Clearance</p></h1>
                 <p className='my-2'>We Privide Swift Payment Methods and Fast Processing of Clearance Payment</p>
               </div>
     
-              <div className=' shadow border border-white  shadow-red-700 p-5'>
+              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5'>
                 <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
                 <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
               </div>
     
     
-              <div className=' shadow border border-white  shadow-red-700 p-5'>
+              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5'>
                 <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
                 <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
               </div>
     
     
-              <div className=' shadow border border-white  shadow-red-700 p-5 mb-20'>
+              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5 mb-20'>
                 <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
                 <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
               </div>
     
+             </div>
     
     
     
@@ -680,7 +694,7 @@ export function HeaderPage(){
     const showDash = () => {
         setshowDashBoard(!showDashBoard);
        if(!showDashBoard){
-        setFlipMenu("rotate-90 bg-white text-black");
+        setFlipMenu("rotate-90 text-white");
         
        }
        else{
@@ -704,11 +718,15 @@ export function HeaderPage(){
       <>
        <section className=' fixed top-0 w-full z-50 lg:hidden'>
 
-                <div className='flex bg-gray-700  justify-between' >
-                  <div className={`border-r py-5 px-5  ${flipMenu}`} onClick={showDash} >  <MenuIcon/></div>
-                    <div className='grid items-center w-full mx-auto' >
-                    <img src={agentPic} alt="icon" className='h-10 mx-auto ' />
+                <div className='flex bg-slate-900 ' >
+                  <div className={` py-5 px-5  ${flipMenu}`} onClick={showDash} >  <MenuIcon/></div>
+                    <div className='grid items-center w-full ' >
+                    <img src={agentPic} alt="icon" className='h-12 ' />
                     </div>
+                   <div className='flex items-center gap-3 px-5' > 
+                    <Truck color='white' className='h-5 w-5' />
+                   <Phone color='white' className='h-5 w-5' />
+                   </div>
                 </div>
 
 
@@ -724,9 +742,12 @@ export function HeaderPage(){
 
                 
                   <div className='flex'>
-                    <div className={`bg-white h-screen w-3/5 py-10 shadow shadow-black space-y-5 `} >
-                    <div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-    <HomeIcon size={20} className='mt-1'/>
+                    <div className={`bg-slate-900 h-screen w-3/5 py-10 shadow shadow-black space-y-5 `} >
+
+
+
+                    <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' >
+    <HomeIcon size={20} className='mt-1 text-pink-500'/>
     <Link to="/" >
     <p>Home</p>
     </Link>
@@ -735,39 +756,41 @@ export function HeaderPage(){
 
 
 
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-    <PhoneCallIcon size={20} className='mt-1'/>
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' >
+    <PhoneCallIcon size={20} className='mt-1 text-pink-500'/>
     <Link to="../CustomerService">
     <p>Contact us</p>
     </Link>
 </div>
 
 
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
-    <NewspaperIcon size={20} className='mt-1' />
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
+    <NewspaperIcon size={20} className='mt-1 text-pink-500' />
 <p>BLog</p>
 </div>
 
 
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'   onClick={() => handleNav('../About_Us')} >
-    <QuoteIcon size={20} className='mt-1'/>
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto'   onClick={() => handleNav('../About_Us')} >
+    <QuoteIcon size={20} className='mt-1 text-pink-500'/>
     <p>About Us</p>
 </div>
 
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' >
-    <UserIcon size={20} className='mt-1' />
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' >
+    <UserIcon size={20} className='mt-1 text-pink-500' />
     <p onClick={openDirector} > Manager</p>
 </div>
 
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto'>
-<BookCheck size={20} className='mt-1'/>
+
+<Link to="../CreateShipment" >
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto'>
+<BookCheck size={20} className='mt-1 text-pink-500'/>
     <p>Create Shipment</p>
 </div>
+</Link>
 
 
-
-<div className='bg-gray-600 text-white p-2 flex  gap-5 shadow shadow-black w-11/12  mx-auto' > 
-    <TruckIcon size={20} className='mt-1' />
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto mt-5' > 
+    <TruckIcon size={20} className='mt-1 text-pink-500' />
     <Link to="../TrackPage" > <p>Track Package</p> </Link>
     
 </div>
@@ -789,18 +812,18 @@ export function HeaderPage(){
 
 
 
-              <section className="bg-gray-700 py-5 lg:flex w-full  fixed top-0 z-70 hidden">
+              <section className="bg-slate-900  lg:flex w-full  fixed top-0 z-70 hidden justify-between">
        
 
-       <div className='flex justify-between' >
-       <img src={agentPic} alt="logo"  className='h-10 mx-auto mt-3 2xl:h-30 lg:h-30 lg:absolute '/>
+       <div  >
+       <img src={agentPic} alt="logo"  className='h-20 mx-50'/>
        </div>
    
         
-        <div className='grid grid-cols-3 lg:w-200 md:ml-130 2xl:ml-290 '>
-         <div className='lg:flex w-100 lg:w-50 ml-15 hidden '> <span className='mt-4 lg:mt-8 2xl:mt-7 '><Phone color='white' size={25}/></span>      <Link to="../CustomerService">  <h1 className='text-white mt-3 lg:ml-1 lg:text-2xl ml-1 2xl:mt-5 md:mt-6 '>Contact us</h1> </Link>  </div> 
-         <div className='lg:flex w-100 lg:w-50 ml-10 hidden'><span className='mt-7 lg:mt-7 hidden lg:block  2xl:mt-7'><User color='white'/></span>  <h1 className='text-white mt-8 lg:ml-1 lg:text-2xl hidden lg:block 2xl:mt-5 md:mt-6'>About us</h1></div>  
-        <div className='flex lg:ml-5'><h1 className='text-white mt-8 ml-5 lg:text-2xl hidden lg:mt-6 lg:block 2xl:mt-5'>Blog</h1> <span className='mt-10 ml-2 hidden lg:mt-9 lg:block 2xl:mt-7'><Newspaper color='white'/></span></div> 
+        <div className='grid grid-cols-3 items-center gap-10'> 
+         <div className='flex  gap-2'> <span className=''><Phone color='white' size={25}/></span>           <Link to="../CustomerService">  <h1 className='text-white '>Contact us</h1> </Link>  </div> 
+         <div className='flex gap-2'>  <span className=''><User color='white' size={25}/></span>            <h1 className='text-white  '>About us</h1></div>  
+        <div className='flex  gap-2'>  <span className=''><Newspaper color='white' size={25}/></span>       <h1 className='text-white '>Blog</h1> </div> 
         </div>
          
          </section>
