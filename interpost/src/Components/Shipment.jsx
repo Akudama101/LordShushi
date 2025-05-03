@@ -43,7 +43,7 @@ export function Tracking_Page({ stages }) {
 
     const interval = setInterval(() => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 4000); // Use 60000 for real minutes
+      const elapsed = Math.floor((now - startTime) / 300000); // Use 60000 for real minutes
       console.log('Elapsed:', elapsed);
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
@@ -53,7 +53,7 @@ export function Tracking_Page({ stages }) {
       }
     
 
-    }, 4000); // Change to 60000 for real 1-min intervals
+    }, 300000); // Change to 60000 for real 1-min intervals
 
     return () => clearInterval(interval);
   }, [startTime]);
@@ -89,13 +89,19 @@ export function Tracking_Page({ stages }) {
        <div className="relative z-2"> <MyMap/></div>
          <div className=" justify-between mt-8">
           {stages.map((label, index) => (
-            <div key={label} className=" flex gap-5 space-y-2 items-center">
+            <div key={label} className=" flex gap-2 space-y-10 items-center">
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}
+                className={`w-8 h-8 rounded-full  flex items-center justify-center font-bold text-white ${getTickColor(index)}`}
               >
                 ✓
               </div>
-              <span className="">{label}</span>
+             <div className="flex space-y-10 gap-2">
+             <img src={label.image} alt="" className="border h-10 w-10 border-transparent" />
+             <div>
+             <span className="text-sm font-bold">{label.title}</span>
+             <span className=""><p className="text-[11px]">{label.description}</p></span>
+             </div>
+             </div>
             </div>
           ))}
         </div>
@@ -116,7 +122,29 @@ export function Tracking_Page({ stages }) {
 }
 
 export function TrackPage(){
-    const stages = ['Sent', 'In Transit', 'Delivered to Main Office in Ghana', 'Ready For Clearance'];
+  const stages = [
+    {
+      title: 'Sent',
+      image: '/images/shop-dddddddddddc.png',
+      description: 'Your package has been sent from the origin office.'
+    },
+    {
+      title: 'In Transit',
+      image: '/images/airplhhhhhhhhhhhhhh.png',
+      description: 'Your package is on its way to the destination.'
+    },
+    {
+      title: 'Delivered',
+      image: '/images/c66cd4hhhhhhhhhhhn.png',
+      description: 'The package has arrived at our main office in Ghana.'
+    },
+    {
+      title: 'Ready For Clearance',
+      image: '/images/kdmfiifmf.png',
+      description: 'Your package is ready for customs clearance.'
+    }
+  ];
+  
 
     return(
         <>
