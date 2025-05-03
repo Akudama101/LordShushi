@@ -711,6 +711,7 @@ export function HeaderPage(){
         
 
     }
+ 
 
 
 
@@ -746,21 +747,21 @@ export function HeaderPage(){
 
 
 
-                    <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' >
+                    <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('/')}>
     <HomeIcon size={20} className='mt-1 text-pink-500'/>
-    <Link to="/" >
+    
     <p>Home</p>
-    </Link>
+  
 </div>
 
 
 
 
-<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' >
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CustomerService')}>
     <PhoneCallIcon size={20} className='mt-1 text-pink-500'/>
-    <Link to="../CustomerService">
+    
     <p>Contact us</p>
-    </Link>
+
 </div>
 
 
@@ -781,17 +782,17 @@ export function HeaderPage(){
 </div>
 
 
-<Link to="../CreateShipment" >
-<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto'>
+
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CreateShipment')}>
 <BookCheck size={20} className='mt-1 text-pink-500'/>
     <p>Create Shipment</p>
 </div>
-</Link>
 
 
-<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto mt-5' > 
+
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto mt-5' onClick={() => handleNav('../TrackPage')}> 
     <TruckIcon size={20} className='mt-1 text-pink-500' />
-    <Link to="../TrackPage" > <p>Track Package</p> </Link>
+    <p>Track Package</p>
     
 </div>
 
