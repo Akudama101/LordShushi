@@ -1,5 +1,8 @@
 import { HeaderPage } from "./Reusables"
 import React, { useState, useEffect } from "react";
+import siinsid from '/src/assets/images/Group.png';
+import {MyMap} from "./Maps";
+
 
 
 
@@ -17,13 +20,13 @@ export function Tracking_Page({ stages }) {
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/progress/${ref}`);
+      const res = await fetch(`https://interpost-backend.onrender.com/progress/${ref}`);
       if (res.status === 200) {
         const data = await res.json();
         setStartTime(new Date(data.startTime)); // Convert to real Date
       } else {
         const newStart = new Date();
-        await fetch('http://localhost:3001/progress', {
+        await fetch('https://interpost-backend.onrender.com/progress', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ref, startTime: newStart.toISOString() }),
@@ -55,12 +58,13 @@ export function Tracking_Page({ stages }) {
     return () => clearInterval(interval);
   }, [startTime]);
 
-  const getTickColor = (index) => (index <= stage ? 'bg-green-500' : 'bg-gray-300');
+  const getTickColor = (index) => (index <= stage ? 'bg-red-700' : 'bg-gray-300');
 
   return (
     <div >
       {!startTime && (
         <div className="mb-4">
+          <img src={siinsid} alt="" className="h-35 my-10 w-full"/>
           <input
             type="text"
             value={ref}
@@ -68,19 +72,24 @@ export function Tracking_Page({ stages }) {
             className="border w-full block p-2"
             placeholder="Enter Reference Number"
           />
+         
           <button
             onClick={handleSubmit}
             className=" mt-5 px-4 py-2 bg-blue-500 text-white"
           >
             Track Package
           </button>
+       
+          
         </div>
       )}
 
       {startTime && (
-        <div className="flex justify-between mt-8">
+       <section>
+       <div className="relative z-2"> <MyMap/></div>
+         <div className=" justify-between mt-8">
           {stages.map((label, index) => (
-            <div key={label} className="flex flex-col items-center">
+            <div key={label} className=" items-center">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}
               >
@@ -90,6 +99,7 @@ export function Tracking_Page({ stages }) {
             </div>
           ))}
         </div>
+       </section>
       )}
 
       {infoVisible && (
@@ -115,7 +125,7 @@ export function TrackPage(){
         <div className="mt-20 px-5 space-y-2" >
 
         
-         <p>Enter Your Tracking Number :</p>
+         <p className="text-2xl font-bold text-center my-5">Track Your Package</p>
          <Tracking_Page stages={stages}/>
 
         </div>
