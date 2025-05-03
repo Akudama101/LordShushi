@@ -58,21 +58,21 @@ export function Tracking_Page({ stages }) {
   const getTickColor = (index) => (index <= stage ? 'bg-green-500' : 'bg-gray-300');
 
   return (
-    <div className="p-6">
+    <div >
       {!startTime && (
         <div className="mb-4">
           <input
             type="text"
             value={ref}
             onChange={(e) => setRef(e.target.value)}
-            className="border p-2"
+            className="border w-full block p-2"
             placeholder="Enter Reference Number"
           />
           <button
             onClick={handleSubmit}
-            className="ml-2 px-4 py-2 bg-blue-600 text-white"
+            className=" mt-5 px-4 py-2 bg-blue-500 text-white"
           >
-            Track
+            Track Package
           </button>
         </div>
       )}
@@ -112,15 +112,10 @@ export function TrackPage(){
         <>
         <HeaderPage/>
 
-        <div className="mt-20" >
+        <div className="mt-20 px-5 space-y-2" >
 
-         <form action="" className="space-y-5 px-5">
-       <div>
-       <p>Enter Your Tracking Number :</p>
-       <input type="text" className="border w-full p-2" />
-       </div>
-       <div className=" bg-red-700  w-fit px-5 py-2 text-white" >     <button className="uppercase" >Submit</button></div>
-         </form>
+        
+         <p>Enter Your Tracking Number :</p>
          <Tracking_Page stages={stages}/>
 
         </div>

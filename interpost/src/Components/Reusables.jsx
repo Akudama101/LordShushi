@@ -26,11 +26,11 @@ import bb3 from "/src/assets/images/plane6.webp"
 import { Link, useNavigate } from 'react-router-dom'
 import { Footer } from './MainHomePage'
 import directorPic from "/src/assets/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
-import agentPic from "/src/assets/images/2go logo main.png"
+import agentPic from "/src/assets/images/2go_logo_main.png"
 import agentRealPic  from "/src/assets/images/Tax-Agents.jpg"
 import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon} from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
-import asusas from '/src/assets/images/Countrkkokok.jpg'
+import asusas from '/src/assets/images/World_blank_map_countries.png'
 import inindn from '/src/assets/images/Interposkkkkkk.webp'
 
 
@@ -529,7 +529,7 @@ const showNumberBar32 = () =>{
         <>
         <HeaderPage/>
 
-<div className='relative '>
+<div className='relative h-screen'>
     
 <div className={`h-full bg-white absolute w-full overflow-auto ${showNumberBar}`}>
     
@@ -551,7 +551,7 @@ const showNumberBar32 = () =>{
             
              
     
-             <section className='py-10 lg:py-20 bg-slate-100'>
+             <section className='py-10 lg:py-20 bg-slate-100 '>
            
                 <h1 className='text-2xl uppercase font-bold text-red-600 ml-4 mt-10 text-center'>Customer Service</h1>
                 
@@ -812,7 +812,7 @@ export function HeaderPage(){
 
 
 
-              <section className="bg-slate-900  lg:flex w-full  fixed top-0 z-70 hidden justify-between">
+              <section className="bg-slate-900  lg:flex w-full  fixed top-0 z-70 hidden justify-between ">
        
 
        <div  >
@@ -820,10 +820,12 @@ export function HeaderPage(){
        </div>
    
         
-        <div className='grid grid-cols-3 items-center gap-10'> 
-         <div className='flex  gap-2'> <span className=''><Phone color='white' size={25}/></span>           <Link to="../CustomerService">  <h1 className='text-white '>Contact us</h1> </Link>  </div> 
-         <div className='flex gap-2'>  <span className=''><User color='white' size={25}/></span>            <h1 className='text-white  '>About us</h1></div>  
-        <div className='flex  gap-2'>  <span className=''><Newspaper color='white' size={25}/></span>       <h1 className='text-white '>Blog</h1> </div> 
+        <div className='grid grid-cols-5 items-center px-5'> 
+      <Link to="/" >  <div className='flex gap-2'> <span><HomeIcon color='white' size={25}/></span>  <h1 className='text-white' >Home</h1> </div></Link>
+      <Link to="../CustomerService">   <div className='flex gap-2'> <span><Phone color='white' size={25}/></span>  <h1 className='text-white '>Contact us</h1>   </div> </Link>
+     <Link to="../About_Us" > <div className='flex gap-2'> <span><User color='white' size={25}/></span>            <h1 className='text-white  '>About us</h1></div>  </Link>   
+      <Link to="../Blog" > <div className='flex gap-2'> <span><Newspaper color='white' size={25}/></span>       <h1 className='text-white '>Blog</h1> </div>  </Link>  
+    <Link to="../CreateShipment" >  <div className='flex gap-2'> <span><BookCheck color="white" size={25} /></span> <h1 className='text-white' >Create Shipment</h1> </div> </Link>   
         </div>
          
          </section>
@@ -851,16 +853,16 @@ export function Blog() {
 
     return (
         <>
-        <section id='sandwitch' className='scroll-mt-30 border border-transparent'>
+        <section id='sandwitch' className='scroll-mt-30 border border-transparent h-screen '>
             <HeaderPage/>
-            <img src={asusas} alt="" className='mt-15'/>
-            <div class="text-center my-8">
-  <h1 class="text-4xl font-bold mb-2">Our Latest Insights</h1>
+            <img src={asusas} alt="" className='mt-20 lg:mt-20 mx-auto'/>
+            <div class="text-center my-8 px-5">
+  <h1 class="text-4xl font-bold mb-2 libre-baskerville-regular-italic lg:text-6xl lg:my-5">Our Latest Insights</h1>
   <p class="text-gray-600 text-lg max-w-xl mx-auto">
     Explore expert articles, industry updates, and valuable tips to stay informed and inspired.
   </p>
 </div>
-        <section className='gap-5 py-5 mx-auto flex overflow-auto px-3'>
+        <section className='gap-5 py-5 mx-auto flex lg:grid lg:grid-cols-2 2xl:grid-cols-5 overflow-auto px-5 pb-20'>
             {blogData.map((data, index) => (
           <Blog_Card key={index} blog={data}/>
             ))}
@@ -891,7 +893,7 @@ export function Blog_Card({blog}) {
     return(
         <>
         <section className=''>
-        <div className=" rounded-2xl  shadow-2xl bg-white  hover:shadow-xl  w-90 mx-auto">
+        <div className=" rounded-2xl shadow-2xl bg-white  hover:shadow-xl w-70  lg:w-90 mx-auto h-125">
             <img src={blog.image} alt={blog.title}  className='h-50 w-full rounded-t-2xl'/>
             <div className="flex justify-between p-5 items-center text-xs text-gray-500">
           <span>By {blog.author}</span>
@@ -916,28 +918,33 @@ export function About_Us() {
 
     return(
         <>
-        <section>
+        <section className='h-screen' >
         <HeaderPage/>
-            <section>
-            <section className="max-w-4xl mx-auto p-6 text-gray-800 leading-relaxed">
-            <img src={inindn} alt=""  className='w-full h-50'/>
-  <h1 className="text-3xl font-bold mb-4 text-gray-900">
-    Interpost: A Global Leader in Logistics and Delivery
+            <section className='text-sm lg:text-lg libre-baskerville-regular '>
+            <section className={`max-w-4xl mx-auto px-5 pb-20 pt-10 text-gray-800 leading-relaxed bg-slate-100 bg-[url(/src/assets/images/2go_logo_main.png)] bg-contain lg:bg-auto bg-fixed bg-center bg-no-repeat `}>
+          
+  <h1 className="text-3xl lg:py-10 lg:text-4xl font-medium mb-4 text-gray-900 mt-15 libre-baskerville-regular-italic">
+    <span className='font-bold italic ' >2GO</span>: A Global Leader in Logistics and Delivery
   </h1>
+
+
+  <div className='my-10 shadow-2xl rounded-sm '>
+    <img src="\src\assets\images\cruise_coronavirus.1200x800.jpg" alt="cruise Image" className='h-40 lg:h-70 w-full'  />
+  </div>
       
   <p>Interpost is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, Interpost has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of Interpost, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">1. Origins and Evolution</h2>
-  <p>Founded in the early 1980s in the United States, Interpost started as a small courier company with a vision of making international shipping seamless and reliable. As global commerce grew in the late 20th century, so did Interpost’s ambitions. By the mid-1990s, the company had expanded to major cities in Europe and Asia, establishing itself as a key player in cross-border logistics. The decision to move its headquarters to Bonn, Germany, reflected its commitment to serving European markets and optimizing its presence in the heart of the EU.</p>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">1. Origins and Evolution</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Founded in the early 1980s in the United States, Interpost started as a small courier company with a vision of making international shipping seamless and reliable. As global commerce grew in the late 20th century, so did Interpost’s ambitions. By the mid-1990s, the company had expanded to major cities in Europe and Asia, establishing itself as a key player in cross-border logistics. The decision to move its headquarters to Bonn, Germany, reflected its commitment to serving European markets and optimizing its presence in the heart of the EU.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">2. Global Reach and Infrastructure</h2>
-  <p>Interpost operates in over 220 countries and territories, with more than 600 logistics hubs worldwide. These facilities include sorting centers, distribution warehouses, regional depots, and last-mile delivery stations. With a fleet of over 40,000 vehicles and partnerships with local couriers in remote regions, Interpost ensures packages are delivered efficiently, even in the most hard-to-reach areas.</p>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">2. Global Reach and Infrastructure</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Interpost operates in over 220 countries and territories, with more than 600 logistics hubs worldwide. These facilities include sorting centers, distribution warehouses, regional depots, and last-mile delivery stations. With a fleet of over 40,000 vehicles and partnerships with local couriers in remote regions, Interpost ensures packages are delivered efficiently, even in the most hard-to-reach areas.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">3. Technology and Tracking</h2>
-  <p>One of Interpost’s core strengths is its investment in technology. The company offers real-time tracking for all parcels, allowing customers to follow their package from dispatch to delivery. Its systems integrate GPS, barcode scanning, RFID, and cloud-based logistics data, enabling transparency and operational efficiency. The Interpost tracking app is a customer favorite, offering updates, delivery customization, and chat support all in one place.</p>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">3. Technology and Tracking</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >One of Interpost’s core strengths is its investment in technology. The company offers real-time tracking for all parcels, allowing customers to follow their package from dispatch to delivery. Its systems integrate GPS, barcode scanning, RFID, and cloud-based logistics data, enabling transparency and operational efficiency. The Interpost tracking app is a customer favorite, offering updates, delivery customization, and chat support all in one place.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">4. Services Offered</h2>
-  <ul className="list-disc ml-6">
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">4. Services Offered</h2>
+  <ul className="list-disc lg:px-12 px-6 text-[12px] lg:text-[14px]">
     <li>Standard and Express Parcel Delivery</li>
     <li>International Freight Forwarding</li>
     <li>Customs Brokerage and Documentation</li>
@@ -945,27 +952,31 @@ export function About_Us() {
     <li>Subscription-Based eCommerce Delivery Services</li>
   </ul>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">5. Commitment to Sustainability</h2>
-  <p>Environmental sustainability is a key part of Interpost’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20  libre-baskerville-regular-italic">5. Commitment to Sustainability</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Environmental sustainability is a key part of Interpost’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">6. Customer Experience</h2>
-  <p>Interpost places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, the company has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">6. Customer Experience</h2>
+  <img src="\src\assets\images\happyRating.png" alt="happy rating Image"  className='my-5 shadow-xl border-l-4 border-blue-500 rounded-sm' />
+  <p className='text-[12px] lg:text-[14px] mt-1' >Interpost places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, the company has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">7. Competitive Position</h2>
-  <p>In a market crowded with giants like FedEx, DHL, UPS, and regional players, Interpost stands out for its balance of reliability, pricing, and technology. By focusing on efficiency and customer satisfaction, Interpost has cultivated strong loyalty among businesses and individual customers alike.</p>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">7. Competitive Position</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >In a market crowded with giants like FedEx, DHL, UPS, and regional players, Interpost stands out for its balance of reliability, pricing, and technology. By focusing on efficiency and customer satisfaction, Interpost has cultivated strong loyalty among businesses and individual customers alike.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">8. Challenges and Resilience</h2>
-  <p>The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. Interpost’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">8. Challenges and Resilience</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. Interpost’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">9. Innovation and the Future</h2>
-  <p>Looking ahead, Interpost plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">9. Innovation and the Future</h2>
+  <img src="\src\assets\images\logo-fpi.jpg" alt="iconImage" className='my-5 shadow-xl mx-auto lg:h-100 rounded-sm' />
+  <p className='text-[12px] lg:text-[14px] mt-1' >Looking ahead, Interpost plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
 
-  <h2 className="text-2xl font-semibold mt-8 text-gray-800">10. Conclusion</h2>
-  <p>Interpost’s journey from a small U.S. courier to a global logistics powerhouse is a testament to innovation, resilience, and strategic vision. With its strong foothold in Europe and a growing global presence, the company continues to redefine delivery standards, making the world smaller one package at a time.</p>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 uppercase text-center">Conclusion</h2>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Interpost’s journey from a small U.S. courier to a global logistics powerhouse is a testament to innovation, resilience, and strategic vision. With its strong foothold in Europe and a growing global presence, the company continues to redefine delivery standards, making the world smaller one package at a time.</p>
 </section>
 
             </section>
+            <Footer/>
         </section>
+        
         </>
     )
 }

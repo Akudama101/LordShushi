@@ -87,7 +87,7 @@ export function HomePage() {
     return (
         <>
       
-    <div className="text-slate-800 bg-slate-100">
+    <div className="text-slate-800 bg-slate-100 h-screen">
     <div className="pb-10 lg:pb-40 md:pb-40">
         <Section1/>
         </div>

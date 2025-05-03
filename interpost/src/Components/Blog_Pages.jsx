@@ -16,6 +16,7 @@ import sinina from '/src/assets/images/21_logistics_xcoverpro_sssssas.jpg';
 import ainosn from '/src/assets/images/Shipmedddddddd.webp'
 import { HeaderPage } from './Reusables';
 import { Footer } from './MainHomePage';
+import { ArrowLeft } from 'lucide-react';
 
 export function How_Package_Tracking_Works() {
 
@@ -24,22 +25,24 @@ export function How_Package_Tracking_Works() {
             <HeaderPage/>
             <section>
             <img src={digini} alt="" className='mt-16' />
-            <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed">
+            <section className="max-w-4xl mx-auto px-6 pb-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
+
+              <div className='flex gap-2 text-sm' > <ArrowLeft/> <p>Previous</p> </div>
                
-  <h1 className="text-3xl font-bold mb-6 mt-5 text-gray-900">
+  <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">
     How Package Tracking Works in Modern Logistics
   </h1>
 
-  <p className="mb-6">
+  <p className=" text-sm lg:text-lg">
     Package tracking is a key feature in the modern logistics industry that allows senders and receivers to monitor the movement and status of shipments in real time. It has become an industry standard, improving customer satisfaction, reducing lost packages, and enhancing transparency across the supply chain.
   </p>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">1. What Is Package Tracking?</h2>
-  <p className="mb-6">
+  <h2 className=" text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 mb-2 lg:mb-4 text-gray-800 libre-baskerville-regular-italic">1. What Is Package Tracking?</h2>
+  <p className="">
     Package tracking is the process of monitoring the progress of a parcel from the point of origin (the sender) to its final destination (the receiver). Each parcel is assigned a <strong>unique tracking number or reference ID</strong>, which helps identify its movement through various logistical checkpoints.
   </p>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">2. Technologies Used in Package Tracking</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 mb-2 lg:mb-4 text-gray-800 libre-baskerville-regular-italic">2. Technologies Used in Package Tracking</h2>
   <ul className="list-disc ml-6 mb-6 space-y-2">
     <li><strong>Barcode Scanning:</strong> Packages are tagged and scanned at each checkpoint.</li>
     <li><strong>RFID:</strong> Enables automatic tracking without line-of-sight scanning.</li>
@@ -48,7 +51,7 @@ export function How_Package_Tracking_Works() {
     <li><strong>AI & Automation:</strong> Predict delivery times and optimize routing.</li>
   </ul>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">3. How Tracking Works Step-by-Step</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 mb-2 lg:mb-4 text-gray-800 libre-baskerville-regular-italic">3. How Tracking Works Step-by-Step</h2>
   <ol className="list-decimal ml-6 mb-6 space-y-2">
     <li><strong>Label Generation:</strong> A tracking number is created and attached to the parcel.</li>
     <li><strong>First Scan (Origin):</strong> Package is scanned at dispatch point.</li>
@@ -58,12 +61,12 @@ export function How_Package_Tracking_Works() {
     <li><strong>Customer Notification:</strong> Status changes trigger alerts via app/email.</li>
   </ol>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">4. What Happens When There’s a Delay?</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold lg:mt-20 mt-10 mb-2 lg:mb-4 text-gray-800 libre-baskerville-regular-italic">4. What Happens When There’s a Delay?</h2>
   <p className="mb-6">
     Delays may occur due to customs, weather, incorrect addresses, or seasonal surges. Statuses may read as “Pending,” “Held at Customs,” or “Delayed.”
   </p>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">5. Benefits of Package Tracking</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold lg:mt-20 mt-10 mb-2 lg:mb-4 text-gray-800 libre-baskerville-regular-italic">5. Benefits of Package Tracking</h2>
   <ul className="list-disc ml-6 mb-6 space-y-2">
     <li><strong>Transparency:</strong> Real-time visibility for all parties.</li>
     <li><strong>Trust:</strong> Builds confidence in the logistics provider.</li>
@@ -72,7 +75,7 @@ export function How_Package_Tracking_Works() {
     <li><strong>Data Collection:</strong> Helps improve future logistics strategies.</li>
   </ul>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">6. The Future of Package Tracking</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold lg:mt-20 mt-10 mb-2 lg:mb-4 text-gray-800 libre-baskerville-regular-italic">6. The Future of Package Tracking</h2>
   <ul className="list-disc ml-6 mb-6 space-y-2">
     <li><strong>Blockchain-Based Tracking:</strong> Improves data security and traceability.</li>
     <li><strong>AI-Powered Predictions:</strong> Adapts ETA using dynamic data.</li>
@@ -80,8 +83,8 @@ export function How_Package_Tracking_Works() {
     <li><strong>Drone & Robot Delivery:</strong> Autonomous delivery options with live updates.</li>
   </ul>
 
-  <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Conclusion</h2>
-  <p>
+  <h2 className="text-2xl lg:text-3xl text-center font-semibold lg:mt-20 mt-10 mb-2 lg:mb-4 text-gray-800">Conclusion</h2>
+  <p className='text-center text-sm mt-1' >
     Package tracking has revolutionized logistics, making delivery more efficient and transparent. As technology evolves, we can expect even smarter systems that offer higher precision, reliability, and customer satisfaction.
   </p>
             </section>
