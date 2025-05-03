@@ -13,12 +13,14 @@ import {MyMap} from "./Maps";
 
 
 export function Tracking_Page({ stages }) {
+  const [loading, setLoading] = useState(false);
   const [ref, setRef] = useState('');
   const [stage, setStage] = useState(0);
   const [startTime, setStartTime] = useState(null);
   const [infoVisible, setInfoVisible] = useState(false);
 
   const handleSubmit = async () => {
+    setLoading(true);
     try {
       const res = await fetch(`https://interpost-backend.onrender.com/progress/${ref}`);
       if (res.status === 200) {
@@ -35,26 +37,29 @@ export function Tracking_Page({ stages }) {
       }
     } catch (err) {
       console.error('Submit error:', err);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
   useEffect(() => {
     if (!startTime) return;
-
-    const interval = setInterval(() => {
+  
+    const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 60000); // Use 60000 for real minutes
-      console.log('Elapsed:', elapsed);
+      const elapsed = Math.floor((now - startTime) / 60000);
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
+  
       if (currentStage === stages.length - 1) {
         setInfoVisible(true);
-        clearInterval(interval);
       }
-    
-
-    }, 60000); // Change to 60000 for real 1-min intervals
-
+    };
+  
+    updateStage(); // 👈 Run once immediately
+  
+    const interval = setInterval(updateStage, 60000);
+  
     return () => clearInterval(interval);
   }, [startTime]);
 
@@ -62,6 +67,7 @@ export function Tracking_Page({ stages }) {
 
   return (
     <div >
+    
       {!startTime && (
         <div className="mb-4">
           <img src={siinsid} alt="" className="h-35 my-10 w-full"/>
@@ -69,8 +75,8 @@ export function Tracking_Page({ stages }) {
             type="text"
             value={ref}
             onChange={(e) => setRef(e.target.value)}
-            className="border w-full block p-2"
-            placeholder="Enter Reference Number"
+            className="border w-full block p-2 outline-none "
+            placeholder="Enter Tracking Number"
           />
          
           <button
@@ -84,12 +90,17 @@ export function Tracking_Page({ stages }) {
         </div>
       )}
 
-      {startTime && (
+      {loading ? (
+  <div className="flex items-center justify-center p-8">
+    <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
+    <span className="ml-3 text-black font-medium">Tracking Package ...</span>
+  </div>
+) : (startTime && (
        <section>
        <div className="relative z-2"> <MyMap/></div>
          <div className=" justify-between mt-8">
           {stages.map((label, index) => (
-            <div key={label} className=" flex gap-2 space-y-10 items-center">
+            <div key={index} className=" flex gap-2 space-y-10 items-center">
               <div
                 className={`w-8 h-8 rounded-full  flex items-center justify-center font-bold text-white ${getTickColor(index)}`}
               >
@@ -106,7 +117,7 @@ export function Tracking_Page({ stages }) {
           ))}
         </div>
        </section>
-      )}
+      ))}
 
       {infoVisible && (
         <div className="mt-6 bg-gray-500 text-white p-4">
