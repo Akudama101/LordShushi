@@ -66,7 +66,7 @@ export function Tracking_Page({ stages }) {
     };
 
     updateStage();
-    const interval = setInterval(updateStage, 60000);
+    const interval = setInterval(updateStage, 3600000);
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
@@ -76,6 +76,7 @@ export function Tracking_Page({ stages }) {
     <div className="" >
       {!startTime && (
         <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
+           <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your Tracking Number in the box and press the "Track Button". Find your tracking number on your receipt.</p>
           <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
         <div className="bg-white shadow shadow-blue-500 p-5 rounded-sm">
           <label htmlFor=""  > <p className="text-red-700 mb-5">Enter Tracking Number Below:</p> </label>
@@ -109,7 +110,10 @@ export function Tracking_Page({ stages }) {
 <div className="grid" >
 {!loading && startTime && shipmentData && (
         <section  >
+         
           <div className="relative z-2"><MyMap /></div>
+          <p className="text-center mt-5 text-xl">Welcome {shipmentData.receipientname}</p>
+          <p className="text-center text-xs">Your Package Tracking Progress is displayed below</p>
           <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">
             {stages.map((label, index) => (
               <div key={index} className="flex gap-5 items-center w-fit ">
@@ -125,31 +129,34 @@ export function Tracking_Page({ stages }) {
                 </div>
               </div>
             ))}
+
+        {infoVisible && (
+        <div className="mt-6 bg-blue-700 text-white p-4 w-fit  mx-auto shadow shadow-black ">
+          <p className="font-bold uppercase text-center " >Complete Delivery Process</p>
+          <p className="my-2">Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before DoorStep Delivery Can be Arranged.</p>
+          <Link to="../CustomerService" ><div className="bg-red-700 px-4 py-2 w-fit cursor-pointer">
+            Call Now
+          </div></Link>
+        </div>
+      )}
             
           </div>
 
-          <div className="mt-6 bg-white rounded shadow shadow-blue-500 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
+          <div className="my-6 bg-white rounded shadow shadow-blue-500 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
             <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
             <span className="flex justify-between" ><p className="font-medium" >Tracking Number:</p> <p>{shipmentData.trackingnumber}</p> </span>
             <span className="flex justify-between" ><p className="font-medium" >Sender's Name:</p> <p>{shipmentData.sendersname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Address:</p> <p>{shipmentData.sendersaddress}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Sender Contact:</p> <p>{shipmentData.phone}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Sender Address:</p> <p>{shipmentData.sendersaddress}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Recipient's Name:</p> <p>{shipmentData.receipientname}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Recipient's Contact:</p> <p>{shipmentData.recipientsphone}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Recipient Address:</p> <p>{shipmentData.receipientaddress}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Clearance Fee:</p> <p>GHC {shipmentData.clearancefee}</p></span>
           </div>
         </section>
       )}
 
-      {infoVisible && (
-        <div className="mt-6 bg-blue-500 text-white p-4 w-fit  mx-auto shadow shadow-black ">
-          <p className="font-bold uppercase text-center " >Complete Delivery Process</p>
-          <p className="my-2">Contact Agent to Make Payment For Clearance Fee. Before DoorStep Delivery Can be Arranged.</p>
-          <Link to="../CustomerService" ><div className="bg-red-700 px-4 py-2 w-fit cursor-pointer">
-            Call Now
-          </div></Link>
-        </div>
-      )}
+     
 </div>
 
     
@@ -191,7 +198,7 @@ export function TrackPage(){
 
         
          <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
-         <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your order ID in the box and press the "Track Button". This was given to you on your receipt.</p>
+         
          
          <Tracking_Page stages={stages}/>
 
@@ -207,6 +214,7 @@ export function TrackPage(){
 
 
 export function CreateShipment() {
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     trackingnumber: '',
     sendersname: '',
@@ -215,6 +223,7 @@ export function CreateShipment() {
     receipientname: '',
     receipientaddress: '',
     clearancefee: '',
+    recipientsphone: '',
   });
 
   const handleChange = (e) => {
@@ -230,6 +239,7 @@ export function CreateShipment() {
     };
 
     try {
+      setLoading(true)
       const res = await fetch('https://interpost-backend.onrender.com/progress', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -244,8 +254,12 @@ export function CreateShipment() {
       }
     } catch (err) {
       console.error('Backend error:', err);
+    } finally {
+      setLoading(false)
     }
   };
+
+
 
   return (
     <>
@@ -279,7 +293,7 @@ export function CreateShipment() {
                 />
               </div>
               <div>
-                <label>Phone</label>
+                <label>Sender's Telephone</label>
                 <input
                   type="tel"
                   name="phone"
@@ -308,6 +322,16 @@ export function CreateShipment() {
                 />
               </div>
               <div>
+                <label>Recipient's Telephone</label>
+                <input
+                  type="tel"
+                  name="recipientsphone"
+                  onChange={handleChange}
+                  placeholder="Enter Phone Number"
+                  className="block w-full py-4 bg-slate-100 px-5 outline-none text-xs mt-1"
+                />
+              </div>
+              <div>
                 <label>Recipient's Address</label>
                 <textarea
                   name="receipientaddress"
@@ -327,6 +351,11 @@ export function CreateShipment() {
                 />
               </div>
             </section>
+            {loading && (
+              <section className="relative bg-black overflow-hidden">
+                <div className="fixed top-40 left-0 text-center h-100 w-100 content-center"> <div className="flex gap-3 ml-20"><div className="animate-spin border-5 border-red-700 h-10 w-10 rounded-full border-t-transparent bg-white"></div> <p className="text-2xl bg-white w-fit">Loading ......</p></div></div>
+              </section>
+            )}
             <div className="bg-red-700 w-fit px-5 text-white py-2 shadow-xl">
               <button type="submit">Create Shipment</button>
             </div>
