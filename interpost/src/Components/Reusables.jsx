@@ -50,6 +50,11 @@ const images3 = [bb1, bb2, bb3]
 //bg-[#41134E]
 
 export function Section1() {
+    const navigate = useNavigate() 
+    const handleNav = (path) => {
+        navigate(path);
+        window.location.reload();
+    }
     return(
         <>
          <div  ><HeaderPage/></div>
@@ -62,14 +67,14 @@ export function Section1() {
 <span>
     <div className='rounded-sm  bg-slate-900 w-2/3 space-y-20 p-5 lg:hidden ml-5 shadow-lg' >
     <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span> Delivery Service is here to serve you.</p>
-    <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' ><Link to="../TrackPage" > <span className='flex gap-2' ><Truck/><p>Track Package</p></span></Link> </div>
+    <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' onClick={() => handleNav("../TrackPage" )} ><span className='flex gap-2' ><Truck/><p>Track Package</p></span> </div>
     </div>
 
 
     <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-10 shadow-2xl' >
     <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
 
-       <Link to="../TrackPage"> <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  > <Truck/> <p>Track Package</p></div></Link>
+       <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  onClick={() => handleNav("../TrackPage")}> <Truck/> <p>Track Package</p></div>
 
 
     </div>
@@ -86,6 +91,7 @@ export function Section1() {
 }
 
 export function Section2() {
+    const navigate = useNavigate()
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
@@ -94,6 +100,11 @@ export function Section2() {
         }, 4000);
         return () => clearInterval(interval)
     }, [])
+
+    const handleNav = (path) => {
+        navigate(path);
+        window.location.reload();
+    }
 
     return(
         <>
@@ -114,7 +125,7 @@ export function Section2() {
             <div className=' text-slate-800 '>
                 <h1 className='text-2xl  font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
                 <p className='text-xl  text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
-               <Link to="../CustomerService" >  <div className='py-5  w-fit  px-10 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg '><p>Explore More Options</p></div></Link>
+              <div className='py-5  w-fit  px-10 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg ' onClick={() => handleNav("../CustomerService")}><p>Explore More Options</p></div>
             </div>
         </section>
         </>
@@ -122,6 +133,7 @@ export function Section2() {
 }
 
 export function Section3() {
+    const navigate = useNavigate()
 
   const [index, setIndex] = useState(0);
 
@@ -138,7 +150,10 @@ export function Section3() {
     const showPaymentDelivery = () => {    if(PaymentDelivery === "hidden"){  setPaymentDelivery("block");  setInvoiceClear("hidden") ;   setassurancePackage("hidden");  setdeliveryGuarantee("hidden");  } else {   setPaymentDelivery("hidden") ; } };
     
 
-
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
  
@@ -188,7 +203,7 @@ export function Section3() {
                     </div>
                 </div>
 
-                <Link to="../CustomerService" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '>  <PhoneIcon />  <p>Contact Us Now</p> </div></Link>
+                <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 ' onClick={() => handleNav("../CustomerService" )}>  <PhoneIcon />  <p>Contact Us Now</p> </div>
             </div>
             <div className="w-full overflow-hidden 2xl:h-200 lg:h-full shadow-lg rounded-sm">
                 <div className="flex transition-transform duration-[800ms] ease-in-out w-full h-full" style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -279,6 +294,7 @@ export function Section5() {
 }
 
 export function Section6() {
+    const navigate = useNavigate();
    
     const [hideClearing, setHideClearing] = useState("hidden") ;
     const [hideSameDayDelivery, setHideSameDayDelivery] = useState("hidden");
@@ -289,7 +305,10 @@ export function Section6() {
     const showInternational = () => {  if(hide24Hinternationa === "hidden"){   setHide24International("block");   setHideClearing("hidden");  setHideSameDayDelivery("hidden") ;   setdoorToDoor("hidden") } else { setHide24International("hidden")  } };
     const ShowDoorToDoor = () => { if(DoortoDoor === "hidden"){   setdoorToDoor("block");   setHideClearing("hidden"); setHideSameDayDelivery("hidden");  setHide24International("hidden");   } else {  setdoorToDoor("hidden")  }   }
 
-
+    const handleNav = (path) => {
+        navigate(path);
+        window.location.reload()
+    }
 
 
 
@@ -344,7 +363,7 @@ export function Section6() {
                 </div>
 
 
-                <Link to="../CustomerService" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '>  <PhoneIcon />  <p>Contact Us Now</p> </div></Link>
+                <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 ' onClick={() => handleNav("../CustomerService")}>  <PhoneIcon />  <p>Contact Us Now</p> </div>
             </div>
 
             <div><img src={xpg} alt="warehouse" className='h-full hidden lg:block 2xl:rounded-2xl'/></div>
@@ -362,7 +381,7 @@ export function Section7() {
          <div className='mx-auto shadow-black shadow rounded-2xl lg:h-130'>
             <img src={xph} alt="Parcel delivery" className='h-70 rounded-t-2xl w-full'/>
             <h1 className='text-2xl font-bold my-2 px-3 2xl:text-4xl 2xl:my-5'>Sustainability</h1>
-            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Sustainable business begins with sustainable supply chains. Find out what we have to offer, Why we're committed to sustainability, and how our industry is helping deliver an even better world</p>
+            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Sustainable business begins with sustainable supply chains. Find out what 2GO has to offer, Why we're committed to sustainability, and how our industry is helping deliver an even better world</p>
          </div>
          
          <div className='mx-auto shadow shadow-black  rounded-2xl lg:h-130'>
@@ -374,7 +393,7 @@ export function Section7() {
          <div className='mx-auto shadow shadow-black rounded-2xl lg:h-130'>
             <img src={xpj} alt="Parcel delivery" className='h-70 rounded-t-2xl w-full'/>
             <h1 className='text-2xl font-bold my-5 px-3 2xl:text-4xl 2xl:my-5'>Trade Atlas 2025</h1>
-            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Global trade recovered in 2024 and is forecast to grow faster over the next five years the during the preceding decade.</p>
+            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Global trade recovered in 2025 and is forecast to grow faster over the next five years the during the preceding decade.</p>
          </div>
          
         </section>
