@@ -56,7 +56,7 @@ export function Tracking_Page({ stages }) {
 
     const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 60000);
+      const elapsed = Math.floor((now - startTime) / 3600000);
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
 
