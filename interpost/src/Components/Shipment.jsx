@@ -1,5 +1,5 @@
 import { HeaderPage } from "./Reusables"
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
@@ -39,6 +39,7 @@ export function Tracking_Page({ stages }) {
   const [error, setError] = useState('');
   const [greeting, setGreeting] = useState("");
   const [daysLeft, setDaysLeft] = useState('');
+  const navigate = useNavigate()
   
 
   useEffect(() => {
@@ -112,6 +113,13 @@ export function Tracking_Page({ stages }) {
     }
 
   }, []);
+
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload();
+  }
+
+  
        
   return (
   <>
@@ -168,11 +176,9 @@ export function Tracking_Page({ stages }) {
         <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
           <p className="font-bold uppercase text-center text-lg " >Complete Delivery Process</p>
           <p className="my-2">Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before DoorStep Delivery Can be Arranged.</p>
-          <Link to="../CustomerService" ><div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer">
-            Call Now
-          </div></Link>
+          <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
         </div>
-      )}
+          )}
           <div className="relative z-2"><MyMap /></div>
          
           <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">

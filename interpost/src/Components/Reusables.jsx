@@ -59,7 +59,7 @@ export function Section1() {
      
 
 
-        <section className='bg-[url("/images/pickLopaju.webp")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
+        <section className='bg-[url("/images/unsplash-image-oCsQLKENz34.jpg")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
          
         
 <span>
@@ -719,11 +719,13 @@ export function HeaderPage(){
                 <div className='flex bg-slate-900 ' >
                   <div className={` py-5 px-5  ${flipMenu}`} onClick={showDash} >  <MenuIcon/></div>
                     <div className='grid items-center w-full ' >
-                    <img src={agentPic} alt="icon" className='h-12 ' />
+                    <img src={agentPic} alt="icon" className='h-12 ' onClick={() => handleNav('/')}/>
                     </div>
                    <div className='flex items-center gap-3 px-5' > 
-                    <Link to="../TrackPage" ><Truck color='white' className='h-5 w-5' /></Link>
-                   <Link to="../CustomerService" ><Phone color='white' className='h-5 w-5' /></Link>
+                   <span onClick={() => handleNav("../TrackPage")}><Truck color='white' className='h-5 w-5' /></span>
+                   <span onClick={() => handleNav("../CustomerService")}><Phone color='white' className='h-5 w-5' /></span>
+
+              
                    </div>
                 </div>
 
