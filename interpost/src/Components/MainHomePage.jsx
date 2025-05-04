@@ -174,9 +174,9 @@ export function Footer(){
 
   {showWhatAppIcon.show && (
      <motion.div 
-     initial={{opacity: 0, x: 100}}
+     initial={{opacity: 0, x: 30}}
      animate={{opacity: 1, x: 0}}
-     exit={{opacity: 0, x: 100}}
+     exit={{opacity: 0, x: 30}}
      transition={{duration: 0.3, ease: 'easeInOut'}}
      className={`h-fit bg-slate-900  space-y-2 py-2 flex gap-5 ml-auto ${showWhatAppIcon.show}`} >
      <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" onClick={() => {window.open("https://wa.me/+233504372398", "_blank")}} > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>   <p>Ghana Agent</p> </div> 
