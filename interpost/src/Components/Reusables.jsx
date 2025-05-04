@@ -1,7 +1,4 @@
-import logo from '/images/cartoon-delivery-man-.svg'
-import ship from '/images/ship-now.svg'
-import building from '/images/building.svg'
-import quote from "/images/quote.svg"
+
 import xpa from '/images/woman-box.jpg'
 import xpc from '/images/parcel-shipping-.jpg'
 import xpd from '/images/plane.svg'
@@ -27,11 +24,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Footer } from './MainHomePage'
 import directorPic from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/images/2go_logo_main.png"
-import agentRealPic  from "/images/Tax-Agents.jpg"
+
 import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon, MailIcon} from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/images/World_blank_map_countries.png'
-import inindn from '/images/Interposkkkkkk.webp'
+
 import Select from "react-select"
 import TaxAgentImg from "/images/Tax-Agents.jpg"
 import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
