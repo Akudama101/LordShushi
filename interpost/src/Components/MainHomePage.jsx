@@ -36,6 +36,7 @@ import { useEffect, useState } from "react"
 import whatsAppLogo from "/images/whatsAppLogo.png"
 import {About_Us} from './Reusables'
 import {TrackPage, CreateShipment, CreateShipmentLogin} from './Shipment'
+import {AnimatePresence, easeInOut, motion} from 'framer-motion'
 
 
 
@@ -137,7 +138,7 @@ export function Footer(){
   }
 
   const [showWhatAppIcon, setSHowWhatAPP] = useState({
-    show:"hidden",
+    show: false,
     Circle:"rounded-sm "
   })
 
@@ -167,11 +168,24 @@ export function Footer(){
   <li className=" font-bold text-lg" ><h1>About 2GO</h1></li>
   <li className=" text-sm" > <span className="font-bold" >2GO </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
   <li className="flex h-15  -mb-8" >
-    <div className={`h-fit bg-slate-900  space-y-2 py-2 flex gap-5 ml-auto ${showWhatAppIcon.show}`} >
-       <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" onClick={() => {window.open("https://wa.me/+233504372398", "_blank")}} > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>   <p>Ghana Agent</p> </div> 
-      <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>  <p>USA Agent</p> </div>
-    </div>
-    <div className={`bg-green-500 ml-auto h-fit p-2 mt-1  shadow-xl  ${showWhatAppIcon.Circle}`} onClick={() => { if(showWhatAppIcon.show === "hidden"){  setSHowWhatAPP({show:"block", Circle:"rounded-full " }) } else {  setSHowWhatAPP({    show:"hidden", Circle:"rounded-sm",   }) }}} ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>
+ <AnimatePresence>
+
+
+
+  {showWhatAppIcon.show && (
+     <motion.div 
+     initial={{opacity: 0, x: 100}}
+     animate={{opacity: 1, x: 0}}
+     exit={{opacity: 0, x: 100}}
+     transition={{duration: 0.3, ease: 'easeInOut'}}
+     className={`h-fit bg-slate-900  space-y-2 py-2 flex gap-5 ml-auto ${showWhatAppIcon.show}`} >
+     <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" onClick={() => {window.open("https://wa.me/+233504372398", "_blank")}} > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>   <p>Ghana Agent</p> </div> 
+    <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>  <p>USA Agent</p> </div>
+  </motion.div>
+  )}
+
+ </AnimatePresence>
+    <div className={`bg-green-500 ml-auto h-fit p-2 mt-1  shadow-xl  ${showWhatAppIcon.Circle}`} onClick={() => { setSHowWhatAPP(!showWhatAppIcon.show); if(!showWhatAppIcon.show){  setSHowWhatAPP({show:true, Circle:"rounded-full " }) } else {  setSHowWhatAPP({    show:false, Circle:"rounded-sm",   }) }}} ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>
 </li>
 </ul>
 </div>
