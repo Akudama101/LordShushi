@@ -37,6 +37,21 @@ export function Tracking_Page({ stages }) {
   const [infoVisible, setInfoVisible] = useState(false);
   const [shipmentData, setShipmentData] = useState(null);
   const [error, setError] = useState('');
+  const [greeting, setGreeting] = useState("");
+  const [daysLeft, setDaysLeft] = useState('');
+  
+
+  useEffect(() => {
+    if (stage === 0) {
+      setDaysLeft('4 Days Left')
+    } else if (stage === 1) {
+      setDaysLeft('3 Days Left')
+    } else if (stage === 2) {
+      setDaysLeft('Tomorrow')
+    } else if (stage === 3) {
+      setDaysLeft('TODAY')
+    }
+  })
 
   const handleSubmit = async () => {
     if (!trackingnumber.trim()) return;
@@ -85,24 +100,39 @@ export function Tracking_Page({ stages }) {
 
   const getTickColor = (index) => (index <= stage ? 'bg-red-700' : 'bg-gray-300');
 
+  useEffect(() => {
+    const hour = new Date().getHours();
+
+    if (hour < 12) {
+      setGreeting("Good Morning");
+    } else if ( hour < 18) {
+      setGreeting('Good Afternoon');
+    } else {
+      setGreeting('Good Evening')
+    }
+
+  }, []);
+       
   return (
+  <>
+   <section className="fixed h-screen top-1/2 left-1/2 -translate-x-1/2 ">
+   {loading && (
+      <div className="flex items-center justify-center">
+        <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
+        <span className="ml-3 text-black font-medium"></span>
+      </div>
+    )}
+   </section>
     <div className="" >
       {!startTime && (
         <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
+          <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
            <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your Tracking Number in the box and press the "Track Button". Find your tracking number on your receipt.</p>
       
           <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
-       <section className="border h-15 border-transparent">
-       {error && <p className="text-red-600 text-sm text-center px-5">{error}</p>}
-       {loading && (
-        <div className="flex items-center justify-center">
-          <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
-          <span className="ml-3 text-black font-medium">Tracking Package ...</span>
-        </div>
-      )}
-       </section>
-        <div className="bg-white shadow shadow-blue-500 p-5 rounded-sm">
-          <label htmlFor=""  > <p className="text-red-700 mb-5">Enter Tracking Number Below:</p> </label>
+      
+        <div className="bg-white shadow shadow-blue-500 p-5 mb-40 rounded-sm">
+          <label htmlFor=""  > <p className="text-red-700 mb-5 font-bold">Enter Tracking Number Below:</p> </label>
         <input
             type="text"
             value={trackingnumber}
@@ -110,6 +140,7 @@ export function Tracking_Page({ stages }) {
             className=" w-full block p-2 outline-none bg-slate-100 shadow shadow-blue-500"
             placeholder="Enter Tracking Number"
           />
+           {error && <p className="text-red-600 text-xs my-2 text-center ">{error}</p>}
           <button
             onClick={handleSubmit}
             disabled={loading || !trackingnumber.trim()}
@@ -128,13 +159,25 @@ export function Tracking_Page({ stages }) {
 <div className="grid" >
 {!loading && startTime && shipmentData && (
         <section  >
-         
+           <div className="my-5">
+          <p className="text-center mt-5 text-2xl font-medium"><span className="font-bold uppercase">{greeting}</span> {shipmentData.receipientname}</p>
+          <p className="text-center text-sm mt-1 ">Your Package Tracking Progress is displayed below</p>
+          <p className="text-center text-xs mt-1 ">Estimated Arrival Time: <span className="font-bold">{daysLeft}</span></p>
+          </div>
+          {infoVisible && (
+        <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
+          <p className="font-bold uppercase text-center text-lg " >Complete Delivery Process</p>
+          <p className="my-2">Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before DoorStep Delivery Can be Arranged.</p>
+          <Link to="../CustomerService" ><div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer">
+            Call Now
+          </div></Link>
+        </div>
+      )}
           <div className="relative z-2"><MyMap /></div>
-          <p className="text-center mt-5 text-xl">Welcome {shipmentData.receipientname}</p>
-          <p className="text-center text-xs">Your Package Tracking Progress is displayed below</p>
+         
           <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">
             {stages.map((label, index) => (
-              <div key={index} className="flex gap-5 items-center w-fit ">
+              <div key={index} className="flex gap-4 items-center w-fit ">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>
                   ✓
                 </div>
@@ -142,25 +185,17 @@ export function Tracking_Page({ stages }) {
                   <img src={label.image} alt="" className="h-10 w-10" />
                   <div>
                     <span className="text-sm font-bold">{label.title}</span>
-                    <p className="text-[11px]">{label.description}</p>
+                    <p className="text-[11px] w-[80%]">{label.description}</p>
                   </div>
                 </div>
               </div>
             ))}
 
-        {infoVisible && (
-        <div className="mt-6 bg-blue-700 text-white p-4 w-fit  mx-auto shadow shadow-black ">
-          <p className="font-bold uppercase text-center " >Complete Delivery Process</p>
-          <p className="my-2">Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before DoorStep Delivery Can be Arranged.</p>
-          <Link to="../CustomerService" ><div className="bg-red-700 px-4 py-2 w-fit cursor-pointer">
-            Call Now
-          </div></Link>
-        </div>
-      )}
+       
             
           </div>
 
-          <div className="my-6 bg-white rounded shadow shadow-blue-500 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
+          <div className="my-6 mt-20 bg-white rounded shadow shadow-blue-500 mb-40 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
             <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
             <span className="flex justify-between" ><p className="font-medium" >Tracking Number:</p> <p>{shipmentData.trackingnumber}</p> </span>
             <span className="flex justify-between" ><p className="font-medium" >Sender's Name:</p> <p>{shipmentData.sendersname}</p></span>
@@ -179,6 +214,7 @@ export function Tracking_Page({ stages }) {
 
     
     </div>
+  </>
   );
 }
 
@@ -198,7 +234,7 @@ export function TrackPage(){
     {
       title: 'Delivered',
       image: '/images/c66cd4hhhhhhhhhhhn.png',
-      description: 'The package has arrived at our main office in Ghana.'
+      description: 'The package has arrived at our main office.'
     },
     {
       title: 'Ready For Clearance',
@@ -212,10 +248,7 @@ export function TrackPage(){
         <>
         <HeaderPage/>
 
-        <div className="pt-20 px-5 space-y-2 bg-slate-100 h-screen overflow-auto" >
-
-        
-         <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
+        <div className="pt-20 px-5 space-y-2 bg-slate-100 h-full " >
          
          
          <Tracking_Page stages={stages}/>
@@ -301,7 +334,7 @@ setsuccessBar("block");
   return (
     <>
       <HeaderPage />
-      <div className={`h-screen grid  items-center px-5 bg-black/70 fixed w-full ${ sucessbar } `} >
+      <div className={`h-full grid  items-center px-5 bg-black/70 fixed w-full ${ sucessbar } `} >
 
       <div className={`py-5 px-5 space-y-5 bg-white shadow shadow-blue-500 text-sm rounded-sm ${checkSuccess === false ? "block" : "hidden"}`} >
       <div className="w-full text-red-500" ><X className="w-fit ml-auto rounded-full p-1 bg-white shadow shadow-blue-500" onClick={() => {setsuccessBar("hidden");}} /></div>
@@ -320,7 +353,7 @@ setsuccessBar("block");
        </span>
 
       </div>
-      <div className="py-20 overflow-y-auto bg-slate-100 h-screen px-2">
+      <div className="py-20 pb-40 overflow-y-auto bg-slate-100 h-full px-2">
         <form onSubmit={handleSubmit}>
           <div className="lg:w-1/3  mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px]">
             <h1 className="text-center uppercase font-bold text-2xl">
