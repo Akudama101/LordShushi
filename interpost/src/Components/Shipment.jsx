@@ -77,7 +77,14 @@ export function Tracking_Page({ stages }) {
       {!startTime && (
         <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
            <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your Tracking Number in the box and press the "Track Button". Find your tracking number on your receipt.</p>
+      
           <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
+          {loading && (
+        <div className="flex items-center justify-center p-8">
+          <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
+          <span className="ml-3 text-black font-medium">Tracking Package ...</span>
+        </div>
+      )}
         <div className="bg-white shadow shadow-blue-500 p-5 rounded-sm">
           <label htmlFor=""  > <p className="text-red-700 mb-5">Enter Tracking Number Below:</p> </label>
         <input
@@ -99,12 +106,7 @@ export function Tracking_Page({ stages }) {
         </div>
       )}
 
-      {loading && (
-        <div className="flex items-center justify-center p-8">
-          <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
-          <span className="ml-3 text-black font-medium">Tracking Package ...</span>
-        </div>
-      )}
+    
       
 
 <div className="grid" >
