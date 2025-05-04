@@ -59,17 +59,20 @@ export function Section1() {
      
 
 
-        <section className='bg-[url("/images/Groupbd.png")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
+        <section className='bg-[url("/images/pickLopaju.webp")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
          
         
 <span>
-    <p className='font-bold text-white text-5xl px-5 lg:hidden' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
+    <div className='rounded-sm  bg-slate-900 w-2/3 space-y-20 p-5 lg:hidden ml-5 shadow-lg' >
+    <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span> Delivery Service is here to serve you.</p>
+    <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' ><Link to="../TrackPage" > <span className='flex gap-2' ><Truck/><p>Track Package</p></span></Link> </div>
+    </div>
 
 
-    <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-5 shadow-2xl' >
+    <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-10 shadow-2xl' >
     <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
 
-       <Link to="../TrackPage"> <div className='bg-red-500 w-fit px-10 text-white uppercase py-2 mt-50 mx-auto flex gap-2 rounded-sm' > <Truck/> <p>Track Package</p></div></Link>
+       <Link to="../TrackPage"> <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  > <Truck/> <p>Track Package</p></div></Link>
 
 
     </div>
@@ -114,7 +117,7 @@ export function Section2() {
             <div className=' text-slate-800 '>
                 <h1 className='text-2xl  font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
                 <p className='text-xl  text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
-               <Link to="../TrackPage" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '><Truck/><p>Track Package</p></div></Link>
+               <Link to="../CustomerService" >  <div className='py-5  w-fit  px-10 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg '><p>Explore More Options</p></div></Link>
             </div>
         </section>
         </>
