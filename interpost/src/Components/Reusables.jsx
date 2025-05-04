@@ -765,14 +765,14 @@ export function HeaderPage(){
 
 
                     <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('/')}>
-    <HomeIcon size={20} className='mt-1 text-pink-500'/>
+    <HomeIcon size={20} className='mt-1 text-blue-500'/>
     
     <p>Home</p>
   
 </div>
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto mt-5' onClick={() => handleNav('../TrackPage')}> 
-    <TruckIcon size={20} className='mt-1 text-pink-500' />
+    <TruckIcon size={20} className='mt-1 text-blue-500' />
     <p>Track Package</p>
     
 </div>
@@ -784,19 +784,19 @@ export function HeaderPage(){
 
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
-    <NewspaperIcon size={20} className='mt-1 text-pink-500' />
+    <NewspaperIcon size={20} className='mt-1 text-blue-500' />
 <p>Blog</p>
 </div>
 
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto'   onClick={() => handleNav('../About_Us')} >
-    <QuoteIcon size={20} className='mt-1 text-pink-500'/>
+    <QuoteIcon size={20} className='mt-1 text-blue-500'/>
     <p>About Us</p>
 </div>
 
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CustomerService')}>
-    <PhoneCallIcon size={20} className='mt-1 text-pink-500'/>
+    <PhoneCallIcon size={20} className='mt-1 text-blue-500'/>
     
     <p>Contact us</p>
 
@@ -804,7 +804,7 @@ export function HeaderPage(){
 
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CreateShipment')}>
-<BookCheck size={20} className='mt-1 text-pink-500'/>
+<BookCheck size={20} className='mt-1 text-blue-500'/>
     <p>For Business</p>
 </div>
 
