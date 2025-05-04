@@ -32,6 +32,9 @@ import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon,
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/images/World_blank_map_countries.png'
 import inindn from '/images/Interposkkkkkk.webp'
+import Select from "react-select"
+import TaxAgentImg from "/images/Tax-Agents.jpg"
+import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 
 
 
@@ -63,7 +66,7 @@ export function Section1() {
     <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-5 shadow-2xl' >
     <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
 
-        <div className='bg-red-500 w-fit px-10 text-white uppercase py-2 mt-50 mx-auto flex gap-2 rounded-sm' > <Truck/> <p>Track Package</p></div>
+       <Link to="../TrackPage"> <div className='bg-red-500 w-fit px-10 text-white uppercase py-2 mt-50 mx-auto flex gap-2 rounded-sm' > <Truck/> <p>Track Package</p></div></Link>
 
 
     </div>
@@ -182,7 +185,7 @@ export function Section3() {
                     </div>
                 </div>
 
-                <div className=' text-center py-5 w-fit mx-auto px-20 mt-10 bg-blue-500 text-xs text-white 2xl:text-3xl uppercase shadow-lg rounded-sm'> <Link to="../CustomerService" > <span className='flex gap-2' ><PhoneIcon className='h-4 w-4'/>  <p>Contact Us now</p></span></Link> </div>
+                <div className=' text-center py-5 w-fit mx-auto px-20 mt-10 bg-blue-500 text-xs text-white 2xl:text-3xl uppercase shadow-lg rounded-sm'> <Link to="../CustomerService" > <span className='flex gap-2 lg:gap-6' ><PhoneIcon className='h-4 w-4 lg:w-6 lg:h-6 lg:mt-1.5'/>  <p>Contact Us now</p></span></Link> </div>
             </div>
             <div className="w-full overflow-hidden 2xl:h-200 lg:h-full shadow-lg rounded-sm">
                 <div className="flex transition-transform duration-[800ms] ease-in-out w-full h-full" style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -338,7 +341,7 @@ export function Section6() {
                 </div>
 
 
-                <div className=' bg-blue-500 text-white  w-fit px-20 py-5  mx-auto uppercase text-xs my-10'> <Link to="../CustomerService" >contact Us Now</Link> </div>
+                <div className=' text-center py-5 w-fit mx-auto px-20 mt-10 bg-blue-500 text-xs text-white 2xl:text-3xl uppercase shadow-lg rounded-sm lg:mb-5'> <Link to="../CustomerService" > <span className='flex gap-2 lg:gap-6' ><PhoneIcon className='h-4 w-4 lg:w-6 lg:h-6 lg:mt-1.5'/>  <p>Contact Us now</p></span></Link> </div>
             </div>
 
             <div><img src={xpg} alt="warehouse" className='h-full hidden lg:block 2xl:rounded-2xl'/></div>
@@ -382,7 +385,7 @@ export function Section8() {
     
         <section className='' id="director_Page">
             <hr className='h-1 w-4/5 mx-auto bg-black mb-10 ' />
-            <div className='px-5' >
+            <div className='px-5 lg:w-1/2 2xl:w-1/3 mx-auto' >
                 <div className='shadow-lg' >
                 <img src={directorPic} alt="director Picture" />
                 <div className='bg-gray-700 pt-5 pb-20 px-5 space-y-2 text-white shadow-lg' >
@@ -403,6 +406,10 @@ export function Section8() {
 
 export function CustomerService() {
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, []);
+
     const countries = [
         { value: 'Canada', label: 'Canada' },
         { value: 'Ghana', label: 'Ghana' },
@@ -418,22 +425,21 @@ export function CustomerService() {
 
 
 const AgentINforGhana = 
-   { imageID:"/src/assets/images/Tax-Agents.jpg",
-        name:"Felix Owusu",
+   { imageID: TaxAgentImg,
+        name:"Dickson Amankona",
         country:"Ghana",
-        number:"002015559541",
-        Email:"customerService",
-        admin:"same Name",
+        number:"+2332015559541",
+        admin:"English, twi & French",
 
     };
 
 
     const agentFromotherCuntry = {
-        imageID:"/src/assets/images/Warehouse.jpg",
+        imageID: ManagerImg,
         name:"Daniel Lark",
-        country:"USA",
-        Email:"customerService",
-        Admin:"Same Name"
+        country:"USA & Canada",
+        Email:"customerService@gmail.com",
+        Admin:"English, Spanish , French & German"
     }
 
 
@@ -447,29 +453,29 @@ const AgentINforGhana =
 
     })
 
-    const [selectValue1, setSelectValue1 ] = useState('');
-    const [selectValue2, setSelectValue2] = useState('');
+    const [selectValue1, setSelectValue1 ] = useState({});
+    const [selectValue2, setSelectValue2] = useState({});
     const [hideFilter, setHideFilter] = useState("");
     const [showNumberBar, setShownumberbar]= useState('hidden');
 
     const [showDetails, setShowDetails] = useState("hidden")
+   
 
 
 
-const handleChange1 = (e) => { const  value = e.target.value;setSelectValue1(value);}
+const handleChange1 = (e) => { setSelectValue1(e)}
 
-const handleChange2= (e) => {const value = e.target.value; setSelectValue2(value);}
+const handleChange2= (e) => {setSelectValue2(e)}
 
 
 
 const GetAgent = () => {
     
-    if(selectValue1 && selectValue2){
+    if(selectValue1.value && selectValue2.value){
         
-        if(selectValue1 === "Ghana"){
+        if(selectValue1.value === "Ghana"){
             AgentData.imageID = AgentINforGhana.imageID;
             AgentData.name = AgentINforGhana.name;
-            AgentData.Email = AgentINforGhana.Email;
             AgentData.number = AgentINforGhana.number;
             AgentData.admin = AgentINforGhana.admin;
             AgentData.country = AgentINforGhana.country;
@@ -490,7 +496,7 @@ const GetAgent = () => {
 
 
     } else{
-        alert("complete Detail")
+        alert("Please Complete Filter Detail")
     }
 
 
@@ -507,13 +513,19 @@ const showNumberBar32 = () =>{
 
 }
 
-
-
-
-
-
-
-
+const Copytext = (elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const text = element.textContent || element.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard!");
+      }).catch(err => {
+        console.error("Clipboard copy failed: ", err);
+      });
+    } else {
+      console.error(`Element with ID "${elementId}" not found.`);
+    }
+  }
 
 
 
@@ -521,7 +533,8 @@ const showNumberBar32 = () =>{
 
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [])
 
 
@@ -529,20 +542,21 @@ const showNumberBar32 = () =>{
         <>
         <HeaderPage/>
 
-<div className='relative h-screen'>
+<div className='relative h-screen '>
     
-<div className={`h-full bg-white absolute w-full overflow-auto ${showNumberBar}`}>
+<div className={`h-full absolute w-full overflow-auto ${showNumberBar}`}>
     
-    <div className={`fixed p-5 bg-gray-700 top-1/4 w-4/5 left-1/2 -translate-x-1/2 space-y-5 text-white  shadow shadow-black rounded-2xl`} >
+    <div className={`fixed p-5 bg-slate-900 top-1/4 w-90 left-1/2 -translate-x-1/2 space-y-5 text-white  shadow shadow-white rounded-2xl lg:w-100 text-xs`} >
           <div className='w-full relative mb-10' > <X color="red" className='absolute right-0 bg-white rounded-full shadow-black shadow-2xl p-1' onClick={showNumberBar32} /></div>
-            <span className='flex justify-between' >
-                <p>Number :</p>
-            <p>{AgentData.number}</p></span>
-            <span className='flex justify-between' >
-                <p>Email :</p>
-                <p>{AgentData.Email}</p>
+            <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block"}`} >
+                <p>Contact Number :</p>
+            <p id="textNumber" >{AgentData.number}</p></span>
+            <span className={`flex justify-between ${AgentData.Email === "" ? "hidden": "block"}`} >
+                <p>Contact Email :</p>
+                <p id='textEmail'>{AgentData.Email}</p>
             </span>
-            <p className='bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold' >Copy Number</p>
+            <p className={`bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold ${AgentData.number === "" ? "hidden" : "block"} rounded-sm`} onClick={() => {Copytext("textNumber")}}>Copy Number</p>
+            <p className={`bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold ${AgentData.Email === "" ? "hidden" : "block"} rounded-sm`} onClick={() => {Copytext("textEmail")}} >Copy Email</p>
            </div>
     </div>
     
@@ -553,38 +567,36 @@ const showNumberBar32 = () =>{
     
              <section className='py-10 lg:py-20 bg-slate-100 '>
            
-                <h1 className='text-2xl uppercase font-bold text-red-600 ml-4 mt-10 text-center'>Customer Service</h1>
+                <h1 className='text-2xl uppercase font-bold text-red-600 ml-4 mt-10 text-center lg:text-5xl 2xl:text-8xl'>Customer Service</h1>
                 
-                <p className='text-sm lg:text-xl my-4 px-5'>Talk to Our Agent Representative Now!! , They are Available 24/7 for you the customers convinience. responce is usually immidiately or within the hour. </p>
+                <p className='text-sm lg:text-xl my-4 px-5 text-center mx-auto lg:w-150'>Talk to Our Agent Representative Now!! , They are Available 24/7 for you the customers convinience. responce is usually immidiately or within the hour. </p>
     
     
     
     
-    <div className={`px-10 space-y-5 bg-white py-5 ${hideFilter} text-slate-800 w-11/12 mx-auto shadow-2xl shadow-gray-300 rounded-xl mt-10`} >
+    <div className={`px-10 space-y-5 bg-white py-5 ${hideFilter} text-slate-800 w-11/12 lg:w-1/2 mx-auto shadow-2xl shadow-gray-300 rounded-xl mt-10`} >
     
         <h2 className='font-bold uppercase text-center' >Agent Search Filter</h2>
         
+
+
+
+        <div>
+             <p className='my-1'>Select Country  of Service</p>
+            <Select options={countries} onChange={handleChange1} value={selectValue1}/>
+        </div>
     
-    
+
+
     <div>
-                        <p className='my-1'>Select Country  of Service</p>
-                       <select name="" id="" placeholder="" className='w-full border py-2 px-5 outline-none  ' onChange={handleChange1}>
-                        <option  className='text-black' >Select Country</option>
-                        <option  className='text-black' value="Ghana" >Ghana</option>
-                        <option  className='text-black' value="USA" >United States</option>
-                        <option  className='text-black' value="Canada" >Canada</option>
-                       </select>
-                    </div>
+    <p className='my-1'>Purpose of Contact</p>
+    <Select onChange={handleChange2} value={selectValue2} options={PurposeOfContact}/>
+
+    </div>
     
-                    <div>
-                        <p className='my-1'>Purpose of Contact</p>
-                        <select name="" id="" className='w-full border py-2 px-5 outline-none 'onChange={handleChange2} >
-                            <option className='text-black' >Purpose Of Contact</option>
-                            <option className='text-black' value="General">General Enquiry</option>
-                            <option className='text-black' value="clearance">Payment Of Clearance Fee</option>
-                            <option className='text-black' value="Tracking">Tracking Issues</option>
-                        </select>
-                    </div>
+    
+    
+                    
     
                     <div className='bg-red-700 w-fit px-5 text-white  py-2 uppercase text-xs shadow shadow-gray-400'  onClick={GetAgent} >Confirm</div>
     
@@ -597,25 +609,27 @@ const showNumberBar32 = () =>{
     
     
     
-         <span className={`${showDetails}`} >
+         <span className={`${showDetails} `} >
          <div className='px-7 mt-10' >
     
     
-    <div className='' >
-      <div className='outline-10 rounded outline-red-700' > <img src={AgentData.imageID} alt="icon" /></div>
+    <div className='lg:w-150 mx-auto' >
+      <div className='outline-10 rounded outline-blue-500' > <img src={AgentData.imageID} alt="icon" /></div>
       </div>
     
     </div>
-       <div className='px-5' >
-           <div className='shadow shadow-red-700 my-10 space-y-2 p-2'>
-               <span className='flex  justify-between' ><h1 className='font-bold uppercase '>Name:</h1> <p>{AgentData.name}</p></span>
-               <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Country:</h1> <p>{AgentData.country}</p></span>
-               <span className='flex  justify-between' ><h1 className='font-bold uppercase '>Number:</h1> <p>{AgentData.number}</p></span>
-               <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Administrator:</h1> <p>{AgentData.admin}</p></span>
-               <span className='flex  justify-between' ><h1 className='font-bold uppercase  '>Working Hours</h1> <p>8:am - 8pm GMT </p></span>
+       <div className='px-5 lg:w-150 mx-auto ' >
+           <div className='shadow shadow-blue-500 my-10 rounded-sm p-5 text-xs bg-white space-y-5'>
+            <p className='text-lg text-center ' >Agent Details</p>
+               <span className='flex  justify-between' ><h1 className='font-medium uppercase '>Agent Name:</h1> <p>{AgentData.name}</p></span>
+               <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Country of Operation:</h1> <p>{AgentData.country}</p></span>
+               <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block "}   shadow shadow-blue-500 p-2`} ><h1 className='font-bold uppercase '>Contact:</h1> <p>{AgentData.number}</p></span>
+               <span className={`flex justify-between  ${AgentData.Email === "" ? "hidden" : "block"} shadow shadow-blue-500 p-2`} > <h1 className='font-medium uppercase'>Email: </h1> <p>{AgentData.Email}</p> </span>
+               <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Languages:</h1> <p>{AgentData.admin}</p></span>
+               <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Working Hours</h1> <p>8:am - 8pm GMT </p></span>
     
            </div>
-           <div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center'onClick={showNumberBar32} > <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div>
+           <div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5'onClick={showNumberBar32} > <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div>
        </div>
     
     
@@ -630,32 +644,33 @@ const showNumberBar32 = () =>{
                 
              </section>
              
-             <section className=' grid lg:grid-cols-2  mx-auto lg:gap-5 gap-2 bg-slate-100' >
+             <section className=' grid lg:grid-cols-2  mx-auto lg:gap-5 gap-5 bg-slate-100 px-5  ' >
 
-             <div className='w-11/12 mx-auto space-y-2'>
-             <div className='border border-white shadow bg-white border-l-4  shadow-blue-500 p-5 '>
-                <h1 className='text-xl font-bold text-red-700 flex gap-2'><PackageCheck size={20} className='mt-1' /> <p>Clearance</p></h1>
-                <p className='my-2'>We Privide Swift Payment Methods and Fast Processing of Clearance Payment</p>
+            
+
+             <div className='shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5 h-30 '>
+                <h1 className=' text-sm lg:text-lg font-bold text-red-700 flex gap-2'><PackageCheck size={20} className='lg:mt-1' /> <p>Clearance</p></h1>
+                <p className='my-2 text-xs lg:text-sm'>We Privide Swift Payment Methods and Fast Processing of Clearance Payment</p>
               </div>
     
-              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5'>
-                <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
-                <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
-              </div>
-    
-    
-              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5'>
-                <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
-                <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
+              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5 h-30 mb-20 lg:mb-0'>
+                <h1 className=' text-sm lg:text-lg font-bold text-red-700 flex gap-2 '> <Truck size={20} className='lg:mt-1' /> Delivery to Door-Step</h1>
+                <p className=' my-2 text-xs lg:text-sm'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
               </div>
     
     
-              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5 mb-20'>
-                <h1 className='text-xl font-bold text-red-700 flex gap-2 '> <Truck size={20} className='mt-1' /> Delivery to Door-Step</h1>
-                <p className=' my-2'>We Guarantee 24 hours Max time for Delivery , and Put Agent are always Available to Walk you through it</p>
+              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5 h-30 hidden lg:block mb-20'>
+                <h1 className=' text-sm lg:text-lg font-bold text-red-700 flex gap-2 '> <Truck size={20} className='lg:mt-1' /> Quick Response</h1>
+                <p className=' my-2 text-xs lg:text-sm'>We are Quick to respond , and Put Agent are always Available to Walk you through it</p>
               </div>
     
-             </div>
+    
+              <div className=' shadow border-blue-500  bg-white border-l-4  shadow-blue-500 p-5 h-30  hidden lg:block mb-20'>
+                <h1 className=' text-sm lg:text-lg font-bold text-red-700 flex gap-2 '> <Truck size={20} className='lg:mt-1' /> World Wide Service</h1>
+                <p className=' my-2 text-xs lg:text-sm'>Our Service works world wide , and Put Agent are always Available to Walk you through it</p>
+              </div>
+    
+        
     
     
     
@@ -725,8 +740,8 @@ export function HeaderPage(){
                     <img src={agentPic} alt="icon" className='h-12 ' />
                     </div>
                    <div className='flex items-center gap-3 px-5' > 
-                    <Truck color='white' className='h-5 w-5' />
-                   <Phone color='white' className='h-5 w-5' />
+                    <Link to="../TrackPage" ><Truck color='white' className='h-5 w-5' /></Link>
+                   <Link to="../CustomerService" ><Phone color='white' className='h-5 w-5' /></Link>
                    </div>
                 </div>
 
@@ -744,6 +759,7 @@ export function HeaderPage(){
                 
                   <div className='flex'>
                     <div className={`bg-slate-900 h-screen w-3/5 py-10 shadow shadow-black space-y-5 `} >
+                    <p className='text-white -mt-10 text-center uppercase' >DashBoard</p>
 
 
 
@@ -767,7 +783,7 @@ export function HeaderPage(){
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
     <NewspaperIcon size={20} className='mt-1 text-pink-500' />
-<p>BLog</p>
+<p>Blog</p>
 </div>
 
 
@@ -846,6 +862,10 @@ export function HeaderPage(){
   }
 
 export function Blog() {
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, []);
     
     const [blogData, setBlogData] = useState([]);
     useEffect(() => {
@@ -916,6 +936,9 @@ export function Blog_Card({blog}) {
 }
 
 export function About_Us() {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, []);
 
     return(
         <>

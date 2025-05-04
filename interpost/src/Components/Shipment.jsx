@@ -1,7 +1,9 @@
 import { HeaderPage } from "./Reusables"
 import React, { useState, useEffect, useRef } from "react";
-import siinsid from '/images/Group.png';
+import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
+import { Footer } from "./MainHomePage";
+import { Link } from "react-router-dom";
 
 
 
@@ -71,15 +73,17 @@ export function Tracking_Page({ stages }) {
   const getTickColor = (index) => (index <= stage ? 'bg-red-700' : 'bg-gray-300');
 
   return (
-    <div>
+    <div className="" >
       {!startTime && (
-        <div className="mb-4">
-          <img src={siinsid} alt="Banner" className="h-35 my-10 w-full" />
-          <input
+        <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
+          <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
+        <div className="bg-white shadow shadow-blue-500 p-5 rounded-sm">
+          <label htmlFor=""  > <p className="text-red-700 mb-5">Enter Tracking Number Below:</p> </label>
+        <input
             type="text"
             value={trackingnumber}
             onChange={(e) => setTrackingNumber(e.target.value)}
-            className="border w-full block p-2 outline-none"
+            className=" w-full block p-2 outline-none bg-slate-100 shadow shadow-blue-500"
             placeholder="Enter Tracking Number"
           />
           <button
@@ -89,6 +93,7 @@ export function Tracking_Page({ stages }) {
           >
             {loading ? 'Tracking...' : 'Track Package'}
           </button>
+        </div>
           {error && <p className="text-red-600 mt-20">{error}</p>}
         </div>
       )}
@@ -99,13 +104,15 @@ export function Tracking_Page({ stages }) {
           <span className="ml-3 text-black font-medium">Tracking Package ...</span>
         </div>
       )}
+      
 
-      {!loading && startTime && shipmentData && (
-        <section>
+<div className="grid" >
+{!loading && startTime && shipmentData && (
+        <section  >
           <div className="relative z-2"><MyMap /></div>
-          <div className="justify-between mt-8 space-y-6">
+          <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">
             {stages.map((label, index) => (
-              <div key={index} className="flex gap-2 items-center">
+              <div key={index} className="flex gap-5 items-center w-fit ">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>
                   ✓
                 </div>
@@ -118,30 +125,34 @@ export function Tracking_Page({ stages }) {
                 </div>
               </div>
             ))}
+            
           </div>
 
-          <div className="mt-6 bg-white p-4 rounded shadow space-y-3">
-            <h2 className="text-lg font-semibold mb-2 text-center">Shipment Information</h2>
-            <p><strong>Tracking Number:</strong> {shipmentData.trackingnumber}</p>
-            <p><strong>Sender:</strong> {shipmentData.sendersname}</p>
-            <p><strong>Sender Address:</strong> {shipmentData.sendersaddress}</p>
-            <p><strong>Phone:</strong> {shipmentData.phone}</p>
-            <p><strong>Recipient:</strong> {shipmentData.receipientname}</p>
-            <p><strong>Recipient Address:</strong> {shipmentData.receipientaddress}</p>
-            <p><strong>Clearance Fee:</strong> $ {shipmentData.clearancefee}</p>
+          <div className="mt-6 bg-white rounded shadow shadow-blue-500 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
+            <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
+            <span className="flex justify-between" ><p className="font-medium" >Tracking Number:</p> <p>{shipmentData.trackingnumber}</p> </span>
+            <span className="flex justify-between" ><p className="font-medium" >Sender's Name:</p> <p>{shipmentData.sendersname}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Sender Address:</p> <p>{shipmentData.sendersaddress}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Sender Contact:</p> <p>{shipmentData.phone}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Recipient's Name:</p> <p>{shipmentData.receipientname}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Recipient Address:</p> <p>{shipmentData.receipientaddress}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Clearance Fee:</p> <p>GHC {shipmentData.clearancefee}</p></span>
           </div>
         </section>
       )}
 
       {infoVisible && (
-        <div className="mt-6 bg-gray-500 text-white p-4">
-          <p>Package at our Office</p>
-          <p className="my-2">Contact Agent to talk about Clearance</p>
-          <div className="bg-red-700 px-4 py-2 w-fit cursor-pointer">
+        <div className="mt-6 bg-blue-500 text-white p-4 w-fit  mx-auto shadow shadow-black ">
+          <p className="font-bold uppercase text-center " >Complete Delivery Process</p>
+          <p className="my-2">Contact Agent to Make Payment For Clearance Fee. Before DoorStep Delivery Can be Arranged.</p>
+          <Link to="../CustomerService" ><div className="bg-red-700 px-4 py-2 w-fit cursor-pointer">
             Call Now
-          </div>
+          </div></Link>
         </div>
       )}
+</div>
+
+    
     </div>
   );
 }
@@ -176,16 +187,18 @@ export function TrackPage(){
         <>
         <HeaderPage/>
 
-        <div className="mt-20 px-5 space-y-2" >
+        <div className="pt-20 px-5 space-y-2 bg-slate-100 h-screen overflow-auto" >
 
         
-         <p className="text-2xl font-bold text-center my-5">Track Your Package</p>
+         <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
+         <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your order ID in the box and press the "Track Button". This was given to you on your receipt.</p>
+         
          <Tracking_Page stages={stages}/>
 
         </div>
         
         
-        
+        <Footer/>
         </>
     )
 }
@@ -237,9 +250,9 @@ export function CreateShipment() {
   return (
     <>
       <HeaderPage />
-      <div className="py-20 overflow-y-auto bg-slate-100 h-screen">
+      <div className="py-20 overflow-y-auto bg-slate-100 h-screen px-2">
         <form onSubmit={handleSubmit}>
-          <div className="lg:w-1/3 w-80 mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px]">
+          <div className="lg:w-1/3  mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px]">
             <h1 className="text-center uppercase font-bold text-2xl">
               Create <span className="text-amber-500">Shipment</span>
             </h1>
@@ -320,6 +333,7 @@ export function CreateShipment() {
           </div>
         </form>
       </div>
+      <Footer/>
     </>
   );
 }

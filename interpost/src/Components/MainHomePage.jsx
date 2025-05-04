@@ -30,7 +30,7 @@ import { How_Package_Tracking_Works,
 
 
 
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
 import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import whatsAppLogo from "/images/whatsAppLogo.png"
@@ -133,19 +133,31 @@ export function Footer(){
   return(
     <div>
 
-<div className="p-5 bg-slate-900 space-y-10 py-10 text-white" >
+<div className="p-5 bg-slate-900 space-y-10 py-10 lg:py-20 lg:px-20 text-white" >
+<div className="space-y-10 grid lg:grid-cols-3" >
 <ul className="space-y-2 text-sm " >
   <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>Airport Residence Terminal 2 <span className="font-bold" >Accra, Ghana</span></p> </li>
   <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+ 233 57 000 000  </span> </p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-500" >interpostsupport@company.com</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >interpostsupport@company.com</span></p> </li>
 </ul>
+
+<ul className="space-y-2 hidden lg:block" >
+  <Link to="../TrackPage"> <li className="underline  text-blue-300 " >Track My Package</li></Link>
+  <Link to="../About_Us" ><li className="underline  text-blue-300 " >About Us</li></Link>
+  <Link to="../Blog" > <li className="underline   text-blue-300" >Blog</li></Link>
+  <Link to="/" ><li className="underline  text-blue-300 " >Manager</li></Link>
+  <Link to="../CustomerService" >  <li className="underline  text-blue-300 " >Contact Us</li></Link>
+  <Link to="../CustomerService" ><li className="underline  text-blue-300" >Speak to an Agent in your Country</li></Link>
+</ul>
+
 
 
 <ul className="space-y-5" >
-  <li className=" font-bold text-lg" ><h1>About InterPost</h1></li>
-  <li className=" text-sm" > <span className="font-bold" >Interpost </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
+  <li className=" font-bold text-lg" ><h1>About 2GO</h1></li>
+  <li className=" text-sm" > <span className="font-bold" >2GO </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
   <li className="" ><div className="bg-green-500 w-fit p-2" ><img src={whatsAppLogo} alt="whatsPPiCON" /></div></li>
 </ul>
+</div>
 <div className="text-center  text-xs" ><p>&copy; interpost-service</p></div>
 </div>
 
