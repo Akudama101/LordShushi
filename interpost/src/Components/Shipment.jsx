@@ -183,13 +183,13 @@ export function CreateShipment(){
   return(
     <>
     <HeaderPage/>
-    <div className="pt-20 bg-slate-100 h-screen" >
+    <div className="py-20 overflow-y-auto bg-slate-100 h-screen" >
 
       <form action="">
 
 
 
-      <div className=" lg:w-1/3 w-90 mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px] " >
+      <div className=" lg:w-1/3 w-80 mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px]" >
         <h1 className="text-center uppercase font-bold  text-2xl" >Create <span className="text-amber-500">Shipment</span></h1>
         <hr className="h-1 bg-slate-900 border-black" />
         <section className="space-y-5 text-sm">
