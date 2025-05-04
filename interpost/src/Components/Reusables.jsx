@@ -35,6 +35,9 @@ import inindn from '/images/Interposkkkkkk.webp'
 import Select from "react-select"
 import TaxAgentImg from "/images/Tax-Agents.jpg"
 import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
+import CoronaImage from "/images/cruise_coronavirus.1200x800.jpg"
+import Happyrating from "/images/happyRating.png"
+import InnovationImage from "/images/logo-fpi.jpg"
 
 
 
@@ -111,7 +114,7 @@ export function Section2() {
             <div className=' text-slate-800 '>
                 <h1 className='text-2xl  font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
                 <p className='text-xl  text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
-               <Link to="../TrackPage" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg'><span className='flex gap-5 px-5 w-fit mx-auto' ><Truck/><p>Track Package</p></span></div></Link>
+               <Link to="../TrackPage" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '><Truck/><p>Track Package</p></div></Link>
             </div>
         </section>
         </>
@@ -156,8 +159,8 @@ export function Section3() {
 
                        <div className='grid grid-cols-12' >
                        <div className='col-span-11' ><p>Invoice Clearity</p>   </div>
-                       <p className={`${invoiceClear === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={showInvoiceClear} ><ChevronUp/> </p> 
-                        <span className={`${invoiceClear} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} > We believe in full transparency. Every invoice you receive is clear, detailed, and easy to understand—no hidden fees or confusing charges. You’ll always know exactly what you’re paying for, with a complete breakdown of services and costs.  </span>
+                       <p className={`${invoiceClear === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showInvoiceClear} ><ChevronUp/> </p> 
+                        <span className={`${invoiceClear} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} > We believe in full transparency. Every invoice you receive is clear, detailed, and easy to understand—no hidden fees or confusing charges. You’ll always know exactly what you’re paying for, with a complete breakdown of services and costs.  </span>
                         
                        </div>
 
@@ -165,27 +168,27 @@ export function Section3() {
 
                         <div className='grid grid-cols-12' >
                             <p className='col-span-11' >100% Assurance safety Package</p> 
-                            <p className={`${assurancePackage === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={showAssurancePackage} ><ChevronUp/></p> 
-                        <span className={`${assurancePackage} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} >Your package’s safety is our top priority. We use secure packaging, trusted handling procedures, and reliable tracking systems to ensure your item arrives in perfect condition. With our 100% Assurance Safety Package, you can ship with total confidence.</span>
+                            <p className={`${assurancePackage === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showAssurancePackage} ><ChevronUp/></p> 
+                        <span className={`${assurancePackage} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >Your package’s safety is our top priority. We use secure packaging, trusted handling procedures, and reliable tracking systems to ensure your item arrives in perfect condition. With our 100% Assurance Safety Package, you can ship with total confidence.</span>
                         </div>
                         
                         <div className='grid grid-cols-12' >
                             <p className='col-span-11' >24H delivery Guarantee</p> 
-                            <p className={`${deliveryGuarantee === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={showDeliveryGuarantee} ><ChevronUp/></p>
-                        <span className={`${deliveryGuarantee} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} >We don’t just promise fast delivery—we guarantee it. Our 24-Hour Delivery Guarantee means your package will be delivered within 24 hours, or you get your money back. It’s our commitment to speed, reliability, and customer satisfaction.</span>
+                            <p className={`${deliveryGuarantee === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showDeliveryGuarantee} ><ChevronUp/></p>
+                        <span className={`${deliveryGuarantee} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >We don’t just promise fast delivery—we guarantee it. Our 24-Hour Delivery Guarantee means your package will be delivered within 24 hours, or you get your money back. It’s our commitment to speed, reliability, and customer satisfaction.</span>
                         </div>
 
 
                         <div className='grid grid-cols-12' >
                             <p className="col-span-11" >Payment Before Delivery</p> 
-                            <p className={`${PaymentDelivery === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={showPaymentDelivery} ><ChevronUp/> </p>
-                        <span className={`${PaymentDelivery} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} >For efficiency and mutual trust, we operate on a Payment Before Delivery policy. This ensures smooth processing, secure handling, and timely dispatch of your items. Once payment is confirmed, we take care of the rest—fast and professionally.</span>
+                            <p className={`${PaymentDelivery === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showPaymentDelivery} ><ChevronUp/> </p>
+                        <span className={`${PaymentDelivery} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >For efficiency and mutual trust, we operate on a Payment Before Delivery policy. This ensures smooth processing, secure handling, and timely dispatch of your items. Once payment is confirmed, we take care of the rest—fast and professionally.</span>
                         </div>
 
                     </div>
                 </div>
 
-                <div className=' text-center py-5 w-fit mx-auto px-20 mt-10 bg-blue-500 text-xs text-white 2xl:text-3xl uppercase shadow-lg rounded-sm'> <Link to="../CustomerService" > <span className='flex gap-2 lg:gap-6' ><PhoneIcon className='h-4 w-4 lg:w-6 lg:h-6 lg:mt-1.5'/>  <p>Contact Us now</p></span></Link> </div>
+                <Link to="../CustomerService" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '>  <PhoneIcon />  <p>Contact Us Now</p> </div></Link>
             </div>
             <div className="w-full overflow-hidden 2xl:h-200 lg:h-full shadow-lg rounded-sm">
                 <div className="flex transition-transform duration-[800ms] ease-in-out w-full h-full" style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -310,15 +313,15 @@ export function Section6() {
 
                      <div className='grid grid-cols-12' >  
                         <h1 className='col-span-11'>Quick Clearing</h1> 
-                        <p className={`${hideClearing === "hidden"? "": "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={showClearing}><ChevronUp/> </p>   
-                        <span  className={`${hideClearing} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} > We offer comprehensive customs clearing services to make international shipping hassle-free. Our team takes care of all the necessary paperwork, duties, and compliance checks to ensure your goods move smoothly through ports and borders—saving you time and avoiding unnecessary delays or penalties.</span>
+                        <p className={`${hideClearing === "hidden"? "": "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showClearing}><ChevronUp/> </p>   
+                        <span  className={`${hideClearing} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} > We offer comprehensive customs clearing services to make international shipping hassle-free. Our team takes care of all the necessary paperwork, duties, and compliance checks to ensure your goods move smoothly through ports and borders—saving you time and avoiding unnecessary delays or penalties.</span>
                      </div> 
 
 
                      <div className='grid grid-cols-12' >
                         <h1 className='2xl:text-3xl col-span-11'>Same Day Delivery</h1>
-                         <p className={`${hideSameDayDelivery === "hidden" ? "" : "rotate-180" } bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={ShowSameDayClearing} ><ChevronUp/> </p> 
-                     <span className={` ${hideSameDayDelivery} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl `} > Need it there today? Our Same Day Delivery service guarantees that your package reaches its destination within hours. Ideal for urgent business documents, perishable items, or last-minute gifts, we prioritize speed, reliability, and secure handling—so your delivery gets there exactly when it needs to. </span>   
+                         <p className={`${hideSameDayDelivery === "hidden" ? "" : "rotate-180" } bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={ShowSameDayClearing} ><ChevronUp/> </p> 
+                     <span className={` ${hideSameDayDelivery} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2 `} > Need it there today? Our Same Day Delivery service guarantees that your package reaches its destination within hours. Ideal for urgent business documents, perishable items, or last-minute gifts, we prioritize speed, reliability, and secure handling—so your delivery gets there exactly when it needs to. </span>   
                      </div>
 
 
@@ -326,22 +329,22 @@ export function Section6() {
 
                      <div className='grid grid-cols-12' >
                          <h1 className='2xl:text-3xl col-span-11'>24H international Delivery</h1> 
-                         <p className={`${hide24Hinternationa === "hidden" ? "" : "rotate-180"}  bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full`} onClick={showInternational} ><ChevronUp/> </p>
-                     <span className={`px-5 ${hide24Hinternationa} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} >Reach across borders in record time. With our 24-Hour International Delivery, we ensure that your shipment is picked up, processed, and delivered to most major global cities within just one day. Powered by trusted global logistics partners, we make urgent international shipping fast, safe, and efficient. </span> 
+                         <p className={`${hide24Hinternationa === "hidden" ? "" : "rotate-180"}  bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showInternational} ><ChevronUp/> </p>
+                     <span className={`px-5 ${hide24Hinternationa} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >Reach across borders in record time. With our 24-Hour International Delivery, we ensure that your shipment is picked up, processed, and delivered to most major global cities within just one day. Powered by trusted global logistics partners, we make urgent international shipping fast, safe, and efficient. </span> 
 
                      </div>  
 
 
                      <div className='grid grid-cols-12' > 
                         <h1 className='2xl:text-3xl col-span-11'>Door to Door Delivery</h1>
-                         <p className={`${DoortoDoor === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow shadow-black border-none rounded-full `} onClick={ShowDoorToDoor}><ChevronUp/></p>  
-                    <span className={`px-5 ${DoortoDoor} bg-white p-5 col-span-12 text-xs shadow shadow-black border-none rounded-xl`} > From sender to recipient, we manage the entire journey. Our Door to Door Delivery service includes pickup from your location and delivery right to the recipient’s doorstep—no drop-off points or extra effort required. It's a convenient, full-service option designed for individuals and businesses alike. </span>
+                         <p className={`${DoortoDoor === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full `} onClick={ShowDoorToDoor}><ChevronUp/></p>  
+                    <span className={`px-5 ${DoortoDoor} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} > From sender to recipient, we manage the entire journey. Our Door to Door Delivery service includes pickup from your location and delivery right to the recipient’s doorstep—no drop-off points or extra effort required. It's a convenient, full-service option designed for individuals and businesses alike. </span>
                     </div>  
                     </div>
                 </div>
 
 
-                <div className=' text-center py-5 w-fit mx-auto px-20 mt-10 bg-blue-500 text-xs text-white 2xl:text-3xl uppercase shadow-lg rounded-sm lg:mb-5'> <Link to="../CustomerService" > <span className='flex gap-2 lg:gap-6' ><PhoneIcon className='h-4 w-4 lg:w-6 lg:h-6 lg:mt-1.5'/>  <p>Contact Us now</p></span></Link> </div>
+                <Link to="../CustomerService" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '>  <PhoneIcon />  <p>Contact Us Now</p> </div></Link>
             </div>
 
             <div><img src={xpg} alt="warehouse" className='h-full hidden lg:block 2xl:rounded-2xl'/></div>
@@ -945,7 +948,7 @@ export function About_Us() {
         <section className='h-screen' >
         <HeaderPage/>
             <section className='text-sm lg:text-lg libre-baskerville-regular '>
-            <section className={`max-w-4xl mx-auto px-5 pb-20 pt-10 text-gray-800 leading-relaxed bg-slate-100 bg-[url(/src/assets/images/2go_logo_main.png)] bg-contain lg:bg-auto bg-fixed bg-center bg-no-repeat `}>
+            <section className={`max-w-4xl mx-auto px-5 pb-20 pt-10 text-gray-800 leading-relaxed bg-slate-100 bg-[url('/images/2go_logo_main.png')] bg-contain lg:bg-auto bg-fixed bg-center bg-no-repeat `}>
           
   <h1 className="text-3xl lg:py-10 lg:text-4xl font-medium mb-4 text-gray-900 mt-15 libre-baskerville-regular-italic">
     <span className='font-bold italic ' >2GO</span>: A Global Leader in Logistics and Delivery
@@ -953,7 +956,7 @@ export function About_Us() {
 
 
   <div className='my-10 shadow-2xl rounded-sm '>
-    <img src="\images\cruise_coronavirus.1200x800.jpg" alt="cruise Image" className='h-40 lg:h-70 w-full'  />
+    <img src={CoronaImage} alt="cruise Image" className='h-40 lg:h-70 w-full'  />
   </div>
       
   <p>Interpost is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, Interpost has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of Interpost, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
@@ -980,7 +983,7 @@ export function About_Us() {
   <p className='text-[12px] lg:text-[14px] mt-1' >Environmental sustainability is a key part of Interpost’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">6. Customer Experience</h2>
-  <img src="\src\assets\images\happyRating.png" alt="happy rating Image"  className='my-5 shadow-xl border-l-4 border-blue-500 rounded-sm' />
+  <img src={Happyrating} alt="happy rating Image"  className='my-5 shadow-xl border-l-4 border-blue-500 rounded-sm' />
   <p className='text-[12px] lg:text-[14px] mt-1' >Interpost places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, the company has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">7. Competitive Position</h2>
@@ -990,7 +993,7 @@ export function About_Us() {
   <p className='text-[12px] lg:text-[14px] mt-1' >The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. Interpost’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">9. Innovation and the Future</h2>
-  <img src="\src\assets\images\logo-fpi.jpg" alt="iconImage" className='my-5 shadow-xl mx-auto lg:h-100 rounded-sm' />
+  <img src={InnovationImage} alt="iconImage" className='my-5 shadow-xl mx-auto lg:h-100 rounded-sm' />
   <p className='text-[12px] lg:text-[14px] mt-1' >Looking ahead, Interpost plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
 
   <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 uppercase text-center">Conclusion</h2>
