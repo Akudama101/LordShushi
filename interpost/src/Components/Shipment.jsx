@@ -93,6 +93,7 @@ export function Tracking_Page({ stages }) {
       
           <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
        <section className="border h-15 border-transparent">
+       {error && <p className="text-red-600 text-sm text-center px-5">{error}</p>}
        {loading && (
         <div className="flex items-center justify-center">
           <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
@@ -117,7 +118,7 @@ export function Tracking_Page({ stages }) {
             {loading ? 'Tracking...' : 'Track Package'}
           </button>
         </div>
-          {error && <p className="text-red-600 mt-20">{error}</p>}
+          
         </div>
       )}
 
