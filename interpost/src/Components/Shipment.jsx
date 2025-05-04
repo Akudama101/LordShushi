@@ -4,11 +4,24 @@ import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
 import { Link, useNavigate } from "react-router-dom";
+import {X} from 'lucide-react'
 
 
 
 
-
+const Copytext = (elementId) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    const text = element.textContent || element.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Copied to clipboard!");
+    }).catch(err => {
+      console.error("Clipboard copy failed: ", err);
+    });
+  } else {
+    console.error(`Element with ID "${elementId}" not found.`);
+  }
+}
 
 
 
@@ -214,7 +227,10 @@ export function TrackPage(){
 
 
 export function CreateShipment() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [checkSuccess, setCheckSuccess] = useState(null);
+  const [sucessbar, setsuccessBar] = useState("hidden")
+  const [hideCheckSuccess, setHideSuccess] = useState("hidden")
   const [formData, setFormData] = useState({
     trackingnumber: '',
     sendersname: '',
@@ -233,37 +249,72 @@ export function CreateShipment() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const fullData = {
-      ...formData,
-      startTime: new Date().toISOString(), // Generate start time at submission
+   if(!formData.trackingnumber || !formData.sendersname || !formData.phone || !formData.sendersaddress || !formData.clearancefee){
+    alert("Please Fill The form")
+   } else {
+    const fullData = {...formData, startTime: new Date().toISOString(), // Generate start time at submission
     };
 
-    try {
-      setLoading(true)
-      const res = await fetch('https://interpost-backend.onrender.com/progress', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(fullData),
-      });
+  try {
+    setLoading(true)
+    const res = await fetch('https://interpost-backend.onrender.com/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(fullData),
+    });
 
-      if (res.ok) {
-        console.log('Shipment data saved successfully');
-        alert('Shipment created successfully!');
-      } else {
-        console.error('Failed to save shipment data');
-      }
-    } catch (err) {
-      console.error('Backend error:', err);
-    } finally {
-      setLoading(false)
+    if (res.ok) {
+      
+      console.log('Shipment data saved successfully');
+     // alert('Shipment created successfully!');
+      setCheckSuccess(true)
+    
+    } else {
+      
+      console.error('Failed to save shipment data');
+      setCheckSuccess(false)
+     
     }
-  };
+  } catch (err) {
+    console.error('Backend error:', err);
+     setCheckSuccess(false)
+  } finally {
+    setLoading(false)
+   
+  }
 
+if(loading === false){
+setsuccessBar("block");
+}
+
+   }
+ };
+
+  
 
 
   return (
     <>
       <HeaderPage />
+      <div className={`h-screen grid  items-center px-5 bg-black/70 fixed w-full ${ sucessbar } `} >
+
+      <div className={`py-5 px-5 space-y-5 bg-white shadow shadow-blue-500 text-sm rounded-sm ${checkSuccess === false ? "block" : "hidden"}`} >
+      <div className="w-full text-red-500" ><X className="w-fit ml-auto rounded-full p-1 bg-white shadow shadow-blue-500" onClick={() => {setsuccessBar("hidden");}} /></div>
+        <p className="text-red-500" >There was an Error Creating Your Shipment Info , Please Cancel And Retry Again</p>
+      </div>
+
+       <span className={`$${checkSuccess === true ? "block" : "hidden"}`} >
+       <div className="py-5 px-5 space-y-5 bg-white shadow shadow-blue-500 text-sm rounded-sm" >
+          <div className="w-full text-red-500" ><X className="w-fit ml-auto rounded-full p-1 bg-white shadow shadow-blue-500" onClick={() => {setsuccessBar("hidden");}} /></div>
+         <span className="flex  justify-between" >
+         <p>Your Tracking Number is : </p> 
+         <p id="trackingNumber" >{formData.trackingnumber}</p>
+         </span>
+         <div className="w-fit bg-blue-500  px-5 text-[10px] py-2 text-white shadow-lg" onClick={() => {Copytext("trackingNumber")}} >COPY</div>
+        </div>
+       </span>
+
+      </div>
       <div className="py-20 overflow-y-auto bg-slate-100 h-screen px-2">
         <form onSubmit={handleSubmit}>
           <div className="lg:w-1/3  mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px]">

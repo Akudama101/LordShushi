@@ -406,7 +406,6 @@ export function Section8() {
     )
 }
 
-
 export function CustomerService() {
 
     useEffect(() => {
@@ -692,7 +691,6 @@ const Copytext = (elementId) => {
         </>
     )
 }
-
 
 export function HeaderPage(){
     const navigate = useNavigate()
