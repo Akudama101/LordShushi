@@ -28,7 +28,7 @@ import { Footer } from './MainHomePage'
 import directorPic from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/images/2go_logo_main.png"
 import agentRealPic  from "/images/Tax-Agents.jpg"
-import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon} from 'lucide-react'
+import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon, MailIcon} from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/images/World_blank_map_countries.png'
 import inindn from '/images/Interposkkkkkk.webp'
@@ -504,16 +504,7 @@ const GetAgent = () => {
 
 }
 
-const showNumberBar32 = () =>{
-    if(showNumberBar === "hidden"){
-        setShownumberbar("block")
-    }
-    else {
-        setShownumberbar("hidden")
-    }
-   
 
-}
 
 const Copytext = (elementId) => {
     const element = document.getElementById(elementId);
@@ -546,21 +537,7 @@ const Copytext = (elementId) => {
 
 <div className='relative h-screen '>
     
-<div className={`h-full absolute w-full overflow-auto ${showNumberBar}`}>
-    
-    <div className={`fixed p-5 bg-slate-900 top-1/4 w-90 left-1/2 -translate-x-1/2 space-y-5 text-white  shadow shadow-white rounded-2xl lg:w-100 text-xs`} >
-          <div className='w-full relative mb-10' > <X color="red" className='absolute right-0 bg-white rounded-full shadow-black shadow-2xl p-1' onClick={showNumberBar32} /></div>
-            <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block"}`} >
-                <p>Contact Number :</p>
-            <p id="textNumber" >{AgentData.number}</p></span>
-            <span className={`flex justify-between ${AgentData.Email === "" ? "hidden": "block"}`} >
-                <p>Contact Email :</p>
-                <p id='textEmail'>{AgentData.Email}</p>
-            </span>
-            <p className={`bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold ${AgentData.number === "" ? "hidden" : "block"} rounded-sm`} onClick={() => {Copytext("textNumber")}}>Copy Number</p>
-            <p className={`bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold ${AgentData.Email === "" ? "hidden" : "block"} rounded-sm`} onClick={() => {Copytext("textEmail")}} >Copy Email</p>
-           </div>
-    </div>
+
     
              
          
@@ -585,14 +562,14 @@ const Copytext = (elementId) => {
 
         <div>
              <p className='my-1'>Select Country  of Service</p>
-            <Select options={countries} onChange={handleChange1} value={selectValue1}/>
+            <Select options={countries} onChange={handleChange1} value={selectValue1 } isSearchable={false} placeholder="Choose Country of Service"  className='outline-none text-black'/>
         </div>
     
 
 
     <div>
     <p className='my-1'>Purpose of Contact</p>
-    <Select onChange={handleChange2} value={selectValue2} options={PurposeOfContact}/>
+    <Select onChange={handleChange2} value={selectValue2} options={PurposeOfContact} isSearchable={false}  className='outline-none text-black'/>
 
     </div>
     
@@ -625,13 +602,14 @@ const Copytext = (elementId) => {
             <p className='text-lg text-center ' >Agent Details</p>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase '>Agent Name:</h1> <p>{AgentData.name}</p></span>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Country of Operation:</h1> <p>{AgentData.country}</p></span>
-               <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block "}   shadow shadow-blue-500 p-2`} ><h1 className='font-bold uppercase '>Contact:</h1> <p>{AgentData.number}</p></span>
-               <span className={`flex justify-between  ${AgentData.Email === "" ? "hidden" : "block"} shadow shadow-blue-500 p-2`} > <h1 className='font-medium uppercase'>Email: </h1> <p>{AgentData.Email}</p> </span>
+               <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block "}   shadow shadow-blue-500 p-2`} onClick={() => {Copytext("numberAgent")}} ><h1 className='font-bold uppercase '>Contact:</h1> <p id='numberAgent' >{AgentData.number}</p></span>
+               <span className={`flex justify-between  ${AgentData.Email === "" ? "hidden" : "block"} shadow shadow-blue-500 p-2`} onClick={() => {Copytext("EmailAgent")}} > <h1 className='font-medium uppercase'>Email: </h1> <p id="EmailAgent" >{AgentData.Email}</p> </span>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Languages:</h1> <p>{AgentData.admin}</p></span>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Working Hours</h1> <p>8:am - 8pm GMT </p></span>
     
            </div>
-           <div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5'onClick={showNumberBar32} > <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div>
+          <span className={`${AgentData.number === "" ? "hidden" : "block"}`}   onClick={() => {window.location.href = `tel:${AgentData.number}`}} > <div className={`text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5`}> <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div></span>
+           <span className={`${AgentData.Email === "" ? "hidden" : "block"}`} onClick={() => window.location.href = `mailto:${AgentData.Email}`} ><div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5'> <MailIcon size={15} className='mt-0.5'/> <p>Mail Available Agent Now</p> </div></span>
        </div>
     
     
