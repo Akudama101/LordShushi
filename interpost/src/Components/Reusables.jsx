@@ -28,7 +28,7 @@ import { Footer } from './MainHomePage'
 import directorPic from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import agentPic from "/images/2go_logo_main.png"
 import agentRealPic  from "/images/Tax-Agents.jpg"
-import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon} from 'lucide-react'
+import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon, MailIcon} from 'lucide-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import asusas from '/images/World_blank_map_countries.png'
 import inindn from '/images/Interposkkkkkk.webp'
@@ -59,17 +59,20 @@ export function Section1() {
      
 
 
-        <section className='bg-[url("/images/Groupbd.png")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
+        <section className='bg-[url("/images/pickLopaju.webp")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
          
         
 <span>
-    <p className='font-bold text-white text-5xl px-5 lg:hidden' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
+    <div className='rounded-sm  bg-slate-900 w-2/3 space-y-20 p-5 lg:hidden ml-5 shadow-lg' >
+    <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span> Delivery Service is here to serve you.</p>
+    <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' ><Link to="../TrackPage" > <span className='flex gap-2' ><Truck/><p>Track Package</p></span></Link> </div>
+    </div>
 
 
-    <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-5 shadow-2xl' >
+    <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-10 shadow-2xl' >
     <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
 
-       <Link to="../TrackPage"> <div className='bg-red-500 w-fit px-10 text-white uppercase py-2 mt-50 mx-auto flex gap-2 rounded-sm' > <Truck/> <p>Track Package</p></div></Link>
+       <Link to="../TrackPage"> <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  > <Truck/> <p>Track Package</p></div></Link>
 
 
     </div>
@@ -114,7 +117,7 @@ export function Section2() {
             <div className=' text-slate-800 '>
                 <h1 className='text-2xl  font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
                 <p className='text-xl  text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
-               <Link to="../TrackPage" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '><Truck/><p>Track Package</p></div></Link>
+               <Link to="../CustomerService" >  <div className='py-5  w-fit  px-10 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg '><p>Explore More Options</p></div></Link>
             </div>
         </section>
         </>
@@ -504,16 +507,7 @@ const GetAgent = () => {
 
 }
 
-const showNumberBar32 = () =>{
-    if(showNumberBar === "hidden"){
-        setShownumberbar("block")
-    }
-    else {
-        setShownumberbar("hidden")
-    }
-   
 
-}
 
 const Copytext = (elementId) => {
     const element = document.getElementById(elementId);
@@ -546,21 +540,7 @@ const Copytext = (elementId) => {
 
 <div className='relative h-screen '>
     
-<div className={`h-full absolute w-full overflow-auto ${showNumberBar}`}>
-    
-    <div className={`fixed p-5 bg-slate-900 top-1/4 w-90 left-1/2 -translate-x-1/2 space-y-5 text-white  shadow shadow-white rounded-2xl lg:w-100 text-xs`} >
-          <div className='w-full relative mb-10' > <X color="red" className='absolute right-0 bg-white rounded-full shadow-black shadow-2xl p-1' onClick={showNumberBar32} /></div>
-            <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block"}`} >
-                <p>Contact Number :</p>
-            <p id="textNumber" >{AgentData.number}</p></span>
-            <span className={`flex justify-between ${AgentData.Email === "" ? "hidden": "block"}`} >
-                <p>Contact Email :</p>
-                <p id='textEmail'>{AgentData.Email}</p>
-            </span>
-            <p className={`bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold ${AgentData.number === "" ? "hidden" : "block"} rounded-sm`} onClick={() => {Copytext("textNumber")}}>Copy Number</p>
-            <p className={`bg-blue-700 w-fit text-white  px-4 text-[10px] py-2  uppercase font-bold ${AgentData.Email === "" ? "hidden" : "block"} rounded-sm`} onClick={() => {Copytext("textEmail")}} >Copy Email</p>
-           </div>
-    </div>
+
     
              
          
@@ -585,14 +565,14 @@ const Copytext = (elementId) => {
 
         <div>
              <p className='my-1'>Select Country  of Service</p>
-            <Select options={countries} onChange={handleChange1} value={selectValue1}/>
+            <Select options={countries} onChange={handleChange1} value={selectValue1 } isSearchable={false} placeholder="Choose Country of Service"  className='outline-none text-black'/>
         </div>
     
 
 
     <div>
     <p className='my-1'>Purpose of Contact</p>
-    <Select onChange={handleChange2} value={selectValue2} options={PurposeOfContact}/>
+    <Select onChange={handleChange2} value={selectValue2} options={PurposeOfContact} isSearchable={false}  className='outline-none text-black'/>
 
     </div>
     
@@ -625,13 +605,14 @@ const Copytext = (elementId) => {
             <p className='text-lg text-center ' >Agent Details</p>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase '>Agent Name:</h1> <p>{AgentData.name}</p></span>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Country of Operation:</h1> <p>{AgentData.country}</p></span>
-               <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block "}   shadow shadow-blue-500 p-2`} ><h1 className='font-bold uppercase '>Contact:</h1> <p>{AgentData.number}</p></span>
-               <span className={`flex justify-between  ${AgentData.Email === "" ? "hidden" : "block"} shadow shadow-blue-500 p-2`} > <h1 className='font-medium uppercase'>Email: </h1> <p>{AgentData.Email}</p> </span>
+               <span className={`flex justify-between ${AgentData.number === "" ? "hidden" : "block "}   shadow shadow-blue-500 p-2`} onClick={() => {Copytext("numberAgent")}} ><h1 className='font-bold uppercase '>Contact:</h1> <p id='numberAgent' >{AgentData.number}</p></span>
+               <span className={`flex justify-between  ${AgentData.Email === "" ? "hidden" : "block"} shadow shadow-blue-500 p-2`} onClick={() => {Copytext("EmailAgent")}} > <h1 className='font-medium uppercase'>Email: </h1> <p id="EmailAgent" >{AgentData.Email}</p> </span>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Languages:</h1> <p>{AgentData.admin}</p></span>
                <span className='flex  justify-between' ><h1 className='font-medium uppercase  '>Working Hours</h1> <p>8:am - 8pm GMT </p></span>
     
            </div>
-           <div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5'onClick={showNumberBar32} > <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div>
+          <span className={`${AgentData.number === "" ? "hidden" : "block"}`}   onClick={() => {window.location.href = `tel:${AgentData.number}`}} > <div className={`text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5`}> <Phone size={15} className='mt-0.5'/> <p>Talk To Available Agent Now</p> </div></span>
+           <span className={`${AgentData.Email === "" ? "hidden" : "block"}`} onClick={() => window.location.href = `mailto:${AgentData.Email}`} ><div className=' text-center px-10 py-2 mx-auto bg-red-700 text-sm text-white flex gap-2 justify-center lg:py-5'> <MailIcon size={15} className='mt-0.5'/> <p>Mail Available Agent Now</p> </div></span>
        </div>
     
     
