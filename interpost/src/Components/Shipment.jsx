@@ -183,8 +183,64 @@ export function CreateShipment(){
   return(
     <>
     <HeaderPage/>
-    <div>
-      this is the shipment page
+    <div className="pt-20 bg-slate-100 h-screen" >
+
+      <form action="">
+
+
+
+      <div className=" lg:w-1/3 w-90 mx-auto px-10 space-y-5 py-5 bg-white shadow-lg rounded-tl-[70px] rounded-br-[70px] " >
+        <h1 className="text-center uppercase font-bold  text-2xl" >Create <span className="text-amber-500">Shipment</span></h1>
+        <hr className="h-1 bg-slate-900 border-black" />
+        <section className="space-y-5 text-sm">
+          <div>
+            <label htmlFor="">Tracking Number</label>
+            <input type="text" placeholder="Enter Tracking Number" className="block w-full py-4 bg-slate-100 rounded-xs px-5 outline-none text-xs mt-1" />
+          </div>
+          <div>
+            <label htmlFor=""> Senders Name </label>
+            <input type="text" placeholder="Enter Sender's Name" className="block w-full py-4 bg-slate-100 rounded-xs px-5 outline-none text-xs mt-1" />
+          </div>
+          <div>
+            <label htmlFor="">Sender's Address </label>
+            <textarea name="" id="" placeholder="Enter Senders Address" className="block w-full py-4 bg-slate-100 rounded-xs px-5 outline-none text-xs mt-1"></textarea>
+          </div>
+          <div>
+            <label htmlFor=""> Receipient Name </label>
+            <input type="text" placeholder="Enter Receipient Name" className="block w-full py-4 bg-slate-100 rounded-xs px-5 outline-none text-xs mt-1" />
+          </div>
+          <div>
+            <label htmlFor="">Receipient Address </label>
+            <textarea name="" id="" placeholder="Enter Receipient Address" className="block w-full py-4 bg-slate-100 rounded-xs px-5 outline-none text-xs mt-1"></textarea>
+          </div>
+          <div>
+            <label htmlFor=""> Clearance to be Paid </label>
+            <input type="number" placeholder="How Much To be Paid" className="block w-full py-4 bg-slate-100 rounded-xs px-5 outline-none text-xs mt-1" />
+          </div>
+        </section>
+        <div className="bg-red-700 w-fit px-5 text-white   py-2 shadow-xl " ><button>Create Shipment</button></div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </form>
+      
     </div>
     </>
   )
