@@ -137,9 +137,9 @@ export function Footer(){
 <div className="p-5 bg-slate-900 space-y-10 py-10 lg:py-20 lg:px-20 text-white" >
 <div className="space-y-10 grid lg:grid-cols-3" >
 <ul className="space-y-2 text-sm " >
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>Airport Residence Terminal 2 <span className="font-bold" >Accra, Ghana</span></p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+ 233 57 000 000  </span> </p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >interpostsupport@company.com</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>San Jose–San Francisco–Oakland<br/><span className="font-bold" >San Francisco</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+1 (232)-573-0002  </span> </p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2GOsupport@company.com</span></p> </li>
 </ul>
 
 <ul className="space-y-2 hidden lg:block" >
@@ -159,7 +159,7 @@ export function Footer(){
   <li className="" ><div className="bg-green-500 w-fit p-2" ><img src={whatsAppLogo} alt="whatsPPiCON" /></div></li>
 </ul>
 </div>
-<div className="text-center  text-xs" ><p>&copy; interpost-service</p></div>
+<div className="text-center  text-xs" ><p>&copy; 2GO-Courier-Service</p></div>
 </div>
 
 
