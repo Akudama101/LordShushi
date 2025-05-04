@@ -35,7 +35,7 @@ import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import whatsAppLogo from "/images/whatsAppLogo.png"
 import {About_Us} from './Reusables'
-import {TrackPage, CreateShipment} from './Shipment'
+import {TrackPage, CreateShipment, CreateShipmentLogin} from './Shipment'
 
 
 
@@ -71,7 +71,8 @@ export function RoutesPage (){
         <Route path="Weather_and_Shipping" element={<Weather_and_Shipping/>} ></Route>
         <Route path="Barcode_Scanning_in_Logistics" element={<Barcode_Scanning_in_Logistics/>} ></Route>
         <Route path="Multi_Package_Tracking" element={<Multi_Package_Tracking/>} ></Route>
-        <Route path="CreateShipment" element={<CreateShipment/>} ></Route>
+        <Route path="CreateShipment" element={<CreateShipmentLogin/>} ></Route>
+        <Route path="CreateShipmentPage" element={<CreateShipment/>} ></Route>
       
       </Routes>
     </>

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -336,6 +336,65 @@ export function CreateShipment() {
       <Footer/>
     </>
   );
+}
+
+export function CreateShipmentLogin(){
+
+  
+  const Navigate = useNavigate();
+  const [formData , setFormData] = useState({ Token:"",PassKey:"",});
+  const login = [{TokenId:"snakedick", PassKey:"2020"},];
+  const [messageAlert, setMessageAlert] = useState({textColor:"",  Message:""});
+  const handleChange = (e) => {setFormData({...formData , [e.target.name] : e.target.value})  };
+
+  
+
+
+  const handleSubmittoChanage = () => {
+  
+    if(formData.Token === "" || formData.PassKey === ""){ setMessageAlert({ textColor: "text-red-500",Message: "Please Enter Your Token-Id and Pin" });}
+     else { if(formData.Token === login[0].TokenId && formData.PassKey === login[0].PassKey){ setMessageAlert({textColor:"text-green-500", Message:'Login SuccessFull'}); Navigate("../CreateShipmentPage");} 
+     else { setMessageAlert({ Message:"login Invalid , please Make sure your Pin is Accurate",   textColor:"text-red-500"  })  } }
+   
+  }
+
+ 
+
+
+  return(
+<>
+<HeaderPage/>
+<div className="h-screen py-30 bg-slate-100" >
+
+
+
+  <div className=" lg:w-100 p-5 mx-auto bg-white text-center pb-10  shadow shadow-blue-500 border-l-8  border-l-blue-500 space-y-5 w-80 text-[12px] lg:text-[14px] font-medium rounded-sm" >
+    <h1 className="font-bold uppercase text-2xl" >Login Access</h1>
+      <div>
+        <label htmlFor="">Enter Access Login Token</label>
+        <input type="text" className="w-full block bg-slate-100  shadow shadow-blue-500  py-2 mt-1 px-5 outline-none font-normal" name="Token" onChange={handleChange}/>
+      </div>
+      <div>
+        <label htmlFor="">PassKey/ Pin</label>
+        <input type="number" className="w-full block bg-slate-100  shadow shadow-blue-500  py-2 mt-1 px-5 outline-none font-normal" name="PassKey" onChange={handleChange} />
+      </div>
+      <p className={`${messageAlert.textColor}`} > {messageAlert.Message} </p>
+      <div className="bg-blue-500 w-fit  px-5 py-2 text-white rounded-sm mt-10" >
+        <button type="submit"className="uppercase" onClick={handleSubmittoChanage}> Get Access </button>
+      </div>
+      </div>
+     
+ 
+  
+
+  
+
+</div>
+
+<Footer />
+
+</>
+  )
 }
 
 
