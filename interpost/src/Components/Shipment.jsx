@@ -135,7 +135,7 @@ export function Tracking_Page({ stages }) {
       {!startTime && (
         <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
           <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
-           <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your Tracking Number in the box and press the "Track Package Button". Find your tracking number on your receipt.</p>
+           <p className="text-xs lg:text-sm lg:text-center" >To Track your package please enter your Tracking Number in the box bolow and press the "Track Package Button". Find your tracking number on your receipt or Invoice. Thank You!</p>
       
           <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
       
@@ -152,7 +152,7 @@ export function Tracking_Page({ stages }) {
           <button
             onClick={handleSubmit}
             disabled={loading || !trackingnumber.trim()}
-            className="mt-5 px-4 py-2 bg-blue-500 text-white disabled:opacity-50"
+            className="mt-5 px-4 py-2 bg-blue-500 text-white disabled:opacity-30"
           >
             {loading ? 'Tracking...' : 'Track Package'}
           </button>
