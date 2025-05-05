@@ -394,6 +394,7 @@ export function Section8() {
                 <div className='bg-gray-700 pt-5 pb-20 px-5 space-y-2 text-white shadow-lg' >
                     <h1 className='font-bold' >Interpost Director</h1>
                     <p className='text-xs' >Mr Cam Odie</p>
+                    <p className='flex gap-2 text-xs' ><MailIcon size={15} className='mt-0.5' /> <span>2godeliverycompany@gmail.com</span></p>
                  
                 </div>
                 </div>
@@ -430,7 +431,7 @@ const AgentINforGhana =
    { imageID: TaxAgentImg,
         name:"Dickson Amankona",
         country:"Ghana",
-        number:"+2332015559541",
+        number:"+233504372398",
         admin:"English, twi & French",
 
     };
@@ -440,7 +441,7 @@ const AgentINforGhana =
         imageID: ManagerImg,
         name:"Daniel Lark",
         country:"USA & Canada",
-        Email:"customerService@gmail.com",
+        Email:"2godeliverycompany@gmail.com",
         Admin:"English, Spanish , French & German"
     }
 

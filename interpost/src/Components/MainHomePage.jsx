@@ -131,6 +131,11 @@ export function HomePage() {
 
 export function Footer(){
 
+  const [showWhatAppIcon, setSHowWhatAPP] = useState({
+    show:"hidden",
+    Circle:"rounded-sm "
+  })
+
   return(
     <div>
 
@@ -138,8 +143,8 @@ export function Footer(){
 <div className="space-y-10 grid lg:grid-cols-3" >
 <ul className="space-y-2 text-sm " >
   <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>Airport Residence Terminal 2 <span className="font-bold" >Accra, Ghana</span></p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+ 233 57 000 000  </span> </p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >interpostsupport@company.com</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Phone size={15} /> </div> <p><span className="" >+233 504 372 398</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2godeliverycompany@gmail.com</span></p> </li>
 </ul>
 
 <ul className="space-y-2 hidden lg:block" >
@@ -156,7 +161,13 @@ export function Footer(){
 <ul className="space-y-5" >
   <li className=" font-bold text-lg" ><h1>About 2GO</h1></li>
   <li className=" text-sm" > <span className="font-bold" >2GO </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
-  <li className="" ><div className="bg-green-500 w-fit p-2" ><img src={whatsAppLogo} alt="whatsPPiCON" /></div></li>
+  <li className="flex h-15  -mb-8" >
+    <div className={`h-fit bg-slate-900  space-y-2 py-2 flex gap-5 ml-auto ${showWhatAppIcon.show}`} >
+       <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" onClick={() => {window.open("https://wa.me/+233504372398", "_blank")}} > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>   <p>Ghana Agent</p> </div> 
+      <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>  <p>USA Agent</p> </div>
+    </div>
+    <div className={`bg-green-500 ml-auto h-fit p-2 mt-1  shadow-xl  ${showWhatAppIcon.Circle}`} onClick={() => { if(showWhatAppIcon.show === "hidden"){  setSHowWhatAPP({show:"block", Circle:"rounded-full " }) } else {  setSHowWhatAPP({    show:"hidden", Circle:"rounded-sm",   }) }}} ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>
+</li>
 </ul>
 </div>
 <div className="text-center  text-xs" ><p>&copy; interpost-service</p></div>
