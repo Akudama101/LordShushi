@@ -17,10 +17,16 @@ import ainosn from '/images/Shipmedddddddd.webp'
 import { HeaderPage } from './Reusables';
 import { Footer } from './MainHomePage';
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { useEffect } from 'react';
 
 export function How_Package_Tracking_Works() {
+  const navigate = useNavigate()
+
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
    useEffect(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -33,7 +39,7 @@ export function How_Package_Tracking_Works() {
             <img src={digini} alt="image" className='mt-16 mx-auto mb-5 lg:w-250' />
             <section className="max-w-4xl mx-auto px-6 pb-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
 
-             <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500' > <ArrowLeft/> <p>Previous</p> </div></Link>
+             <div className='flex gap-2 text-sm text-blue-500' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
                
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">
     How Package Tracking Works in Modern Logistics
@@ -102,7 +108,12 @@ export function How_Package_Tracking_Works() {
     )
 }
 export function Safe_Package_Delivery_Tips() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -124,7 +135,7 @@ export function Safe_Package_Delivery_Tips() {
 
                 
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+             <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">
     Safe Package Delivery Tips
   </h1>
@@ -189,7 +200,12 @@ export function Safe_Package_Delivery_Tips() {
 }
 export function Package_delay_solutions() {
 
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -208,7 +224,7 @@ export function Package_delay_solutions() {
             <section>
                 <img src={bdubuf} alt="workHouse"  className='mt-16 mx-auto lg:w-250'/>
                 <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-                <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+                 <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
 
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">
     Package Delay Solutions
@@ -265,7 +281,12 @@ export function Package_delay_solutions() {
 }
 export function Delivery_Status_Explained() {
 
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -285,7 +306,7 @@ export function Delivery_Status_Explained() {
             <section>
             <img src={efsrsa} alt="" className='mt-16 mx-auto lg:w-250 '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+            <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
                
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">Delivery Status Explained</h1>
 
@@ -343,7 +364,12 @@ export function Delivery_Status_Explained() {
 }
 export function Future_of_delivery() {
 
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -362,7 +388,7 @@ export function Future_of_delivery() {
             <section>
                 <img src={idnigo} alt="drone_image" className='mt-16 lg:w-250 mx-auto'/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+            <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")} > <ArrowLeft/> <p>Previous</p> </div>
             
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">The Future of Delivery</h1>
 
@@ -414,7 +440,12 @@ export function Future_of_delivery() {
     )
 }
 export function File_lost_package_claim() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -437,7 +468,7 @@ export function File_lost_package_claim() {
             <section>
                 <img src={singosd} alt="signed Image" className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+           <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")} > <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">How to File a Lost Package Claim</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -490,7 +521,12 @@ export function File_lost_package_claim() {
     )
 }
 export function International_Shipping_Basics() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
 
@@ -514,7 +550,7 @@ export function International_Shipping_Basics() {
             <section>
                 <img src={sinios} alt="image" className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+            <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")} > <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >International Shipping Basics</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -581,7 +617,12 @@ export function International_Shipping_Basics() {
     )
 }
 export function Green_Shipping_Methods() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
   useEffect(() => {
@@ -601,7 +642,7 @@ export function Green_Shipping_Methods() {
             <section>
             <img src={isnogsa} alt="image" className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+            <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")} > <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >Green Shipping Methods</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -665,7 +706,12 @@ export function Green_Shipping_Methods() {
 }
 
 export function Covid_Impact_On_Shipping() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
   useEffect(() => {
@@ -682,7 +728,7 @@ export function Covid_Impact_On_Shipping() {
             <section>
                 <img src={sinoeis} alt="image"  className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+            <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">COVID-19 Impact on Shipping</h1>
 
   <p className=" text-sm lg:text-lg" >
@@ -744,7 +790,12 @@ export function Covid_Impact_On_Shipping() {
     )
 }
 export function Delivery_driver_daily() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
 
@@ -763,7 +814,7 @@ export function Delivery_driver_daily() {
             <section>
                 <img src={sinoano} alt="image" className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+           <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">A Day in the Life of a Delivery Driver</h1>
 
   <p className=" text-sm lg:text-lg" >
@@ -826,7 +877,12 @@ export function Delivery_driver_daily() {
 }
 
 export function Importance_of_tracking_numbers() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
   useEffect(() => {
@@ -846,7 +902,7 @@ export function Importance_of_tracking_numbers() {
             <section>
                 <img src={isnongo} alt="image" className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+           <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >Importance of Tracking Numbers</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -903,7 +959,12 @@ export function Importance_of_tracking_numbers() {
 }
 
 export function Same_Day_Delivery_Explained() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -921,7 +982,7 @@ export function Same_Day_Delivery_Explained() {
             <section>
             <img src={sijipg} alt="image"  className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+           <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic">Same-Day Delivery Explained</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -977,7 +1038,12 @@ export function Same_Day_Delivery_Explained() {
 }
 
 export function Damage_Prevention_Through_Packaging() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
 
@@ -999,7 +1065,7 @@ export function Damage_Prevention_Through_Packaging() {
             <section>
                 <img src={sinisng} alt="image"  className='mt-16 lg:w-250 mx-auto ' />
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+             <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >Damage Prevention Through Packaging</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -1065,7 +1131,12 @@ export function Damage_Prevention_Through_Packaging() {
 }
 
 export function Weather_and_Shipping() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
 
@@ -1088,7 +1159,7 @@ export function Weather_and_Shipping() {
             <section>
                 <img src={ishinfa} alt="image"  className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+           <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")} > <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >Weather and Shipping</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -1138,7 +1209,12 @@ export function Weather_and_Shipping() {
 }
 
 export function Barcode_Scanning_in_Logistics() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
   useEffect(() => {
@@ -1159,7 +1235,7 @@ export function Barcode_Scanning_in_Logistics() {
             <section>
                 <img src={sinina} alt="image"  className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+           <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")} > <ArrowLeft/> <p>Previous</p> </div>
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >Barcode Scanning in Logistics</h1>
 
   <p className=" text-sm lg:text-lg">
@@ -1224,7 +1300,12 @@ export function Barcode_Scanning_in_Logistics() {
     )
 }
 export function Multi_Package_Tracking() {
+  const navigate = useNavigate()
 
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
   useEffect(() => {
@@ -1243,7 +1324,7 @@ export function Multi_Package_Tracking() {
             <section>
                 <img src={ainosn} alt="image"  className='mt-16 lg:w-250 mx-auto '/>
             <section className="max-w-4xl mx-auto px-6 py-10 text-gray-800 leading-relaxed text-[12px] lg:text-[14px]">
-            <Link to="../Blog" > <div className='flex gap-2 text-sm text-blue-500 my-5' > <ArrowLeft/> <p>Previous</p> </div></Link>
+            <div className='flex gap-2 text-sm text-blue-500 my-5' onClick={() => handleNav("../Blog")}> <ArrowLeft/> <p>Previous</p> </div> 
   <h1 className="text-4xl font-bold mb-6 mt-5 text-gray-900 libre-baskerville-regular-italic" >Multi-Package Tracking Explained</h1>
 
   <p className=" text-sm lg:text-lg">

@@ -170,7 +170,7 @@ export function Footer(){
 </li>
 </ul>
 </div>
-<div className="text-center  text-xs" ><p>&copy; interpost-service</p></div>
+<div className="text-center  text-xs" ><p>&copy; 2GO-Courier-Service</p></div>
 </div>
 
 

@@ -32,7 +32,7 @@ import asusas from '/images/World_blank_map_countries.png'
 import Select from "react-select"
 import TaxAgentImg from "/images/Tax-Agents.jpg"
 import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
-import CoronaImage from "/images/cruise_coronavirus.1200x800.jpg"
+import CoronaImage from "/images/Loading-container-in-cargo-airplane.webp"
 import Happyrating from "/images/happyRating.png"
 import InnovationImage from "/images/logo-fpi.jpg"
 
@@ -50,6 +50,11 @@ const images3 = [bb1, bb2, bb3]
 //bg-[#41134E]
 
 export function Section1() {
+    const navigate = useNavigate() 
+    const handleNav = (path) => {
+        navigate(path);
+        window.location.reload();
+    }
     return(
         <>
          <div  ><HeaderPage/></div>
@@ -62,14 +67,14 @@ export function Section1() {
 <span>
     <div className='rounded-sm  bg-slate-900 w-2/3 space-y-20 p-5 lg:hidden ml-5 shadow-lg' >
     <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span> Delivery Service is here to serve you.</p>
-    <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' ><Link to="../TrackPage" > <span className='flex gap-2' ><Truck/><p>Track Package</p></span></Link> </div>
+    <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' onClick={() => handleNav("../TrackPage" )} ><span className='flex gap-2' ><Truck/><p>Track Package</p></span> </div>
     </div>
 
 
     <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-10 shadow-2xl' >
     <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
 
-       <Link to="../TrackPage"> <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  > <Truck/> <p>Track Package</p></div></Link>
+       <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  onClick={() => handleNav("../TrackPage")}> <Truck/> <p>Track Package</p></div>
 
 
     </div>
@@ -86,6 +91,7 @@ export function Section1() {
 }
 
 export function Section2() {
+    const navigate = useNavigate()
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
@@ -94,6 +100,11 @@ export function Section2() {
         }, 4000);
         return () => clearInterval(interval)
     }, [])
+
+    const handleNav = (path) => {
+        navigate(path);
+        window.location.reload();
+    }
 
     return(
         <>
@@ -114,7 +125,7 @@ export function Section2() {
             <div className=' text-slate-800 '>
                 <h1 className='text-2xl  font-bold text-center my-5 2xl:mt-30 2xl:text-6xl lg:text-4xl lg:my-15'>For Your Business</h1>
                 <p className='text-xl  text-center 2xl:text-3xl 2xl:px-5 2xl:my-15 lg:px-4 lg:text-2xl px-5'>Power your small and medium-sized business sucess with world-class shipping and logistics. Our team of experts can help you address the ever changing need of your customers</p>
-               <Link to="../CustomerService" >  <div className='py-5  w-fit  px-10 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg '><p>Explore More Options</p></div></Link>
+              <div className='py-5  w-fit  px-10 mx-auto my-15 text-white  bg-pink-900 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg ' onClick={() => handleNav("../CustomerService")}><p>Explore More Options</p></div>
             </div>
         </section>
         </>
@@ -122,6 +133,7 @@ export function Section2() {
 }
 
 export function Section3() {
+    const navigate = useNavigate()
 
   const [index, setIndex] = useState(0);
 
@@ -138,7 +150,10 @@ export function Section3() {
     const showPaymentDelivery = () => {    if(PaymentDelivery === "hidden"){  setPaymentDelivery("block");  setInvoiceClear("hidden") ;   setassurancePackage("hidden");  setdeliveryGuarantee("hidden");  } else {   setPaymentDelivery("hidden") ; } };
     
 
-
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
 
  
@@ -150,7 +165,7 @@ export function Section3() {
                 <h1 className='text-3xl font-bold 2xl:text-6xl 2xl:mt-5'>Document and Parcel Shipping</h1>
                 <h1 className='text-xl  my-5 2xl:text-4xl'>For All Shippers</h1>
                 <hr className='bg-black h-1' />
-                <p className='text-lg my-5  2xl:text-2xl'>Learn about Interpost Express - the undisputed global leader in international experss shipping</p>
+                <p className='text-lg my-5  2xl:text-2xl'>Learn about 2GO Express - the undisputed global leader in international experss shipping</p>
                
                 <div  className=' py-5 space-y-10 border-l-4 p-4 shadow-xl border-blue-500 bg-white mb-10 rounded-sm' >
                     <h1 className='font-bold text-center text-2xl uppercase underline mb-10' > Services</h1>
@@ -169,7 +184,7 @@ export function Section3() {
                         <div className='grid grid-cols-12' >
                             <p className='col-span-11' >100% Assurance safety Package</p> 
                             <p className={`${assurancePackage === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showAssurancePackage} ><ChevronUp/></p> 
-                        <span className={`${assurancePackage} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >Your package’s safety is our top priority. We use secure packaging, trusted handling procedures, and reliable tracking systems to ensure your item arrives in perfect condition. With our 100% Assurance Safety Package, you can ship with total confidence.</span>
+                        <span className={`${assurancePackage} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >At 2GO Your package’s safety is our top priority. We use secure packaging, trusted handling procedures, and reliable tracking systems to ensure your item arrives in perfect condition. With our 100% Assurance Safety Package, you can ship with total confidence.</span>
                         </div>
                         
                         <div className='grid grid-cols-12' >
@@ -188,7 +203,7 @@ export function Section3() {
                     </div>
                 </div>
 
-                <Link to="../CustomerService" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '>  <PhoneIcon />  <p>Contact Us Now</p> </div></Link>
+                <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 ' onClick={() => handleNav("../CustomerService" )}>  <PhoneIcon />  <p>Contact Us Now</p> </div>
             </div>
             <div className="w-full overflow-hidden 2xl:h-200 lg:h-full shadow-lg rounded-sm">
                 <div className="flex transition-transform duration-[800ms] ease-in-out w-full h-full" style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -255,7 +270,7 @@ export function Section5() {
             <h1 className='text-3xl font-bold ml-5 mt-5 2xl:text-6xl'>Cargo Shipping</h1>
             <h1 className='text-2xl ml-5 my-3 2xl:text-4xl 2xl:my-10'>Business Only</h1>
             <div className='w-4/5 border shadow shadow-black ml-5 my-3'></div>
-            <p className='text-xl px-3 ml-1 2xl:text-3xl 2xl:mt-10'>Discover Shipping and logistics Service Options from Interpost Global Forwarding</p>
+            <p className='text-xl px-3 ml-1 2xl:text-3xl 2xl:mt-10'>Discover Shipping and logistics Service Options from 2GO Global Forwarding</p>
             <div className='h-50 2xl:h-65 bg-[#DBD7D7] my-8 border border-[#DBD7D7]'>
                 <p className='font-bold text-xl mt-5 ml-5 2xl:text-3xl'>Services Available</p>
                 <div className='grid grid-cols-2 mt-5 gap-8 ml-5 2xl:text-2xl'>
@@ -265,7 +280,7 @@ export function Section5() {
                     <p>Rail Freight</p>
                 </div>
             </div>
-            <button className='h-15 bg-red-600 text-white text-xl w-4/5 ml-10 rounded-2xl mb-8 lg:mt-10 2xl:text-2xl lg:font-bold'>Explore Interpost Global Forwarding</button>
+            <button className='h-15 bg-red-600 text-white text-xl w-4/5 ml-10 rounded-2xl mb-8 lg:mt-10 2xl:text-2xl lg:font-bold'>Explore 2GO'S Global Forwarding</button>
            </div>
 
            <div className='overflow-hidden w-full h-full shadow-lg'>
@@ -279,6 +294,7 @@ export function Section5() {
 }
 
 export function Section6() {
+    const navigate = useNavigate();
    
     const [hideClearing, setHideClearing] = useState("hidden") ;
     const [hideSameDayDelivery, setHideSameDayDelivery] = useState("hidden");
@@ -289,7 +305,10 @@ export function Section6() {
     const showInternational = () => {  if(hide24Hinternationa === "hidden"){   setHide24International("block");   setHideClearing("hidden");  setHideSameDayDelivery("hidden") ;   setdoorToDoor("hidden") } else { setHide24International("hidden")  } };
     const ShowDoorToDoor = () => { if(DoortoDoor === "hidden"){   setdoorToDoor("block");   setHideClearing("hidden"); setHideSameDayDelivery("hidden");  setHide24International("hidden");   } else {  setdoorToDoor("hidden")  }   }
 
-
+    const handleNav = (path) => {
+        navigate(path);
+        window.location.reload()
+    }
 
 
 
@@ -344,7 +363,7 @@ export function Section6() {
                 </div>
 
 
-                <Link to="../CustomerService" >  <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 '>  <PhoneIcon />  <p>Contact Us Now</p> </div></Link>
+                <div className='py-5  w-fit  px-5 mx-auto my-15 text-white  bg-blue-500 font-bold 2xl:text-3xl  lg:text-xl lg:mt-30 rounded-sm shadow-lg flex gap-5 ' onClick={() => handleNav("../CustomerService")}>  <PhoneIcon />  <p>Contact Us Now</p> </div>
             </div>
 
             <div><img src={xpg} alt="warehouse" className='h-full hidden lg:block 2xl:rounded-2xl'/></div>
@@ -362,7 +381,7 @@ export function Section7() {
          <div className='mx-auto shadow-black shadow rounded-2xl lg:h-130'>
             <img src={xph} alt="Parcel delivery" className='h-70 rounded-t-2xl w-full'/>
             <h1 className='text-2xl font-bold my-2 px-3 2xl:text-4xl 2xl:my-5'>Sustainability</h1>
-            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Sustainable business begins with sustainable supply chains. Find out what we have to offer, Why we're committed to sustainability, and how our industry is helping deliver an even better world</p>
+            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Sustainable business begins with sustainable supply chains. Find out what 2GO has to offer, Why we're committed to sustainability, and how our industry is helping deliver an even better world</p>
          </div>
          
          <div className='mx-auto shadow shadow-black  rounded-2xl lg:h-130'>
@@ -374,7 +393,7 @@ export function Section7() {
          <div className='mx-auto shadow shadow-black rounded-2xl lg:h-130'>
             <img src={xpj} alt="Parcel delivery" className='h-70 rounded-t-2xl w-full'/>
             <h1 className='text-2xl font-bold my-5 px-3 2xl:text-4xl 2xl:my-5'>Trade Atlas 2025</h1>
-            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Global trade recovered in 2024 and is forecast to grow faster over the next five years the during the preceding decade.</p>
+            <p className='text-sm mb-10 px-3 2xl:text-2xl'>Global trade recovered in 2025 and is forecast to grow faster over the next five years the during the preceding decade.</p>
          </div>
          
         </section>
@@ -392,7 +411,7 @@ export function Section8() {
                 <div className='shadow-lg' >
                 <img src={directorPic} alt="director Picture" />
                 <div className='bg-gray-700 pt-5 pb-20 px-5 space-y-2 text-white shadow-lg' >
-                    <h1 className='font-bold' >Interpost Director</h1>
+                    <h1 className='font-bold' >2GO's Director</h1>
                     <p className='text-xs' >Mr Cam Odie</p>
                     <p className='flex gap-2 text-xs' ><MailIcon size={15} className='mt-0.5' /> <span>2godeliverycompany@gmail.com</span></p>
                  
@@ -752,15 +771,16 @@ export function HeaderPage(){
   
 </div>
 
-
-
-
-<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CustomerService')}>
-    <PhoneCallIcon size={20} className='mt-1 text-pink-500'/>
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto mt-5' onClick={() => handleNav('../TrackPage')}> 
+    <TruckIcon size={20} className='mt-1 text-pink-500' />
+    <p>Track Package</p>
     
-    <p>Contact us</p>
-
 </div>
+
+
+
+
+
 
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
@@ -774,25 +794,23 @@ export function HeaderPage(){
     <p>About Us</p>
 </div>
 
-<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' >
-    <UserIcon size={20} className='mt-1 text-pink-500' />
-    <p onClick={openDirector} > Manager</p>
-</div>
 
+<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CustomerService')}>
+    <PhoneCallIcon size={20} className='mt-1 text-pink-500'/>
+    
+    <p>Contact us</p>
+
+</div>
 
 
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../CreateShipment')}>
 <BookCheck size={20} className='mt-1 text-pink-500'/>
-    <p>Create Shipment</p>
+    <p>For Business</p>
 </div>
 
 
 
-<div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto mt-5' onClick={() => handleNav('../TrackPage')}> 
-    <TruckIcon size={20} className='mt-1 text-pink-500' />
-    <p>Track Package</p>
-    
-</div>
+
 
 
 
@@ -938,16 +956,16 @@ export function About_Us() {
     <img src={CoronaImage} alt="cruise Image" className='h-40 lg:h-70 w-full'  />
   </div>
       
-  <p>Interpost is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, Interpost has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of Interpost, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
+  <p>2GO is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, 2GO has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of 2GO, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
 
   <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">1. Origins and Evolution</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >Founded in the early 1980s in the United States, Interpost started as a small courier company with a vision of making international shipping seamless and reliable. As global commerce grew in the late 20th century, so did Interpost’s ambitions. By the mid-1990s, the company had expanded to major cities in Europe and Asia, establishing itself as a key player in cross-border logistics. The decision to move its headquarters to Bonn, Germany, reflected its commitment to serving European markets and optimizing its presence in the heart of the EU.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Founded in the early 1980s in the United States, 2GO started as a small courier company with a vision of making international shipping seamless and reliable. As global commerce grew in the late 20th century, so did 2GO’s ambitions. By the mid-1990s, the company had expanded to major cities in Europe and Asia, establishing itself as a key player in cross-border logistics. The decision to move its headquarters to Bonn, Germany, reflected its commitment to serving European markets and optimizing its presence in the heart of the EU and the World.</p>
 
   <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">2. Global Reach and Infrastructure</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >Interpost operates in over 220 countries and territories, with more than 600 logistics hubs worldwide. These facilities include sorting centers, distribution warehouses, regional depots, and last-mile delivery stations. With a fleet of over 40,000 vehicles and partnerships with local couriers in remote regions, Interpost ensures packages are delivered efficiently, even in the most hard-to-reach areas.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >2GO operates in over 220 countries and territories, with more than 600 logistics hubs worldwide. These facilities include sorting centers, distribution warehouses, regional depots, and last-mile delivery stations. With a fleet of over 40,000 vehicles and partnerships with local couriers in remote regions, 2GO ensures packages are delivered efficiently, even in the most hard-to-reach areas.</p>
 
   <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">3. Technology and Tracking</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >One of Interpost’s core strengths is its investment in technology. The company offers real-time tracking for all parcels, allowing customers to follow their package from dispatch to delivery. Its systems integrate GPS, barcode scanning, RFID, and cloud-based logistics data, enabling transparency and operational efficiency. The Interpost tracking app is a customer favorite, offering updates, delivery customization, and chat support all in one place.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >One of 2GO’s core strengths is its investment in technology. The company offers real-time tracking for all parcels, allowing customers to follow their package from dispatch to delivery. Its systems integrate GPS, barcode scanning, RFID, and cloud-based logistics data, enabling transparency and operational efficiency. The 2GO tracking app is a customer favorite, offering updates, delivery customization, and chat support all in one place.</p>
 
   <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">4. Services Offered</h2>
   <ul className="list-disc lg:px-12 px-6 text-[12px] lg:text-[14px]">
@@ -959,24 +977,24 @@ export function About_Us() {
   </ul>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20  libre-baskerville-regular-italic">5. Commitment to Sustainability</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >Environmental sustainability is a key part of Interpost’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Environmental sustainability is a key part of 2GO’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">6. Customer Experience</h2>
   <img src={Happyrating} alt="happy rating Image"  className='my-5 shadow-xl border-l-4 border-blue-500 rounded-sm' />
-  <p className='text-[12px] lg:text-[14px] mt-1' >Interpost places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, the company has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >2GO courier places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, 2GO has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">7. Competitive Position</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >In a market crowded with giants like FedEx, DHL, UPS, and regional players, Interpost stands out for its balance of reliability, pricing, and technology. By focusing on efficiency and customer satisfaction, Interpost has cultivated strong loyalty among businesses and individual customers alike.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >In a market crowded with giants like FedEx, DHL, UPS, and regional players, 2GO courier stands out for its balance of reliability, pricing, and technology. By focusing on efficiency and customer satisfaction, 2GO has cultivated strong loyalty among businesses and individual customers alike.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">8. Challenges and Resilience</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. Interpost’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. 2GO’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
 
   <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">9. Innovation and the Future</h2>
   <img src={InnovationImage} alt="iconImage" className='my-5 shadow-xl mx-auto lg:h-100 rounded-sm' />
-  <p className='text-[12px] lg:text-[14px] mt-1' >Looking ahead, Interpost plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >Looking ahead, 2GO plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
 
   <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 uppercase text-center">Conclusion</h2>
-  <p className='text-[12px] lg:text-[14px] mt-1' >Interpost’s journey from a small U.S. courier to a global logistics powerhouse is a testament to innovation, resilience, and strategic vision. With its strong foothold in Europe and a growing global presence, the company continues to redefine delivery standards, making the world smaller one package at a time.</p>
+  <p className='text-[12px] lg:text-[14px] mt-1' >2GO’s journey from a small U.S. courier to a global logistics powerhouse is a testament to innovation, resilience, and strategic vision. With its strong foothold in Europe and a growing global presence, 2GO continues to redefine delivery standards, making the world smaller one package at a time.</p>
 </section>
 
             </section>
