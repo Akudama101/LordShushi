@@ -778,11 +778,6 @@ export function HeaderPage(){
 </div>
 
 
-
-
-
-
-
 <div className='bg-slate-700 text-white p-2 flex rounded-xl  gap-5 shadow shadow-slate-500 w-11/12  mx-auto' onClick={() => handleNav('../Blog')}>
     <NewspaperIcon size={20} className='mt-1 text-blue-300' />
 <p>Blog</p>

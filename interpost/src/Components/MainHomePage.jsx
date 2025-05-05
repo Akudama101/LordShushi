@@ -149,8 +149,9 @@ export function Footer(){
 <div className="space-y-10 grid lg:grid-cols-3" >
 <ul className="space-y-2 text-sm cursor-pointer" >
   <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>San Jose–San Francisco–Oakland<br/><span className="font-bold" >San Francisco</span></p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+1 (232)-573-0002  </span> </p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2GOsupport@company.com</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+233 (504)-372-398  </span> </p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2GODliverycompany@gmail.com</span></p> </li>
+ 
 </ul>
 
 <ul className="space-y-2 hidden lg:block cursor-pointer" >
