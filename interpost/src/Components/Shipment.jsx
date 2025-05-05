@@ -119,6 +119,8 @@ export function Tracking_Page({ stages }) {
     window.location.reload();
   }
 
+
+
   
        
   return (
@@ -203,6 +205,7 @@ export function Tracking_Page({ stages }) {
 
           <div className="my-6 mt-20 bg-white rounded shadow shadow-blue-500 mb-40 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
             <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
+            <span className="flex justify-between" ><p className="font-medium" >Sent Date & Time:</p> <p>{shipmentData.startTime}</p> </span>
             <span className="flex justify-between" ><p className="font-medium" >Tracking Number #:</p> <p>{shipmentData.trackingnumber}</p> </span>
             <span className="flex justify-between" ><p className="font-medium" >Sender Name:</p> <p>{shipmentData.sendersname}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Sender Telephone:</p> <p>{shipmentData.phone}</p></span>
