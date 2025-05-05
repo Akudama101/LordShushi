@@ -72,7 +72,7 @@ export function Section1() {
 
 
     <div className='hidden lg:block w-100  mx-20 bg-slate-900 rounded-sm py-10 shadow-2xl' >
-    <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2GO</span> Delivery is here to serve you.</p>
+    <p className='font-bold text-white text-5xl px-10' > <span className='text-blue-500 ' >2-GO</span> Delivery is here to serve you.</p>
 
        <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg flex gap-2 mt-30'  onClick={() => handleNav("../TrackPage")}> <Truck/> <p>Track Package</p></div>
 
