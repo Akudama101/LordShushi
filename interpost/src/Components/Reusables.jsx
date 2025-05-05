@@ -502,7 +502,7 @@ const GetAgent = () => {
             AgentData.admin = AgentINforGhana.admin;
             AgentData.country = AgentINforGhana.country;
             setShowDetails("block");
-            setHideFilter("hidden")
+            setHideFilter("hidden");
     }else{
 
         AgentData.imageID = agentFromotherCuntry.imageID;
