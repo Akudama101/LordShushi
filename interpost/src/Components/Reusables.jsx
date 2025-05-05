@@ -760,7 +760,7 @@ export function HeaderPage(){
                 
                   <div className='flex'>
                     <div className={`bg-slate-900 h-screen w-3/5 py-10 shadow shadow-black space-y-5 `} >
-                    <p className='text-white -mt-10 text-center uppercase' >DashBoard</p>
+                    <p className='text-white -mt-5 text-center uppercase' >DashBoard</p>
 
 
 
