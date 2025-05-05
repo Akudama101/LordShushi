@@ -135,7 +135,7 @@ export function Tracking_Page({ stages }) {
       {!startTime && (
         <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
           <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
-           <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your Tracking Number in the box and press the "Track Button". Find your tracking number on your receipt.</p>
+           <p className="text-xs lg:text-sm lg:text-center" >To Track your Order please enter your Tracking Number in the box and press the "Track Package Button". Find your tracking number on your receipt.</p>
       
           <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
       

@@ -66,7 +66,7 @@ export function Section1() {
         
 <span>
     <div className='rounded-sm  bg-slate-900 w-2/3 space-y-20 p-5 lg:hidden ml-5 shadow-lg' >
-    <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span>Courier & Delivery Company is here to serve you.</p>
+    <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span> Courier & Delivery Company is here to serve you.</p>
     <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' onClick={() => handleNav("../TrackPage" )} ><span className='flex gap-2' ><Truck/><p>Track Package</p></span> </div>
     </div>
 
