@@ -26,9 +26,6 @@ const Copytext = (elementId) => {
 
 
 
-
-
-
 export function Tracking_Page({ stages }) {
   const [loading, setLoading] = useState(false);
   const [trackingnumber, setTrackingNumber] = useState('');
@@ -39,20 +36,15 @@ export function Tracking_Page({ stages }) {
   const [error, setError] = useState('');
   const [greeting, setGreeting] = useState("");
   const [daysLeft, setDaysLeft] = useState('');
-  const navigate = useNavigate()
-  
+  const [stageTimestamps, setStageTimestamps] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (stage === 0) {
-      setDaysLeft('4 Days Left')
-    } else if (stage === 1) {
-      setDaysLeft('3 Days Left')
-    } else if (stage === 2) {
-      setDaysLeft('Tomorrow')
-    } else if (stage === 3) {
-      setDaysLeft('TODAY')
-    }
-  })
+    if (stage === 0) setDaysLeft('4 Days Left');
+    else if (stage === 1) setDaysLeft('3 Days Left');
+    else if (stage === 2) setDaysLeft('Tomorrow');
+    else if (stage === 3) setDaysLeft('TODAY');
+  }, [stage]);
 
   const handleSubmit = async () => {
     if (!trackingnumber.trim()) return;
@@ -62,11 +54,11 @@ export function Tracking_Page({ stages }) {
     setShipmentData(null);
     try {
       const res = await fetch(`https://interpost-backend.onrender.com/progress/${trackingnumber}`);
-
       if (res.status === 200) {
         const data = await res.json();
         setShipmentData(data);
-        setStartTime(new Date(data.startTime)); // Convert to Date
+        setStartTime(new Date(data.startTime));
+        setStageTimestamps({ 0: new Date().toISOString() }); // log stage 0
       } else if (res.status === 404) {
         setError('Package not found, Check Tracking Number and Try Again');
       } else {
@@ -85,9 +77,18 @@ export function Tracking_Page({ stages }) {
 
     const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 72000000 );
+      const elapsed = Math.floor((now - startTime) / 72000000); // 20 hours
       const currentStage = Math.min(elapsed, stages.length - 1);
-      setStage(currentStage);
+
+      setStage(prevStage => {
+        if (currentStage > prevStage) {
+          setStageTimestamps(prev => ({
+            ...prev,
+            [currentStage]: new Date().toISOString()
+          }));
+        }
+        return currentStage;
+      });
 
       if (currentStage === stages.length - 1) {
         setInfoVisible(true);
@@ -95,7 +96,7 @@ export function Tracking_Page({ stages }) {
     };
 
     updateStage();
-    const interval = setInterval(updateStage, 72000000 );
+    const interval = setInterval(updateStage, 72000000); // 20 hours
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
@@ -103,126 +104,114 @@ export function Tracking_Page({ stages }) {
 
   useEffect(() => {
     const hour = new Date().getHours();
-
-    if (hour < 12) {
-      setGreeting("Good Morning");
-    } else if ( hour < 18) {
-      setGreeting('Good Afternoon');
-    } else {
-      setGreeting('Good Evening')
-    }
-
+    if (hour < 12) setGreeting("Good Morning");
+    else if (hour < 18) setGreeting('Good Afternoon');
+    else setGreeting('Good Evening');
   }, []);
 
   const handleNav = (path) => {
     navigate(path);
     window.location.reload();
-  }
+  };
 
-  
-       
+  const formatDateTime = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleString();
+  };
+
   return (
-  <>
-   <section className="fixed h-screen top-1/2 left-1/2 -translate-x-1/2 ">
-   {loading && (
-      <div className="flex items-center justify-center">
-        <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
-        <span className="ml-3 text-black font-medium"></span>
-      </div>
-    )}
-   </section>
-    <div className="" >
-      {!startTime && (
-        <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
-          <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
-           <p className="text-xs lg:text-sm lg:text-center" >To Track your package please enter your Tracking Number in the box bolow and press the "Track Package Button". Find your tracking number on your receipt or Invoice. Thank You!</p>
-      
-          <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
-      
-        <div className="bg-white shadow shadow-blue-500 p-5 mb-40 rounded-sm">
-          <label htmlFor=""  > <p className="text-red-700 mb-5 font-bold">Enter Tracking Number Below:</p> </label>
-        <input
-            type="text"
-            value={trackingnumber}
-            onChange={(e) => setTrackingNumber(e.target.value)}
-            className=" w-full block p-2 outline-none bg-slate-100 shadow shadow-blue-500"
-            placeholder="Enter Tracking Number"
-          />
-           {error && <p className="text-red-600 text-xs my-2 text-center ">{error}</p>}
-          <button
-            onClick={handleSubmit}
-            disabled={loading || !trackingnumber.trim()}
-            className="mt-5 px-4 py-2 bg-blue-500 text-white disabled:opacity-30"
-          >
-            {loading ? 'Tracking...' : 'Track Package'}
-          </button>
-        </div>
-          
-        </div>
-      )}
-
-    
-      
-
-<div className="grid" >
-{!loading && startTime && shipmentData && (
-        <section  >
-           <div className="my-5">
-          <p className="text-center mt-5 text-2xl font-medium"><span className="font-bold uppercase">{greeting}</span> {shipmentData.receipientname}</p>
-          <p className="text-center text-sm mt-1 ">Your Package Tracking Progress is displayed below</p>
-          <p className="text-center text-xs mt-1 ">Estimated Arrival Time: <span className="font-bold">{daysLeft}</span></p>
+    <>
+      <section className="fixed h-screen top-1/2 left-1/2 -translate-x-1/2 ">
+        {loading && (
+          <div className="flex items-center justify-center">
+            <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
+            <span className="ml-3 text-black font-medium"></span>
           </div>
-          {infoVisible && (
-        <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
-          <p className="font-bold uppercase text-center text-lg " >Ready For Clearance</p>
-          <p className="my-2">Package is ready for Clearance, Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before our 2GO DoorStep Delivery Van Can Proceed To Your Location.</p>
-          <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
-        </div>
-          )}
-          <div className="relative z-2"><MyMap /></div>
-         
-          <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">
-            {stages.map((label, index) => (
-              <div key={index} className="flex gap-5 items-center  ">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>
-                  ✓
-                </div>
-                <div className="flex gap-2">
-                  <img src={label.image} alt="" className="h-10 w-10" />
-                  <div>
-                    <span className="text-sm font-bold">{label.title}</span>
-                    <p className="text-[11px] w-[80%]">{label.description}</p>
-                  </div>
-                </div>
+        )}
+      </section>
+      <div className="">
+        {!startTime && (
+          <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
+            <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase">Track Your Package</p>
+            <p className="text-xs lg:text-sm lg:text-center">To Track your package please enter your Tracking Number in the box below and press the "Track Package Button". Find your tracking number on your receipt or Invoice. Thank You!</p>
+            <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full " />
+            <div className="bg-white shadow shadow-blue-500 p-5 mb-40 rounded-sm">
+              <label><p className="text-red-700 mb-5 font-bold">Enter Tracking Number Below:</p></label>
+              <input
+                type="text"
+                value={trackingnumber}
+                onChange={(e) => setTrackingNumber(e.target.value)}
+                className=" w-full block p-2 outline-none bg-slate-100 shadow shadow-blue-500"
+                placeholder="Enter Tracking Number"
+              />
+              {error && <p className="text-red-600 text-xs my-2 text-center">{error}</p>}
+              <button
+                onClick={handleSubmit}
+                disabled={loading || !trackingnumber.trim()}
+                className="mt-5 px-4 py-2 bg-blue-500 text-white disabled:opacity-30"
+              >
+                {loading ? 'Tracking...' : 'Track Package'}
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className="grid">
+          {!loading && startTime && shipmentData && (
+            <section>
+              <div className="my-5">
+                <p className="text-center mt-5 text-2xl font-medium"><span className="font-bold uppercase">{greeting}</span> {shipmentData.receipientname}</p>
+                <p className="text-center text-sm mt-1">Your Package Tracking Progress is displayed below</p>
+                <p className="text-center text-xs mt-1">Estimated Arrival Time: <span className="font-bold">{daysLeft}</span></p>
               </div>
-            ))}
 
-       
-            
-          </div>
+              {infoVisible && (
+                <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl">
+                  <p className="font-bold uppercase text-center text-lg">Ready For Clearance</p>
+                  <p className="my-2">Package is ready for Clearance, Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before our 2GO DoorStep Delivery Van Can Proceed To Your Location.</p>
+                  <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
+                </div>
+              )}
 
-          <div className="my-6 mt-20 bg-white rounded shadow shadow-blue-500 mb-40 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
-            <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
-            <span className="flex justify-between" ><p className="font-medium" >Tracking Number #:</p> <p>{shipmentData.trackingnumber}</p> </span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Name:</p> <p>{shipmentData.sendersname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Telephone:</p> <p>{shipmentData.phone}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Address:</p> <p>{shipmentData.sendersaddress}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient Name:</p> <p>{shipmentData.receipientname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient Telephone:</p> <p>{shipmentData.recipientsphone}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient Address:</p> <p>{shipmentData.receipientaddress}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Clearance Fee Amount:</p> <p>GH₵ <span className="">{shipmentData.clearancefee}</span></p></span>
-          </div>
-        </section>
-      )}
+              <div className="relative z-2"><MyMap /></div>
 
-     
-</div>
+              <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit">
+                {stages.map((label, index) => (
+                  <div key={index} className="flex gap-5 items-center">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>✓</div>
+                    <div className="flex gap-2">
+                      <img src={label.image} alt="" className="h-10 w-10" />
+                      <div>
+                        <span className="text-sm font-bold">{label.title}</span>
+                        <p className="text-[11px] w-[80%]">{label.description}</p>
+                        {stageTimestamps[index] && (
+                          <p className="text-[10px] text-gray-500 mt-1">{formatDateTime(stageTimestamps[index])}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-    
-    </div>
-  </>
+              <div className="my-6 mt-20 bg-white rounded shadow shadow-blue-500 mb-40 space-y-5 p-6 text-xs lg:w-1/2 mx-auto">
+                <h2 className="uppercase text-center font-bold">Shipment Information</h2>
+                <span className="flex justify-between"><p className="font-medium">Tracking Number #:</p><p>{shipmentData.trackingnumber}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Sender Name:</p><p>{shipmentData.sendersname}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Sender Telephone:</p><p>{shipmentData.phone}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Sender Address:</p><p>{shipmentData.sendersaddress}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Recipient Name:</p><p>{shipmentData.receipientname}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Recipient Telephone:</p><p>{shipmentData.recipientsphone}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Recipient Address:</p><p>{shipmentData.receipientaddress}</p></span>
+                <span className="flex justify-between"><p className="font-medium">Clearance Fee Amount:</p><p>GH₵ {shipmentData.clearancefee}</p></span>
+              </div>
+            </section>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
+
 
 
 export function TrackPage(){
