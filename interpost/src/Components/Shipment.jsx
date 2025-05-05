@@ -85,7 +85,7 @@ export function Tracking_Page({ stages }) {
 
     const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 345600000 );
+      const elapsed = Math.floor((now - startTime) / 72000000 );
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
 
@@ -95,7 +95,7 @@ export function Tracking_Page({ stages }) {
     };
 
     updateStage();
-    const interval = setInterval(updateStage, 345600000 );
+    const interval = setInterval(updateStage, 72000000 );
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
