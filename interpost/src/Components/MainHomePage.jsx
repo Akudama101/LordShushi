@@ -30,7 +30,7 @@ import { How_Package_Tracking_Works,
 
 
 
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link, useNavigate } from "react-router-dom"
 import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import whatsAppLogo from "/images/whatsAppLogo.png"
@@ -130,6 +130,11 @@ export function HomePage() {
 }
 
 export function Footer(){
+  const navigate = useNavigate();
+  const handleNav = (path) => {
+    navigate(path);
+    window.location.reload()
+  }
 
   const [showWhatAppIcon, setSHowWhatAPP] = useState({
     show:"hidden",
@@ -141,19 +146,19 @@ export function Footer(){
 
 <div className="p-5 bg-slate-900 space-y-10 py-10 lg:py-20 lg:px-20 text-white" >
 <div className="space-y-10 grid lg:grid-cols-3" >
-<ul className="space-y-2 text-sm " >
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>Airport Residence Terminal 2 <span className="font-bold" >Accra, Ghana</span></p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Phone size={15} /> </div> <p><span className="" >+233 504 372 398</span></p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2godeliverycompany@gmail.com</span></p> </li>
+<ul className="space-y-2 text-sm cursor-pointer" >
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>San Jose–San Francisco–Oakland<br/><span className="font-bold" >San Francisco</span></p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+1 (232)-573-0002  </span> </p> </li>
+  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2GOsupport@company.com</span></p> </li>
 </ul>
 
-<ul className="space-y-2 hidden lg:block" >
-  <Link to="../TrackPage"> <li className="underline  text-blue-300 " >Track My Package</li></Link>
-  <Link to="../About_Us" ><li className="underline  text-blue-300 " >About Us</li></Link>
-  <Link to="../Blog" > <li className="underline   text-blue-300" >Blog</li></Link>
-  <Link to="/" ><li className="underline  text-blue-300 " >Manager</li></Link>
-  <Link to="../CustomerService" >  <li className="underline  text-blue-300 " >Contact Us</li></Link>
-  <Link to="../CustomerService" ><li className="underline  text-blue-300" >Speak to an Agent in your Country</li></Link>
+<ul className="space-y-2 hidden lg:block cursor-pointer" >
+ <li className="underline  text-blue-300 " onClick={() => handleNav("../TrackPage")}>Track My Package</li>
+<li className="underline  text-blue-300 "  onClick={() => handleNav("../About_Us")}>About Us</li>
+    <li className="underline   text-blue-300"  onClick={() => handleNav("../Blog")}>Blog</li> 
+  
+   <li className="underline  text-blue-300 " onClick={() => handleNav("../CustomerService")} >Contact Us</li> 
+   <li className="underline  text-blue-300" onClick={() => handleNav("../CustomerService")}>Speak to an Agent in your Country</li> 
 </ul>
 
 
