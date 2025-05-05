@@ -23,18 +23,22 @@ export  const MyMap = () => {
     <MapContainer center={midPoint} zoom={2} style={{ height: '200px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="Tracking Map"
+        attribution="2G0 Flight Tracking Map"
       />
       <Marker position={US}>
-        
+        <Popup>
+         2GO’s Origin Office
+        </Popup>
       </Marker>
       <Marker position={Ghana}>
-        
+      <Popup>
+        Flight Destination: Ghana
+        </Popup>
       </Marker>
       <Polyline positions={[US, Ghana]} color="blue" />
       <Marker position={midPoint}>
         <Popup>
-          Delivery Distance {(distance / 1000).toFixed(2)} km
+         Airplane Traveling Distance {(distance / 1000).toFixed(2)} km
         </Popup>
       </Marker>
     </MapContainer>

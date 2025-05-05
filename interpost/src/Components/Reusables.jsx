@@ -66,7 +66,7 @@ export function Section1() {
         
 <span>
     <div className='rounded-sm  bg-slate-900 w-2/3 space-y-20 p-5 lg:hidden ml-5 shadow-lg' >
-    <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span> Delivery Service is here to serve you.</p>
+    <p className='font-bold text-white text-2xl ' > <span className='text-blue-500 ' >2-GO</span>Courier & Delivery Company is here to serve you.</p>
     <div className='bg-blue-500 mx-auto w-fit  px-5 py-2 text-white shadow-lg' onClick={() => handleNav("../TrackPage" )} ><span className='flex gap-2' ><Truck/><p>Track Package</p></span> </div>
     </div>
 
@@ -182,13 +182,13 @@ export function Section3() {
 
 
                         <div className='grid grid-cols-12' >
-                            <p className='col-span-11' >100% Assurance safety Package</p> 
+                            <p className='col-span-11' >2GO’s 100% Assurance safety Package</p> 
                             <p className={`${assurancePackage === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showAssurancePackage} ><ChevronUp/></p> 
                         <span className={`${assurancePackage} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >At 2GO Your package’s safety is our top priority. We use secure packaging, trusted handling procedures, and reliable tracking systems to ensure your item arrives in perfect condition. With our 100% Assurance Safety Package, you can ship with total confidence.</span>
                         </div>
                         
                         <div className='grid grid-cols-12' >
-                            <p className='col-span-11' >24H delivery Guarantee</p> 
+                            <p className='col-span-11' >2GO’s 24H delivery Guarantee</p> 
                             <p className={`${deliveryGuarantee === "hidden" ? "" : "rotate-180"} bg-white  w-fit h-fit col-span-1 shadow-inner shadow-blue-500 border-none rounded-full`} onClick={showDeliveryGuarantee} ><ChevronUp/></p>
                         <span className={`${deliveryGuarantee} bg-white p-5 col-span-12 text-xs shadow shadow-blue-500 border-none rounded-xl mt-2`} >We don’t just promise fast delivery—we guarantee it. Our 24-Hour Delivery Guarantee means your package will be delivered within 24 hours, or you get your money back. It’s our commitment to speed, reliability, and customer satisfaction.</span>
                         </div>
@@ -413,7 +413,7 @@ export function Section8() {
                 <div className='bg-gray-700 pt-5 pb-20 px-5 space-y-2 text-white shadow-lg' >
                     <h1 className='font-bold' >2GO's Director</h1>
                     <p className='text-xs' >Mr Cam Odie</p>
-                    <p className='flex gap-2 text-xs' ><MailIcon size={15} className='mt-0.5' /> <span>2godeliverycompany@gmail.com</span></p>
+                    <p className='flex gap-2 text-xs' ><MailIcon size={15} className='mt-0.5' /> <span>2GO-deliverycompany@gmail.com</span></p>
                  
                 </div>
                 </div>
@@ -503,6 +503,7 @@ const GetAgent = () => {
             AgentData.country = AgentINforGhana.country;
             setShowDetails("block");
             setHideFilter("hidden");
+            
     }else{
 
         AgentData.imageID = agentFromotherCuntry.imageID;
@@ -520,6 +521,7 @@ const GetAgent = () => {
     } else{
         alert("Please Complete Filter Detail")
     }
+    
 
 
 }

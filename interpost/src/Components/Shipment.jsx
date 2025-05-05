@@ -174,8 +174,8 @@ export function Tracking_Page({ stages }) {
           </div>
           {infoVisible && (
         <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
-          <p className="font-bold uppercase text-center text-lg " >Complete Delivery Process</p>
-          <p className="my-2">Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before DoorStep Delivery Can be Arranged.</p>
+          <p className="font-bold uppercase text-center text-lg " >Ready For Clearance</p>
+          <p className="my-2">Package is ready for Clearance, Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before our 2GO DoorStep Delivery Van Can Proceed To Your Location.</p>
           <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
         </div>
           )}
@@ -183,8 +183,8 @@ export function Tracking_Page({ stages }) {
          
           <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">
             {stages.map((label, index) => (
-              <div key={index} className="flex gap-4 items-center w-fit ">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>
+              <div key={index} className="flex gap-5 items-center  ">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>
                   ✓
                 </div>
                 <div className="flex gap-2">
@@ -203,14 +203,14 @@ export function Tracking_Page({ stages }) {
 
           <div className="my-6 mt-20 bg-white rounded shadow shadow-blue-500 mb-40 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
             <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
-            <span className="flex justify-between" ><p className="font-medium" >Tracking Number:</p> <p>{shipmentData.trackingnumber}</p> </span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender's Name:</p> <p>{shipmentData.sendersname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Contact:</p> <p>{shipmentData.phone}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Tracking Number #:</p> <p>{shipmentData.trackingnumber}</p> </span>
+            <span className="flex justify-between" ><p className="font-medium" >Sender Name:</p> <p>{shipmentData.sendersname}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Sender Telephone:</p> <p>{shipmentData.phone}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Sender Address:</p> <p>{shipmentData.sendersaddress}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient's Name:</p> <p>{shipmentData.receipientname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient's Contact:</p> <p>{shipmentData.recipientsphone}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Recipient Name:</p> <p>{shipmentData.receipientname}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Recipient Telephone:</p> <p>{shipmentData.recipientsphone}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Recipient Address:</p> <p>{shipmentData.receipientaddress}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Clearance Fee:</p> <p>GHC {shipmentData.clearancefee}</p></span>
+            <span className="flex justify-between" ><p className="font-medium" >Clearance Fee Amount:</p> <p>GH₵ <span className="">{shipmentData.clearancefee}</span></p></span>
           </div>
         </section>
       )}
@@ -230,22 +230,22 @@ export function TrackPage(){
     {
       title: 'Sent',
       image: '/images/shop-dddddddddddc.png',
-      description: 'Your package has been sent from the origin office.'
+      description: 'Your package has been dispatched from the origin office.'
     },
     {
       title: 'In Transit',
       image: '/images/airplhhhhhhhhhhhhhh.png',
-      description: 'Your package is on its way to the destination.'
+      description: 'Your package is currently on the way to its destination.'
     },
     {
-      title: 'Delivered',
+      title: 'Delivered To Main Warehouse',
       image: '/images/c66cd4hhhhhhhhhhhn.png',
-      description: 'The package has arrived at our main office.'
+      description: 'Your package has arrived at our central distribution warehouse.'
     },
     {
-      title: 'Ready For Clearance',
+      title: 'Ready For Clearance & Delivery',
       image: '/images/kdmfiifmf.png',
-      description: 'Your package is ready for customs clearance.'
+      description: 'Your package is awaiting customs clearance and final delivery..'
     }
   ];
   
