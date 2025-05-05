@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-
+body {
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+}
 
 
 
