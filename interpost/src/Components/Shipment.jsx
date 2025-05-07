@@ -287,6 +287,7 @@ export function CreateShipment() {
     receipientaddress: '',
     clearancefee: '',
     recipientsphone: '',
+    email: '',
   });
 
   const handleChange = (e) => {
@@ -437,6 +438,16 @@ setsuccessBar("block");
                   placeholder="Enter Recipient Address"
                   className="block w-full py-4 bg-slate-100 px-5 outline-none text-xs mt-1"
                 ></textarea>
+              </div>
+              <div>
+                <label>Recipient's Email <span className="text-xs ml-2 text-red-700 lg:ml-10">Note: An Email will be sent to this address on send</span></label>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  placeholder="Enter Recipient Email"
+                  className="block w-full py-4 bg-slate-100 px-5 outline-none text-xs mt-1"
+                />
               </div>
               <div>
                 <label>Clearance Fee</label>
