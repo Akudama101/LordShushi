@@ -323,32 +323,32 @@ const stages = [
   },
   {
     title: 'Arrived at International Hub',
-    image: '/images/international-hub.png',
+    image: '/images/global-logistics-icon-line-illustration-vector.png',
     description: 'The package has safely arrived at our international hub, where it’s being sorted and routed for its journey to Ghana.'
   },
   {
     title: 'In Transit to Ghana',
-    image: '/images/c66cd4hhhhhhhhhhhn.png',
+    image: '/images/165134-200.png',
     description: 'Your package is currently en route to Ghana via international air freight. 2GO Courier Company is ensuring secure and timely delivery.'
   },
   {
     title: 'Arrived in Ghana',
-    image: '/images/c66cd4hhhhhhhhhhhn.png',
+    image: '/images/3263004-200.png',
     description: 'Your package has landed in Ghana and is now at our main logistics facility, where it will undergo final processing.'
   },
   {
     title: 'Preparing for Clearance',
-    image: '/images/kdmfiifmf.png',
+    image: '/images/black-line-icon-for-customs-clearance-vector.png',
     description: '2GO Courier Company is preparing your package for customs clearance. This includes sorting, clearance documentation and clearance fee payment, and any other applicable fees .'
   },
   {
     title: 'Customs Inspection in Progress',
-    image: '/images/customs-check.png',
+    image: '/images/kdmfiifmf.png',
     description: 'Your package is undergoing a routine customs inspection to ensure it complies with Ghanaian import regulations. 2GO Courier Company is handling all procedures on your behalf.'
   },
   {
   title: 'Awaiting Delivery',
-  image: '/images/awaiting-delivery.png',
+  image: '/images/4363525.png',
   description: 'Your package has cleared all checks and is now awaiting final delivery. 2GO Courier Company will contact you shortly to schedule drop-off.'
   }
 ];
