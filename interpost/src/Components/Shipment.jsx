@@ -206,7 +206,7 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
 
 <div className="grid" >
 {!loading && startTime && shipmentData && (
-        <section className="zilla-slab-light"  >
+        <section className="smooch-sans-TExt"  >
 
             <div className="relative z-2 -mx-5 -mt-3.5 lg:mt-1"><MyMap /></div>
 
@@ -277,7 +277,7 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
 
           {/* Connector line (skip for last) */}
           {index < stages.length - 1 && (
-            <div className={`w-1 h-20 ${getTickColor(index)}`}></div>
+            <div className={`w-1 h-22 ${getTickColor(index)}`}></div>
           )}
         </div>
 
