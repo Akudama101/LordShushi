@@ -85,7 +85,7 @@ export function Tracking_Page({ stages }) {
 
     const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 72000000 );  //72000000 
+      const elapsed = Math.floor((now - startTime) / 40000 );  //72000000 
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
 
@@ -95,11 +95,11 @@ export function Tracking_Page({ stages }) {
     };
 
     updateStage();
-    const interval = setInterval(updateStage, 72000000 ); //72000000
+    const interval = setInterval(updateStage, 40000 ); //72000000
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
-  const getTickColor = (index) => (index <= stage ? 'bg-red-700' : 'bg-gray-300');
+  const getTickColor = (index) => (index <= stage ? 'bg-blue-700' : 'bg-gray-300');
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -263,7 +263,7 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
          
         <div className="flex flex-col items-start mt-5 lg:mt-10  mx-auto w-fit mb-20 relative">
   {stages.map((label, index) => {
-    const isCompleted = index <= stages; // adjust this logic to your state
+   
     return (
       <div key={index} className="flex items-start gap-4 relative">
 
@@ -271,7 +271,7 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
         <div className="relative flex flex-col items-center">
           <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white z-10 ${getTickColor(index)}`} >
 
-            {isCompleted ? <CircleCheckBig size={20} /> : <Circle size={20} />}
+            {index <= stage ? (<CircleCheckBig size={20} />) : (<Circle size={20} />) }
           </div>
 
           {/* Connector line (skip for last) */}
@@ -313,29 +313,47 @@ const stages = [
   {
     title: 'Package Sent',
     image: '/images/shop-dddddddddddc.png',
-    description: 'Your package has been successfully sent from the senders location and is now in the shipping process.'
+    description: 'Your package has been successfully dispatched from the sender’s location. 2GO Courier Company has begun processing it for international shipping.'
   },
   {
     title: 'Dispatched from Origin',
     image: '/images/airplhhhhhhhhhhhhhh.png',
-    description: 'The package has left the origin country and is en route to the international transit hub.'
+    description: 'Your package has left the origin country and is on its way to the international transit hub. 2GO Courier Company is closely monitoring its movement.'
+  },
+  {
+    title: 'Arrived at International Hub',
+    image: '/images/international-hub.png',
+    description: 'The package has safely arrived at our international hub, where it’s being sorted and routed for its journey to Ghana.'
   },
   {
     title: 'In Transit to Ghana',
     image: '/images/c66cd4hhhhhhhhhhhn.png',
-    description: 'The package is on its way to Ghana via international air and is being monitored closely.'
+    description: 'Your package is currently en route to Ghana via international air freight. 2GO Courier Company is ensuring secure and timely delivery.'
   },
   {
     title: 'Arrived in Ghana',
     image: '/images/c66cd4hhhhhhhhhhhn.png',
-    description: 'Your package has arrived at the main logistics facility in Ghana and is awaiting customs procedures.'
+    description: 'Your package has landed in Ghana and is now at our main logistics facility, where it will undergo final processing.'
   },
   {
-    title: 'Ready For Clearance & Delivery',
+    title: 'Preparing for Clearance',
     image: '/images/kdmfiifmf.png',
-    description: 'The package is ready for customs clearance and will soon be scheduled for local delivery after approval.'
+    description: '2GO Courier Company is preparing your package for customs clearance. This includes sorting, clearance documentation and clearance fee payment, and any other applicable fees .'
+  },
+  {
+    title: 'Customs Inspection in Progress',
+    image: '/images/customs-check.png',
+    description: 'Your package is undergoing a routine customs inspection to ensure it complies with Ghanaian import regulations. 2GO Courier Company is handling all procedures on your behalf.'
+  },
+  {
+  title: 'Awaiting Delivery',
+  image: '/images/awaiting-delivery.png',
+  description: 'Your package has cleared all checks and is now awaiting final delivery. 2GO Courier Company will contact you shortly to schedule drop-off.'
   }
 ];
+
+
+
 
 
 
