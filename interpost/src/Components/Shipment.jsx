@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
-import { Link, useNavigate } from "react-router-dom";
-import {X} from 'lucide-react'
+import { Link, useNavigate} from "react-router-dom";
+import {X, ChevronUp, CircleCheckBig, Circle} from 'lucide-react'
 
 
 
@@ -85,7 +85,7 @@ export function Tracking_Page({ stages }) {
 
     const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 72000000 );
+      const elapsed = Math.floor((now - startTime) / 72000000 );  //72000000 
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
 
@@ -95,7 +95,7 @@ export function Tracking_Page({ stages }) {
     };
 
     updateStage();
-    const interval = setInterval(updateStage, 72000000 );
+    const interval = setInterval(updateStage, 72000000 ); //72000000
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
@@ -121,44 +121,82 @@ export function Tracking_Page({ stages }) {
 
 
 
-  
+useEffect(() => {
+  if (loading) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+
+  return () => {
+    document.body.style.overflow = 'auto';
+  };
+}, [loading]);
+
+
+
+const [showShipmentDetail, setShowShipmentDetail] = useState(false)
+
+
+
        
   return (
   <>
-   <section className="fixed h-screen top-1/2 left-1/2 -translate-x-1/2 ">
-   {loading && (
-      <div className="flex items-center justify-center">
-        <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
-        <span className="ml-3 text-black font-medium"></span>
-      </div>
-    )}
-   </section>
+{loading && (
+  <section className="fixed inset-0 z-50 bg-white/50 h-screen bg-opacity-80 flex items-center justify-center">
+    <div className="animate-spin h-8 w-8 border-4 border-red-700 border-t-transparent rounded-full"></div>
+    <span className="ml-3 text-black font-medium">Loading...</span>
+  </section>
+)}
+
     <div className="" >
       {!startTime && (
+
         <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
-          <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase ">Track Your Package</p>
-           <p className="text-xs lg:text-sm lg:text-center" >To Track your package please enter your Tracking Number in the box bolow and press the "Track Package Button". Find your tracking number on your receipt or Invoice. Thank You!</p>
+          <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase text-gray-800">Track Your Package</p>
+           <p className="text-xs lg:text-sm lg:text-center text-center" >Enter your tracking number below and click 'Track Package'. You can find it on your receipt or invoice.</p>
       
-          <img src={siinsid} alt="image" className=" lg:h-auto my-5 lg:my-10 w-full "/>
-      
-        <div className="bg-white shadow shadow-blue-500 p-5 mb-40 rounded-sm">
-          <label htmlFor=""  > <p className="text-red-700 mb-5 font-bold">Enter Tracking Number Below:</p> </label>
+
+
+        <div className=" mt-10">
+        
         <input
             type="text"
             value={trackingnumber}
             onChange={(e) => setTrackingNumber(e.target.value)}
-            className=" w-full block p-2 outline-none bg-slate-100 shadow shadow-blue-500"
-            placeholder="Enter Tracking Number"
+            className=" w-full block p-2 outline-2 outline-blue-500 rounded-sm"
+            placeholder="Please Enter Tracking Number"
           />
            {error && <p className="text-red-600 text-xs my-2 text-center ">{error}</p>}
-          <button
+          <div
             onClick={handleSubmit}
             disabled={loading || !trackingnumber.trim()}
-            className="mt-5 px-4 py-2 bg-blue-500 text-white disabled:opacity-30"
+            className="mt-5 p-3 bg-blue-500 text-white disabled:opacity-30 text-center uppercase rounded-lg"
           >
-            {loading ? 'Tracking...' : 'Track Package'}
-          </button>
+            {loading ? 'Tracking...' : 'Track'}
+          </div>
         </div>
+
+
+       <div className="lg:mb-30" >
+        <h1 className="text-center text-xl font-bold mt-10 text-gray-800" >Used in Over 220 countries and Areas</h1>
+        <p className="text-center text-[14px] text-gray-700"> 33 multilingual  versions supported</p>
+         <img src={siinsid} alt="image" className=" lg:h-100 h-50 w-full  lg:mt-10 mt-2 "/>
+       </div>
+
+       <div className="lg:hidden">
+        <h1 className="text-center text-xl font-bold mt-10 text-gray-800" >Cooperative Carriers</h1>
+        <p className="text-center text-[14px] text-gray-700" >More timely, detailed and acurate Tracking information.</p>
+        <img src="\images\DELIVERY GUY.png" alt="delivery Guy"  className=" lg:h-100 h-70 w-full  lg:mt-5 mt-2" />
+       </div>
+
+
+       <div className="lg:hidden mb-30">
+  <h1 className="text-center text-xl font-bold mt-10 text-gray-800" >Swift and Fast Delivery</h1>
+  <p className="text-center text-[14px] text-gray-700">We ensure your packages arrive quickly and safely, every time.</p>
+  <img src="\images\deliveryVan.png" alt="Delivery van illustration" className=" lg:h-100 h-70 w-full  lg:mt-5 mt-2" />
+</div>
+
           
         </div>
       )}
@@ -169,42 +207,23 @@ export function Tracking_Page({ stages }) {
 <div className="grid" >
 {!loading && startTime && shipmentData && (
         <section  >
-           <div className="my-5">
-          <p className="text-center mt-5 text-2xl font-medium"><span className="font-bold uppercase">{greeting}</span> {shipmentData.receipientname}</p>
-          <p className="text-center text-sm mt-1 ">Your Package Tracking Progress is displayed below</p>
-          <p className="text-center text-xs mt-1 ">Estimated Arrival Time: <span className="font-bold">{daysLeft}</span></p>
-          </div>
-          {infoVisible && (
-        <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
-          <p className="font-bold uppercase text-center text-lg " >Ready For Clearance</p>
-          <p className="my-2">Package is ready for Clearance, Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before our 2GO DoorStep Delivery Van Can Proceed To Your Location.</p>
-          <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
-        </div>
-          )}
-          <div className="relative z-2"><MyMap /></div>
-         
-          <div className="lg:flex lg:gap-5 lg:space-x-10 mt-8 space-y-6 mx-auto w-fit  ">
-            {stages.map((label, index) => (
-              <div key={index} className="flex gap-5 items-center  ">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${getTickColor(index)}`}>
-                  ✓
-                </div>
-                <div className="flex gap-2">
-                  <img src={label.image} alt="" className="h-10 w-10" />
-                  <div>
-                    <span className="text-sm font-bold">{label.title}</span>
-                    <p className="text-[11px] w-[80%]">{label.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
 
-       
-            
-          </div>
+            <div className="relative z-2 -mx-5 -mt-8"><MyMap /></div>
 
-          <div className="my-6 mt-20 bg-white rounded shadow shadow-blue-500 mb-40 space-y-5 p-6 text-xs lg:w-1/2 mx-auto ">
-            <h2 className="uppercase  text-center font-bold ">Shipment Information</h2>
+          <div className="bg-white -mx-5 flex text-[12px] justify-between p-5" >
+           <span>
+             <p className="font-bold  text-lg" >Your Package is on its way</p>
+            <p>Send Date: <span>{shipmentData.startTime}</span></p>
+           </span>
+            <span className="flex  gap-2 items-center">
+              <p  className={`${showShipmentDetail === true ? "bg-blue-700 text-white" : ""} uppercase  border text-[10px] w-fit  px-2 py-1 rounded-sm shadow-lg h-fit flex `}          onClick={() => {if (showShipmentDetail === false) { setShowShipmentDetail(true)} else {setShowShipmentDetail(false)}}}  ><p>Details</p> <p className={`${showShipmentDetail === true ? "rotate-180 " : ""}`} ><ChevronUp size={15}/></p> </p>
+           
+            </span>
+          </div>
+     {showShipmentDetail &&
+          <div>
+                 <div className=" bg-white rounded  space-y-5 p-6 text-xs lg:w-1/2 -mx-5 ">
+           
             <span className="flex justify-between" ><p className="font-medium" >Sent Date & Time:</p> <p>{shipmentData.startTime}</p> </span>
             <span className="flex justify-between" ><p className="font-medium" >Tracking Number #:</p> <p>{shipmentData.trackingnumber}</p> </span>
             <span className="flex justify-between" ><p className="font-medium" >Sender Name:</p> <p>{shipmentData.sendersname}</p></span>
@@ -215,6 +234,67 @@ export function Tracking_Page({ stages }) {
             <span className="flex justify-between" ><p className="font-medium" >Recipient Address:</p> <p>{shipmentData.receipientaddress}</p></span>
             <span className="flex justify-between" ><p className="font-medium" >Clearance Fee Amount:</p> <p>GH₵ <span className="">{shipmentData.clearancefee}</span></p></span>
           </div>
+          </div>}
+
+
+          <div className="mt-5">
+              <p className="text-center "><span className="font-bold uppercase">{greeting}</span> {shipmentData.receipientname}</p>
+           <div className="flex justify-between mt-2 lg:mt-10">
+           <p className="text-center text-xs"><span className=" uppercase">Tracking ID</span> <br/> <span className="font-bold" >{shipmentData.trackingnumber}</span></p>
+          <p className="text-center text-xs "> <span className=" uppercase" >Estimated Arrival Time</span> <br/> <span className="">{daysLeft}</span></p>
+          </div>
+         
+          </div>
+
+          {infoVisible && (
+        <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
+          <p className="font-bold uppercase text-center text-lg " >Ready For Clearance</p>
+          <p className="my-2">Package is ready for Clearance, Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before our 2GO DoorStep Delivery Van Can Proceed To Your Location.</p>
+          <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
+        </div>
+          )}
+        
+
+
+
+
+
+
+         
+        <div className="flex flex-col items-start mt-5 lg:mt-10  mx-auto w-fit mb-20 relative">
+  {stages.map((label, index) => {
+    const isCompleted = index <= stages; // adjust this logic to your state
+    return (
+      <div key={index} className="flex items-start gap-4 relative">
+
+        {/* Circle and connector */}
+        <div className="relative flex flex-col items-center">
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white z-10 ${getTickColor(index)}`} >
+
+            {isCompleted ? <CircleCheckBig size={20} /> : <Circle size={20} />}
+          </div>
+
+          {/* Connector line (skip for last) */}
+          {index < stages.length - 1 && (
+            <div className={`w-2 h-20 ${getTickColor(index)}`}></div>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="flex items-start gap-2">
+          <img src={label.image} alt="image" className="h-8 w-8 object-contain shrink-0" />
+          <div>
+            <span className="text-sm font-bold block">{label.title}</span>
+            <p className="text-xs w-[90%] text-gray-700">{label.description}</p>
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</div>
+       
+
+
         </section>
       )}
 
@@ -229,29 +309,35 @@ export function Tracking_Page({ stages }) {
 
 
 export function TrackPage(){
-  const stages = [
-    {
-      title: 'Sent',
-      image: '/images/shop-dddddddddddc.png',
-      description: 'Your package has been dispatched from the origin office.'
-    },
-    {
-      title: 'In Transit',
-      image: '/images/airplhhhhhhhhhhhhhh.png',
-      description: 'Your package is currently on the way to its destination.'
-    },
-    {
-      title: 'Delivered To Main Warehouse',
-      image: '/images/c66cd4hhhhhhhhhhhn.png',
-      description: 'Your package has arrived at our central distribution warehouse.'
-    },
-    {
-      title: 'Ready For Clearance & Delivery',
-      image: '/images/kdmfiifmf.png',
-      description: 'Your package is awaiting customs clearance and final delivery..'
-    }
-  ];
-  
+const stages = [
+  {
+    title: 'Package Sent',
+    image: '/images/shop-dddddddddddc.png',
+    description: 'Your package has been successfully sent from the senders location and is now in the shipping process.'
+  },
+  {
+    title: 'Dispatched from Origin',
+    image: '/images/airplhhhhhhhhhhhhhh.png',
+    description: 'The package has left the origin country and is en route to the international transit hub.'
+  },
+  {
+    title: 'In Transit to Ghana',
+    image: '/images/c66cd4hhhhhhhhhhhn.png',
+    description: 'The package is on its way to Ghana via international air and is being monitored closely.'
+  },
+  {
+    title: 'Arrived in Ghana',
+    image: '/images/c66cd4hhhhhhhhhhhn.png',
+    description: 'Your package has arrived at the main logistics facility in Ghana and is awaiting customs procedures.'
+  },
+  {
+    title: 'Ready For Clearance & Delivery',
+    image: '/images/kdmfiifmf.png',
+    description: 'The package is ready for customs clearance and will soon be scheduled for local delivery after approval.'
+  }
+];
+
+
 
     return(
         <>
@@ -269,8 +355,6 @@ export function TrackPage(){
         </>
     )
 }
-
-
 
 
 export function CreateShipment() {
