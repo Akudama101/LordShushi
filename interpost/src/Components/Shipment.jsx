@@ -105,7 +105,7 @@ export function Tracking_Page({ stages }) {
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
-  const getTickColor = (index) => (index <= stage ? 'bg-blue-700' : 'bg-gray-300');
+  const getTickColor = (index) => (index <= stage ? 'bg-blue-700' : 'bg-gray-400');
 
   useEffect(() => {
     const hour = new Date().getHours();
