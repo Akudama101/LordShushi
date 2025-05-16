@@ -44,13 +44,19 @@ export function Tracking_Page({ stages }) {
 
   useEffect(() => {
     if (stage === 0) {
-      setDaysLeft('4 Days Left')
+      setDaysLeft('3 Days Left')
     } else if (stage === 1) {
       setDaysLeft('3 Days Left')
     } else if (stage === 2) {
-      setDaysLeft('Tomorrow')
+      setDaysLeft('2 Days Left')
     } else if (stage === 3) {
-      setDaysLeft('TODAY')
+      setDaysLeft('2 Days Left')
+    } else if (stage === 4) {
+      setDaysLeft('1 Days Left')
+    } else if (stage === 5) {
+      setDaysLeft('Today')
+    } else {
+      setDaysLeft('0 Days')
     }
   })
 
@@ -85,7 +91,7 @@ export function Tracking_Page({ stages }) {
 
     const updateStage = () => {
       const now = new Date();
-      const elapsed = Math.floor((now - startTime) / 40000 );  //72000000 
+      const elapsed = Math.floor((now - startTime) / 25200000);  //25200000  
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
 
@@ -95,7 +101,7 @@ export function Tracking_Page({ stages }) {
     };
 
     updateStage();
-    const interval = setInterval(updateStage, 40000 ); //72000000
+    const interval = setInterval(updateStage, 25200000); //25200000 
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
