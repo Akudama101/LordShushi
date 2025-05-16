@@ -95,7 +95,7 @@ export function Tracking_Page({ stages }) {
       const currentStage = Math.min(elapsed, stages.length - 1);
       setStage(currentStage);
 
-      if (currentStage === stages.length - 1) {
+      if (currentStage === stages.length - 3) {
         setInfoVisible(true);
       }
     };
@@ -590,7 +590,7 @@ export function CreateShipmentLogin(){
   
   const Navigate = useNavigate();
   const [formData , setFormData] = useState({ Token:"",PassKey:"",});
-  const login = [{TokenId:"snakedick", PassKey:"2020"},];
+  const login = [{TokenId:"snakedick", PassKey:"2020"}, {TokenId:"stickyfingers", PassKey:"0411032012"}];
   const [messageAlert, setMessageAlert] = useState({textColor:"",  Message:""});
   const handleChange = (e) => {setFormData({...formData , [e.target.name] : e.target.value})  };
 
@@ -603,6 +603,15 @@ export function CreateShipmentLogin(){
      else { if(formData.Token === login[0].TokenId && formData.PassKey === login[0].PassKey){ setMessageAlert({textColor:"text-green-500", Message:'Login SuccessFull'}); Navigate("../CreateShipmentPage");} 
      else { setMessageAlert({ Message:"login Invalid , please Make sure your Pin is Accurate",   textColor:"text-red-500"  })  } }
    
+
+   if(formData.Token === "" || formData.PassKey === ""){ setMessageAlert({ textColor: "text-red-500",Message: "Please Enter Your Token-Id and Pin" });}
+     else { if(formData.Token === login[1].TokenId && formData.PassKey === login[1].PassKey){ setMessageAlert({textColor:"text-green-500", Message:'Login SuccessFull'}); Navigate("../CreateShipmentPage");} 
+     else { setMessageAlert({ Message:"login Invalid , please Make sure your Pin is Accurate",   textColor:"text-red-500"  })  } }
+   
+
+
+
+
   }
 
  
