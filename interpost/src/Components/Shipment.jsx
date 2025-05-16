@@ -206,13 +206,14 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
 
 <div className="grid" >
 {!loading && startTime && shipmentData && (
-        <section  >
+        <section className="zilla-slab-light"  >
 
-            <div className="relative z-2 -mx-5 -mt-8"><MyMap /></div>
+            <div className="relative z-2 -mx-5 -mt-3.5 lg:mt-1"><MyMap /></div>
 
           <div className="bg-white -mx-5 flex text-[12px] justify-between p-5" >
            <span>
-             <p className="font-bold  text-lg" >Your Package is on its way</p>
+             <p className="text-lg"><span className="font-bold uppercase italic">{greeting}</span> {shipmentData.receipientname}</p>
+             <p className="font-bold " >Your Package is on its way</p>
             <p>Send Date: <span>{shipmentData.startTime}</span></p>
            </span>
             <span className="flex  gap-2 items-center">
@@ -238,10 +239,10 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
 
 
           <div className="mt-5">
-              <p className="text-center "><span className="font-bold uppercase">{greeting}</span> {shipmentData.receipientname}</p>
-           <div className="flex justify-between mt-2 lg:mt-10">
-           <p className="text-center text-xs"><span className=" uppercase">Tracking ID</span> <br/> <span className="font-bold" >{shipmentData.trackingnumber}</span></p>
-          <p className="text-center text-xs "> <span className=" uppercase" >Estimated Arrival Time</span> <br/> <span className="">{daysLeft}</span></p>
+             
+           <div className="flex justify-between mt-2 lg:mt-10 gap-2">
+           <div className="bg-white p-2 py-4 rounded-sm w-full" ><p className="text-center text-xs"><span className=" uppercase">Tracking ID</span> <br/> <span className="" >{shipmentData.trackingnumber}</span></p></div>
+           <div className="bg-white p-2 py-4 rounded-sm w-full" > <p className="text-center text-xs "> <span className=" uppercase" >Estimated Arrival Time</span> <br/> <span className="">{daysLeft}</span></p></div>
           </div>
          
           </div>
@@ -269,14 +270,14 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
 
         {/* Circle and connector */}
         <div className="relative flex flex-col items-center">
-          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white z-10 ${getTickColor(index)}`} >
+          <div className={`w-5 h-5 p-1 rounded-full flex items-center justify-center font-bold text-white z-10 ${getTickColor(index)}`} >
 
-            {index <= stage ? (<CircleCheckBig size={20} />) : (<Circle size={20} />) }
+            {index <= stage ? (<CircleCheckBig  />) : (<Circle />) }
           </div>
 
           {/* Connector line (skip for last) */}
           {index < stages.length - 1 && (
-            <div className={`w-2 h-20 ${getTickColor(index)}`}></div>
+            <div className={`w-1 h-20 ${getTickColor(index)}`}></div>
           )}
         </div>
 
