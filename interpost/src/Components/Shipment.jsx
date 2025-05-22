@@ -54,11 +54,15 @@ export function Tracking_Page({ stages }) {
     } else if (stage === 4) {
       setDaysLeft('1 Days Left')
     } else if (stage === 5) {
-      setDaysLeft('Today')
+      setDaysLeft('Today');
+      setInfoVisible(true);
     } else {
-      setDaysLeft('0 Days')
+      setDaysLeft('Arrived');
+      setInfoVisible(true);
     }
   })
+
+ 
 
   const handleSubmit = async () => {
     if (!trackingnumber.trim()) return;
