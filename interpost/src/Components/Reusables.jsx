@@ -35,6 +35,11 @@ import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
 import CoronaImage from "/images/Loading-container-in-cargo-airplane.webp"
 import Happyrating from "/images/happyRating.png"
 import InnovationImage from "/images/logo-fpi.jpg"
+import digidds from '/images/business-landing-express.png';
+import digijid from '/images/Connect.jpg';
+import idnisoa from '/images/1710846499365.jpeg';
+import idnfidj from '/images/FCL.jpg';
+import dioasd from '/images/Special-Services.jpg'
 
 
 
@@ -42,11 +47,11 @@ import InnovationImage from "/images/logo-fpi.jpg"
 
 
 
-const images = [ xpa, ibn, ibm]
+const images = [ digidds, digijid,  xpa, ibn, ibm ]
 
-const images2 = [cb1, cb2, cb3, cb4, cb5]
+const images2 = [idnfidj, cb1, cb2, cb3, cb4, cb5]
 
-const images3 = [bb1, bb2, bb3]
+const images3 = [idnisoa, dioasd, bb1, bb2, bb3]
 //bg-[#41134E]
 
 export function Section1() {
@@ -61,7 +66,7 @@ export function Section1() {
      
 
 
-        <section className='bg-[url("/images/unsplash-image-oCsQLKENz34.jpg")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
+        <section className='bg-[url("/images/1710846501ffff.jpeg")] lg:bg-[url("/images/types-of-shipping-containers6527d77f86bfc.jpg")] h-screen bg-cover bg-center grid items-center bg-no-repeat bg-fixed '>
          
         
 <span>
