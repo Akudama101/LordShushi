@@ -35,7 +35,7 @@ import { LocateFixed, Phone, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 import whatsAppLogo from "/images/whatsAppLogo.png"
 import {About_Us} from './Reusables'
-import {TrackPage, CreateShipment, CreateShipmentLogin} from './Shipment'
+import {TrackPage, CreateShipment, CreateShipmentLogin, PaymentPage} from './Shipment'
 import {AnimatePresence, easeInOut, motion} from 'framer-motion'
 
 
@@ -74,6 +74,7 @@ export function RoutesPage (){
         <Route path="Multi_Package_Tracking" element={<Multi_Package_Tracking/>} ></Route>
         <Route path="CreateShipment" element={<CreateShipmentLogin/>} ></Route>
         <Route path="CreateShipmentPage" element={<CreateShipment/>} ></Route>
+        <Route path="PaymentPage" element={<PaymentPage/>} ></Route>
       
       </Routes>
     </>
@@ -94,15 +95,15 @@ export function HomePage() {
         <Section1/>
         </div>
        
-        <div className="lg:pb-10 pb-5">
+        <div className="lg:pb-10 ">
         <Section2/>
         </div>
         
-        <div className="lg:pb-10 pb-5">
+        <div className="lg:pb-10 ">
         <Section3/>
         </div>
      
-      <div className="lg:pb-10 pb-5">
+      <div className="lg:pb-10 ">
       <Section4/>
       </div>
     
@@ -143,59 +144,126 @@ export function Footer(){
   })
 
   return(
-    <div>
+   <div>
+  <div className="p-5 bg-pink-600/90 space-y-10 py-10 lg:py-20 lg:px-20 text-white">
+    <div className="space-y-10 grid lg:grid-cols-3">
+      {/* Contact Info */}
+      <ul className="space-y-2 text-sm cursor-pointer">
+        <li className="flex gap-5">
+          <div className="p-2 bg-pink-800/70 w-fit h-fit rounded-full -mt-1">
+            <LocateFixed size={15} />
+          </div>
+          <p>
+            San Jose–San Francisco–Oakland
+            <br />
+            <span className="font-bold">San Francisco</span>
+          </p>
+        </li>
+        <li className="flex gap-5">
+          <div className="p-2 bg-pink-800/70 w-fit h-fit rounded-full -mt-1">
+            <Phone size={15} />
+          </div>
+          <p>
+            <span className="font-bold">+233 (504)-372-398</span>
+          </p>
+        </li>
+        <li className="flex gap-5">
+          <div className="p-2 bg-pink-800/70 w-fit h-fit rounded-full -mt-1">
+            <Mail size={15} />
+          </div>
+          <p>
+            <span className="font-bold text-pink-200">2GODeliverycompany@gmail.com</span>
+          </p>
+        </li>
+      </ul>
 
-<div className="p-5 bg-slate-900 space-y-10 py-10 lg:py-20 lg:px-20 text-white" >
-<div className="space-y-10 grid lg:grid-cols-3" >
-<ul className="space-y-2 text-sm cursor-pointer" >
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><LocateFixed size={15} />  </div> <p>San Jose–San Francisco–Oakland<br/><span className="font-bold" >San Francisco</span></p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" ><Phone size={15} />  </div> <p> <span className="font-bold" >+233 (504)-372-398  </span> </p> </li>
-  <li className="flex gap-5 " ><div className="p-2 bg-gray-800 w-fit h-fit rounded-full -mt-1" > <Mail size={15} /> </div> <p><span className="font-bold text-blue-300" >2GODliverycompany@gmail.com</span></p> </li>
- 
-</ul>
+      {/* Navigation Links */}
+      <ul className="space-y-2 hidden lg:block cursor-pointer">
+        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../TrackPage")}>
+          Track My Package
+        </li>
+        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../About_Us")}>
+          About Us
+        </li>
+        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../Blog")}>
+          Blog
+        </li>
+        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../CustomerService")}>
+          Contact Us
+        </li>
+        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../CustomerService")}>
+          Speak to an Agent in your Country
+        </li>
+      </ul>
 
-<ul className="space-y-2 hidden lg:block cursor-pointer" >
- <li className="underline  text-blue-300 " onClick={() => handleNav("../TrackPage")}>Track My Package</li>
-<li className="underline  text-blue-300 "  onClick={() => handleNav("../About_Us")}>About Us</li>
-    <li className="underline   text-blue-300"  onClick={() => handleNav("../Blog")}>Blog</li> 
-  
-   <li className="underline  text-blue-300 " onClick={() => handleNav("../CustomerService")} >Contact Us</li> 
-   <li className="underline  text-blue-300" onClick={() => handleNav("../CustomerService")}>Speak to an Agent in your Country</li> 
-</ul>
+      {/* About Section */}
+      <ul className="space-y-5">
+        <li className="font-bold text-lg">
+          <h1>About 2GO</h1>
+        </li>
+        <li className="text-sm">
+          <span className="font-bold">2GO</span> is a multinational logistics brand, founded in the United States and
+          headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over
+          1.7 billion parcels per year.
+        </li>
 
+        {/* WhatsApp Button Row */}
+        <li className="flex h-15 -mb-8">
+          <AnimatePresence>
+            {showWhatAppIcon.show && (
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 30 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className={`h-fit bg-pink-600/90 space-y-2 py-2 flex gap-5 ml-auto`}
+              >
+                <div
+                  className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center"
+                  onClick={() => {
+                    window.open("https://wa.me/+233504372398", "_blank");
+                  }}
+                >
+                  <div className="w-4 h-4">
+                    <img src={whatsAppLogo} alt="whatsPPiCON" />
+                  </div>
+                  <p>Ghana Agent</p>
+                </div>
+                <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center">
+                  <div className="w-4 h-4">
+                    <img src={whatsAppLogo} alt="whatsPPiCON" />
+                  </div>
+                  <p>USA Agent</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-
-<ul className="space-y-5" >
-  <li className=" font-bold text-lg" ><h1>About 2GO</h1></li>
-  <li className=" text-sm" > <span className="font-bold" >2GO </span> is a multinational logistics brand, founded in the United States and headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over 1.7 billion parcels per year. </li>
-  <li className="flex h-15  -mb-8" >
- <AnimatePresence>
-
-
-
-  {showWhatAppIcon.show && (
-     <motion.div 
-     initial={{opacity: 0, x: 30}}
-     animate={{opacity: 1, x: 0}}
-     exit={{opacity: 0, x: 30}}
-     transition={{duration: 0.3, ease: 'easeInOut'}}
-     className={`h-fit bg-slate-900  space-y-2 py-2 flex gap-5 ml-auto ${showWhatAppIcon.show}`} >
-     <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" onClick={() => {window.open("https://wa.me/+233504372398", "_blank")}} > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>   <p>Ghana Agent</p> </div> 
-    <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center" > <div className="w-4 h-4 " ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>  <p>USA Agent</p> </div>
-  </motion.div>
-  )}
-
- </AnimatePresence>
-    <div className={`bg-green-500 ml-auto h-fit p-2 mt-1  shadow-xl  ${showWhatAppIcon.Circle}`} onClick={() => { setSHowWhatAPP(!showWhatAppIcon.show); if(!showWhatAppIcon.show){  setSHowWhatAPP({show:true, Circle:"rounded-full " }) } else {  setSHowWhatAPP({    show:false, Circle:"rounded-sm",   }) }}} ><img src={whatsAppLogo} alt="whatsPPiCON" /></div>
-</li>
-</ul>
-</div>
-<div className="text-center  text-xs" ><p>&copy; 2GO-Courier-Service</p></div>
-</div>
-
-
-
+          {/* Floating WhatsApp Icon */}
+          <div
+            className={`bg-green-500 ml-auto h-fit p-2 mt-1 shadow-xl ${showWhatAppIcon.Circle}`}
+            onClick={() => {
+              setSHowWhatAPP(!showWhatAppIcon.show);
+              if (!showWhatAppIcon.show) {
+                setSHowWhatAPP({ show: true, Circle: "rounded-full" });
+              } else {
+                setSHowWhatAPP({ show: false, Circle: "rounded-sm" });
+              }
+            }}
+          >
+            <img src={whatsAppLogo} alt="whatsPPiCON" />
+          </div>
+        </li>
+      </ul>
     </div>
+
+    {/* Footer bottom */}
+    <div className="text-center text-xs text-pink-200">
+      <p>&copy; 2GO-Courier-Service</p>
+    </div>
+  </div>
+</div>
+
   )
 }
 

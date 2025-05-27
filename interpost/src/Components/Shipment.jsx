@@ -5,6 +5,7 @@ import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
 import { Link, useNavigate} from "react-router-dom";
 import {X, ChevronUp, CircleCheckBig, Circle} from 'lucide-react'
+import Select from 'react-select'
 
 
 
@@ -22,12 +23,6 @@ const Copytext = (elementId) => {
     console.error(`Element with ID "${elementId}" not found.`);
   }
 }
-
-
-
-
-
-
 
 export function Tracking_Page({ stages }) {
   const [loading, setLoading] = useState(false);
@@ -109,7 +104,7 @@ export function Tracking_Page({ stages }) {
     return () => clearInterval(interval);
   }, [startTime, stages.length]);
 
-  const getTickColor = (index) => (index <= stage ? 'bg-blue-700' : 'bg-gray-400');
+  const getTickColor = (index) => (index <= stage ? 'bg-pink-600' : 'bg-gray-400');
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -159,158 +154,232 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
   </section>
 )}
 
-    <div className="" >
-      {!startTime && (
+    <div className="bg-gray-50 min-h-screen py-10 px-4 flex flex-col items-center ">
 
-        <div className="mb-4 lg:w-1/2 2xl:w-1/3 mx-auto ">
-          <p className="text-2xl font-bold text-center my-5 lg:text-4xl 2xl:text-6xl uppercase text-gray-800">Track Your Package</p>
-           <p className="text-xs lg:text-sm lg:text-center text-center" >Enter your tracking number below and click 'Track Package'. You can find it on your receipt or invoice.</p>
-      
+  {!startTime && (
+    <div className="w-full max-w-3xl mx-auto">
 
+      <p className="text-gray-800 text-3xl lg:text-5xl 2xl:text-6xl font-extrabold uppercase text-center mb-6 tracking-wide">
+        Track Your Package
+      </p>
 
-        <div className=" mt-10">
-        
+      <p className="text-gray-500 text-center text-sm lg:text-base max-w-md mx-auto mb-8">
+        Enter your tracking number below and click <span className="font-semibold">'Track Package'</span>. You can find it on your receipt or invoice.
+      </p>
+
+      <div className="mt-6">
         <input
-            type="text"
-            value={trackingnumber}
-            onChange={(e) => setTrackingNumber(e.target.value)}
-            className=" w-full block p-2 outline-2 outline-blue-500 rounded-sm"
-            placeholder="Please Enter Tracking Number"
-          />
-           {error && <p className="text-red-600 text-xs my-2 text-center ">{error}</p>}
-          <div
-            onClick={handleSubmit}
-            disabled={loading || !trackingnumber.trim()}
-            className="mt-5 p-3 bg-blue-500 text-white disabled:opacity-30 text-center uppercase rounded-lg"
-          >
-            {loading ? 'Tracking...' : 'Track'}
-          </div>
-        </div>
+          type="text"
+          value={trackingnumber}
+          onChange={(e) => setTrackingNumber(e.target.value)}
+          placeholder="Please Enter Tracking Number"
+          className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-pink-600 transition"
+        />
+        {error && (
+          <p className="text-red-600 text-sm mt-2 text-center">{error}</p>
+        )}
+        <button
+          onClick={handleSubmit}
+          disabled={loading || !trackingnumber.trim()}
+          className="mt-6 w-full bg-pink-600 hover:bg-pink-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold uppercase py-3 rounded-lg shadow-md transition"
+        >
+          {loading ? 'Tracking...' : 'Track'}
+        </button>
+      </div>
+
+      <div className="mt-16 text-center">
+        <h1 className="text-gray-800 text-2xl font-bold mb-2">
+          Used in Over 220 Countries and Areas
+        </h1>
+        <p className="text-gray-600 text-sm mb-8">
+          33 multilingual versions supported
+        </p>
+        <img
+          src={siinsid}
+          alt="Global tracking illustration"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+
+      <div className="lg:hidden mt-16 text-center">
+        <h1 className="text-gray-800 text-2xl font-bold mb-2">
+          Cooperative Carriers
+        </h1>
+        <p className="text-gray-600 text-sm mb-8">
+          More timely, detailed and accurate tracking information.
+        </p>
+        <img
+          src="/images/DELIVERY GUY.png"
+          alt="Delivery Guy"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+
+      <div className="lg:hidden mt-16 mb-20 text-center">
+        <h1 className="text-gray-800 text-2xl font-bold mb-2">
+          Swift and Fast Delivery
+        </h1>
+        <p className="text-gray-600 text-sm mb-8">
+          We ensure your packages arrive quickly and safely, every time.
+        </p>
+        <img
+          src="/images/deliveryVan.png"
+          alt="Delivery Van Illustration"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  )}
 
 
-       <div className="lg:mb-30" >
-        <h1 className="text-center text-xl font-bold mt-10 text-gray-800" >Used in Over 220 countries and Areas</h1>
-        <p className="text-center text-[14px] text-gray-700"> 33 multilingual  versions supported</p>
-         <img src={siinsid} alt="image" className=" lg:h-100 h-50 w-full  lg:mt-10 mt-2 "/>
-       </div>
 
-       <div className="lg:hidden">
-        <h1 className="text-center text-xl font-bold mt-10 text-gray-800" >Cooperative Carriers</h1>
-        <p className="text-center text-[14px] text-gray-700" >More timely, detailed and acurate Tracking information.</p>
-        <img src="\images\DELIVERY GUY.png" alt="delivery Guy"  className=" lg:h-100 h-70 w-full  lg:mt-5 mt-2" />
-       </div>
-
-
-       <div className="lg:hidden mb-30">
-  <h1 className="text-center text-xl font-bold mt-10 text-gray-800" >Swift and Fast Delivery</h1>
-  <p className="text-center text-[14px] text-gray-700">We ensure your packages arrive quickly and safely, every time.</p>
-  <img src="\images\deliveryVan.png" alt="Delivery van illustration" className=" lg:h-100 h-70 w-full  lg:mt-5 mt-2" />
-</div>
-
-          
-        </div>
-      )}
 
     
       
+<div className="lg:px-20  bg-gray-50 min-h-screen text-gray-800">
+  {!loading && startTime && shipmentData && (
+    <section className="font-sans space-y-5">
 
-<div className="grid" >
-{!loading && startTime && shipmentData && (
-        <section className="smooch-sans-TExt"  >
-
-            <div className="relative z-2 -mx-5 -mt-3.5 lg:mt-1"><MyMap /></div>
-
-          <div className="bg-white -mx-5 flex text-[12px] justify-between p-5" >
-           <span>
-             <p className="text-lg"><span className="font-bold uppercase italic">{greeting}</span> {shipmentData.receipientname}</p>
-             <p className="font-bold " >Your Package is on its way</p>
-            <p>Send Date: <span>{shipmentData.startTime}</span></p>
-           </span>
-            <span className="flex  gap-2 items-center">
-              <p  className={`${showShipmentDetail === true ? "bg-blue-700 text-white" : ""} uppercase  border text-[10px] w-fit  px-2 py-1 rounded-sm shadow-lg h-fit flex `}          onClick={() => {if (showShipmentDetail === false) { setShowShipmentDetail(true)} else {setShowShipmentDetail(false)}}}  ><p>Details</p> <p className={`${showShipmentDetail === true ? "rotate-180 " : ""}`} ><ChevronUp size={15}/></p> </p>
-           
-            </span>
-          </div>
-     {showShipmentDetail &&
-          <div>
-                 <div className=" bg-white rounded  space-y-5 p-6 text-xs lg:w-1/2 -mx-5 ">
-           
-            <span className="flex justify-between" ><p className="font-medium" >Sent Date & Time:</p> <p>{shipmentData.startTime}</p> </span>
-            <span className="flex justify-between" ><p className="font-medium" >Tracking Number #:</p> <p>{shipmentData.trackingnumber}</p> </span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Name:</p> <p>{shipmentData.sendersname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Telephone:</p> <p>{shipmentData.phone}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Sender Address:</p> <p>{shipmentData.sendersaddress}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient Name:</p> <p>{shipmentData.receipientname}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient Telephone:</p> <p>{shipmentData.recipientsphone}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Recipient Address:</p> <p>{shipmentData.receipientaddress}</p></span>
-            <span className="flex justify-between" ><p className="font-medium" >Clearance Fee Amount:</p> <p>GH₵ <span className="">{shipmentData.clearancefee}</span></p></span>
-          </div>
-          </div>}
-
-
-          <div className="mt-5">
-             
-           <div className="flex justify-between mt-2 lg:mt-10 gap-2">
-           <div className="bg-white p-2 py-4 rounded-sm w-full" ><p className="text-center text-xs"><span className=" uppercase">Tracking ID</span> <br/> <span className="" >{shipmentData.trackingnumber}</span></p></div>
-           <div className="bg-white p-2 py-4 rounded-sm w-full" > <p className="text-center text-xs "> <span className=" uppercase" >Estimated Arrival Time</span> <br/> <span className="">{daysLeft}</span></p></div>
-          </div>
-         
-          </div>
-
-          {infoVisible && (
-        <div className="my-10 bg-red-700 text-center rounded-sm text-white p-4 w-fit text-sm space-y-5 mx-auto shadow-2xl ">
-          <p className="font-bold uppercase text-center text-lg " >Ready For Clearance</p>
-          <p className="my-2">Package is ready for Clearance, Please Contact Agent to Make Payment For Clearance Fee of <span className="font-bold">{shipmentData.clearancefee} Cedis</span>. Before our 2GO DoorStep Delivery Van Can Proceed To Your Location.</p>
-          <div className="bg-slate-900 rounded-sm shadow-xl mt-10 px-4 py-2 w-fit cursor-pointer" onClick={() => handleNav("../CustomerService")}>Call Now</div>
-        </div>
-          )}
-        
-
-
-
-
-
-
-         
-        <div className="flex flex-col items-start mt-5 lg:mt-10  mx-auto w-fit mb-20 relative">
-  {stages.map((label, index) => {
-   
-    return (
-      <div key={index} className="flex items-start gap-4 relative">
-
-        {/* Circle and connector */}
-        <div className="relative flex flex-col items-center">
-          <div className={`w-5 h-5 p-1 rounded-full flex items-center justify-center font-bold text-white z-10 ${getTickColor(index)}`} >
-
-            {index <= stage ? (<CircleCheckBig  />) : (<Circle />) }
-          </div>
-
-          {/* Connector line (skip for last) */}
-          {index < stages.length - 1 && (
-            <div className={`w-1 h-22 ${getTickColor(index)}`}></div>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="flex items-start gap-2">
-          <img src={label.image} alt="image" className="h-8 w-8 object-contain shrink-0" />
-          <div>
-            <span className="text-sm font-bold block">{label.title}</span>
-            <p className="text-xs w-[90%] text-gray-700">{label.description}</p>
-          </div>
-        </div>
+      {/* MAP */}
+      <div className="relative -mx-6 lg:mx-0 lg:mt-1 z-10 -mt-14">
+        <MyMap />
       </div>
-    );
-  })}
+
+      {/* TOP CARD */}
+   
+
+
+<div className="bg-white rounded-lg shadow-lg p-8 flex flex-col lg:flex-row justify-between items-start lg:items-center text-sm space-y-6 lg:space-y-0 -mx-6 -mt-5 max-w-4xl ">
+  <div className="space-y-4 max-w-lg w-full">
+    <p className="text-2xl font-extrabold italic uppercase text-pink-600 tracking-wide">
+      {greeting} {shipmentData.receipientname}
+    </p>
+    <p className="font-semibold text-gray-800 text-lg">Your Package is on its way</p>
+    <p className="text-gray-600 text-sm">
+      <span className="font-semibold">Sent:</span>{" "}
+      <span>{shipmentData.startTime}</span>
+    </p>
+
+    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 text-base font-medium">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+        <span className="min-w-[130px] text-pink-600">Tracking ID:</span>
+        <span className="break-all">{shipmentData.trackingnumber}</span>
+      </div>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+        <span className="min-w-[130px] text-pink-600">Estimated Arrival:</span>
+        <span>{daysLeft}</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="flex justify-end w-full lg:w-auto">
+    <button
+      className={`flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-semibold uppercase shadow-md border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-1
+        ${showShipmentDetail
+          ? "bg-pink-600 text-white border-pink-600 hover:bg-pink-700"
+          : "text-pink-600 border-pink-600 hover:bg-pink-50"}
+      `}
+      onClick={() => setShowShipmentDetail((prev) => !prev)}
+      aria-expanded={showShipmentDetail}
+      aria-controls="shipment-details"
+      aria-label="Toggle shipment details"
+    >
+      More Details
+      <ChevronUp
+        size={18}
+        className={`transition-transform duration-300 ${showShipmentDetail ? "rotate-180" : ""}`}
+      />
+    </button>
+  </div>
 </div>
-       
 
 
-        </section>
+
+
+
+      {/* DETAILS SECTION */}
+      {showShipmentDetail && (
+     <div className="bg-white rounded-lg shadow-lg p-5 text-sm lg:w-1/2 mx-auto -mt-2 w-full ">
+  {[
+    ["Sent Date & Time", shipmentData.startTime],
+    ["Tracking Number #", shipmentData.trackingnumber],
+    ["Sender Name", shipmentData.sendersname],
+    ["Sender Telephone", shipmentData.phone],
+    ["Sender Address", shipmentData.sendersaddress],
+    ["Recipient Name", shipmentData.receipientname],
+    ["Recipient Telephone", shipmentData.recipientsphone],
+    ["Recipient Address", shipmentData.receipientaddress],
+    ["Clearance Fee Amount", `GH₵ ${shipmentData.clearancefee}`]
+  ].map(([label, value], index) => (
+    <div
+      key={index}
+      className={`flex justify-between py-2 ${
+        index !== 0 ? "border-t border-gray-200" : ""
+      }`}
+    >
+      <p className="font-semibold text-gray-700">{label}:</p>
+      <p className="text-gray-900 font-medium">{value}</p>
+    </div>
+  ))}
+</div>
+
       )}
 
-     
+      {/* TRACKING ID + ETA */}
+    
+
+      {/* CLEARANCE ALERT */}
+      {infoVisible && (
+        <div className="my-10 bg-pink-600 text-white rounded-md p-6 shadow-xl text-center space-y-4 w-full lg:w-2/3 mx-auto">
+          <p className="text-lg font-bold uppercase">Ready For Clearance</p>
+          <p>
+            Package is ready for Clearance. Please contact the agent to pay a clearance fee of 
+            <span className="font-bold"> GH₵ {shipmentData.clearancefee} </span>
+            before our 2GO DoorStep Delivery Van can proceed to your location.
+          </p>
+          <button
+            className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-md shadow"
+            onClick={() => handleNav("../CustomerService")}
+          >
+            Call Now
+          </button>
+        </div>
+      )}
+
+      {/* STAGE TIMELINE */}
+
+      
+      <div className="flex flex-col items-start mx-auto w-fit  mt-10 mb-20 relative">
+        {stages.map((label, index) => (
+          <div key={index} className="flex items-start gap-4 relative">
+            {/* Dot and line */}
+            <div className="relative flex flex-col items-center">
+              <div className={`w-5 h-5 rounded-full flex items-center justify-center text-white font-bold z-10 ${getTickColor(index)}`}>
+                {index <= stage ? <CircleCheckBig /> : <Circle />}
+              </div>
+              {index < stages.length - 1 && (
+                <div className={`w-0.5 h-25 ${getTickColor(index)}`}></div>
+              )}
+            </div>
+
+            {/* Content */}
+            <div className="flex gap-2">
+              <img src={label.image} alt="step" className="w-5 h-5 object-contain" />
+              <div>
+                <span className="text-sm font-bold block text-pink-600">{label.title}</span>
+                <p className="text-xs text-gray-700 w-[90%]">{label.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+
+
+    </section>
+  )}
 </div>
+
 
     
     </div>
@@ -372,7 +441,7 @@ const stages = [
         <>
         <HeaderPage/>
 
-        <div className="pt-20 px-5 space-y-2 bg-slate-100 h-full " >
+        <div className="pt-20  px-2 space-y-2 bg-slate-50 h-full " >
          
          
          <Tracking_Page stages={stages}/>
@@ -624,36 +693,103 @@ export function CreateShipmentLogin(){
   return(
 <>
 <HeaderPage/>
-<div className="h-screen py-30 bg-slate-100" >
+<div className="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4">
+  <div className="w-80 lg:w-[32rem] bg-white text-center p-6 lg:p-10 shadow-lg border-l-8 border-l-pink-600 rounded-xl space-y-6 text-[12px] lg:text-[14px] font-medium">
+    <h1 className="text-2xl font-bold uppercase text-pink-600">Login Access</h1>
 
+    <div className="text-left space-y-1">
+      <label htmlFor="token" className="text-gray-700">Enter Access Login Token</label>
+      <input
+        type="text"
+        id="token"
+        name="Token"
+        onChange={handleChange}
+        className="w-full bg-gray-100 border border-gray-200 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-pink-600 font-normal"
+      />
+    </div>
 
+    <div className="text-left space-y-1">
+      <label htmlFor="passkey" className="text-gray-700">PassKey / Pin</label>
+      <input
+        type="number"
+        id="passkey"
+        name="PassKey"
+        onChange={handleChange}
+        className="w-full bg-gray-100 border border-gray-200 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-pink-600 font-normal"
+      />
+    </div>
 
-  <div className=" lg:w-100 p-5 mx-auto bg-white text-center pb-10  shadow shadow-blue-500 border-l-8  border-l-blue-500 space-y-5 w-80 text-[12px] lg:text-[14px] font-medium rounded-sm" >
-    <h1 className="font-bold uppercase text-2xl" >Login Access</h1>
-      <div>
-        <label htmlFor="">Enter Access Login Token</label>
-        <input type="text" className="w-full block bg-slate-100  shadow shadow-blue-500  py-2 mt-1 px-5 outline-none font-normal" name="Token" onChange={handleChange}/>
-      </div>
-      <div>
-        <label htmlFor="">PassKey/ Pin</label>
-        <input type="number" className="w-full block bg-slate-100  shadow shadow-blue-500  py-2 mt-1 px-5 outline-none font-normal" name="PassKey" onChange={handleChange} />
-      </div>
-      <p className={`${messageAlert.textColor}`} > {messageAlert.Message} </p>
-      <div className="bg-blue-500 w-fit  px-5 py-2 text-white rounded-sm mt-10" >
-        <button type="submit"className="uppercase" onClick={handleSubmittoChanage}> Get Access </button>
-      </div>
-      </div>
-     
- 
-  
+    {messageAlert.Message && (
+      <p className={`text-sm ${messageAlert.textColor}`}>{messageAlert.Message}</p>
+    )}
 
-  
-
+    <div className="mt-6">
+      <button
+        type="submit"
+        onClick={handleSubmittoChanage}
+        className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-md uppercase font-semibold tracking-wide"
+      >
+        Get Access
+      </button>
+    </div>
+  </div>
 </div>
+
 
 <Footer />
 
 </>
+  )
+}
+
+export function PaymentPage(){
+
+      const PurposeOfPayment = [
+        {value:"Other Payment", label:"Other Payment"},
+        {value:"Payment of Clearance Fee", label:"Payment of Clearance Fee"},
+        {value:"MemberShip Fee", label:"MemberShip Fee"},
+        {value:"Delivery Payment", label:"Delivery Payment"},
+      ]
+
+  return(
+   <>
+   <HeaderPage/>
+
+
+   <div className="h-screen mt-20" >
+
+
+<div>
+  <label htmlFor="">Bank</label>
+  <input type="radio" />
+</div>
+
+<div>
+  <label htmlFor="">Mobile Money</label>
+  <input type="radio" />
+</div>
+
+
+<div>
+ <span> <input type="radio" /> <p>MTN MoMo</p></span>
+ <span> <input type="radio" /> <p>Telecel Cash</p></span>
+ <span> <input type="radio" /> <p>Airtel Tigo Cash</p></span>
+ <span> <input type="radio" /> <p>MTN</p></span>
+</div>
+
+<div>
+  <p>Purpose Of Payment</p>
+  <Select options={PurposeOfPayment}  />
+</div>
+
+
+   </div>
+
+
+
+
+   <Footer/>
+   </>
   )
 }
 
