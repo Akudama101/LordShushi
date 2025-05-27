@@ -735,10 +735,41 @@ export function HeaderPage(){
       <>
        <section className=' fixed top-0 w-full z-50 lg:hidden'>
 
-                <div className='flex bg-slate-900 ' >
+                <div className='flex bg-pink-600 ' >
                   <div className={` py-5 px-5  ${flipMenu}`} onClick={showDash} >  <MenuIcon/></div>
                     <div className='grid items-center w-full ' >
-                    <img src={agentPic} alt="icon" className='h-12 ' onClick={() => handleNav('/')}/>
+                    
+
+
+
+
+
+
+   <div className="flex items-center justify-center bg-pink-600  " onClick={() => handleNav('/')} >
+      <div className="">
+        {/* SVG version of "2GO" with stylized G */}
+        <svg
+          width="200"
+          height="40"
+          viewBox="200 0 100 100"
+          fill="white"
+          xmlns="http://www.w3.org/2000/svg"
+          className="mx-auto "
+        >
+          <text x="0" y="70" fontSize="70" fontFamily="Arial Black">2</text>
+          <text x="60" y="70" fontSize="70" fontFamily="Arial Black">C</text>
+          <rect x="92" y="42" width="30" height="12" fill="white" />
+          <rect x="110" y="50" width="12" height="30" />
+          <text x="140" y="70" fontSize="70" fontFamily="Arial Black">O</text>
+        </svg>
+        <p className='text-[10px] text-white -mt-3 ' >We Serve You </p>
+
+      </div>
+    </div>
+
+
+
+
                     </div>
                    <div className='flex items-center gap-3 px-5' > 
                    <span onClick={() => handleNav("../TrackPage")}><Truck color='white' className='h-5 w-5' /></span>
@@ -826,20 +857,47 @@ export function HeaderPage(){
 
 
 
-              <section className="bg-slate-900  lg:flex w-full  fixed top-0 z-70 hidden justify-between ">
+              <section className="bg-[#ec147c]  lg:flex w-full  fixed top-0 z-70 hidden justify-between ">
        
 
-       <div  >
-       <img src={agentPic} alt="logo"  className='h-20 mx-50'/>
+       <div>
+        
+
+
+   <div className="flex items-center justify-center bg-pink-600  ">
+      <div className="text-center">
+        {/* SVG version of "2GO" with stylized G */}
+        <svg
+          width="200"
+          height="60"
+          viewBox="10 0 100 100"
+          fill="white"
+          xmlns="http://www.w3.org/2000/svg"
+          className="mx-auto"
+        >
+          <text x="0" y="70" fontSize="70" fontFamily="Arial Black">2</text>
+          <text x="60" y="70" fontSize="70" fontFamily="Arial Black">C</text>
+          <rect x="92" y="42" width="30" height="12" fill="white" />
+          <rect x="110" y="50" width="12" height="30" />
+          <text x="140" y="70" fontSize="70" fontFamily="Arial Black">O</text>
+        </svg>
+        <p className='text-[10px] text-white -mt-4 mb-2' >We Serve You </p>
+
+      </div>
+    </div>
+
+
+
        </div>
    
         
-        <div className='grid grid-cols-5 items-center px-5'> 
-      <Link to="/" >  <div className='flex gap-2'> <span><HomeIcon color='white' size={25}/></span>  <h1 className='text-white' >Home</h1> </div></Link>
-      <Link to="../CustomerService">   <div className='flex gap-2'> <span><Phone color='white' size={25}/></span>  <h1 className='text-white '>Contact us</h1>   </div> </Link>
-     <Link to="../About_Us" > <div className='flex gap-2'> <span><User color='white' size={25}/></span>            <h1 className='text-white  '>About us</h1></div>  </Link>   
-      <Link to="../Blog" > <div className='flex gap-2'> <span><Newspaper color='white' size={25}/></span>       <h1 className='text-white '>Blog</h1> </div>  </Link>  
-    <Link to="../CreateShipment" >  <div className='flex gap-2'> <span><BookCheck color="white" size={25} /></span> <h1 className='text-white' >Create Shipment</h1> </div> </Link>   
+        <div className='grid grid-cols-5 items-center gap-10 px-5 text-sm  '> 
+      <Link to="/" >  <div className='flex gap-2'> <span><HomeIcon color='white' size={18}/></span>  <h1 className='text-white' >Home</h1> </div></Link>
+      <Link to="../CustomerService">   <div className='flex gap-2'> <span><Phone color='white' size={18}/></span>  <h1 className='text-white '>Contact us</h1>   </div> </Link>
+      
+      <Link to="../Blog" > <div className='flex gap-2'> <span><Newspaper color='white' size={18}/></span>       <h1 className='text-white '>Blog</h1> </div>  </Link>  
+       <Link to="../About_Us" > <div className='flex gap-2'> <span><User color='white' size={18}/></span>            <h1 className='text-white  '>About us</h1></div>  </Link> 
+   
         </div>
          
          </section>
