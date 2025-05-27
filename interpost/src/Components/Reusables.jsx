@@ -36,11 +36,12 @@ import CoronaImage from "/images/Loading-container-in-cargo-airplane.webp"
 import Happyrating from "/images/happyRating.png"
 import InnovationImage from "/images/logo-fpi.jpg"
 import digidds from '/images/business-landing-express.png';
-import digijid from '/images/Connect.jpg';
+import digijid from '/images/ugggugug.jpg';
 import idnisoa from '/images/1710846499365.jpeg';
-import idnfidj from '/images/FCL.jpg';
+import idnfidj from '/images/services-forwarding.png';
 import dioasd from '/images/Special-Services.jpg'
-import { icon } from 'leaflet'
+import dignis from '/images/hero-3-highres.png'
+import dioaod from '/images/hero-2-highres.png'
 
 
 
@@ -48,7 +49,7 @@ import { icon } from 'leaflet'
 
 
 
-const images = [ digidds, digijid,  xpa, ibn, ibm ]
+const images = [dioaod, dignis, digidds, digijid,  xpa, ibn ]
 
 const images2 = [idnfidj, cb1, cb2, cb3, cb4, cb5]
 
