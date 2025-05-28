@@ -809,7 +809,7 @@ export function HeaderPage(){
 
    <div className="flex items-center justify-center bg-pink-600  " onClick={() => handleNav('/')} >
       <div className="">
-        {/* SVG version of "2GO" with stylized G */}
+  
         <svg
           width="200"
           height="35"
@@ -819,12 +819,12 @@ export function HeaderPage(){
           className="mx-auto "
         >
           <text x="0" y="70" fontSize="70" fontFamily="Arial Black">2</text>
-          <text x="60" y="70" fontSize="70" fontFamily="Arial Black">C</text>
-          <rect x="92" y="42" width="30" height="12" fill="white" />
-          <rect x="110" y="50" width="12" height="30" />
-          <text x="140" y="70" fontSize="70" fontFamily="Arial Black">O</text>
+          <text x="45" y="70" fontSize="70" fontFamily="Arial Black">C</text>
+          <rect x="75" y="43" width="25" height="10" fill="white" />
+          <rect x="90" y="45" width="10" height="30" />
+          <text x="105" y="70" fontSize="70" fontFamily="Arial Black">O</text>
         </svg>
-        <p className='text-[10px] text-white -mt-3 ' >We Serve You </p>
+        <p className='text-[5px] text-white -mt-2 ' >We Are Here to Serve You </p>
 
       </div>
     </div>
@@ -930,12 +930,12 @@ export function HeaderPage(){
           className="mx-auto"
         >
           <text x="0" y="70" fontSize="70" fontFamily="Arial Black">2</text>
-          <text x="60" y="70" fontSize="70" fontFamily="Arial Black">C</text>
-          <rect x="92" y="42" width="30" height="12" fill="white" />
-          <rect x="110" y="50" width="12" height="30" />
-          <text x="140" y="70" fontSize="70" fontFamily="Arial Black">O</text>
+          <text x="45" y="70" fontSize="70" fontFamily="Arial  Black">C</text>
+          <rect x="77" y="45" width="30" height="12" fill="white" />
+          <rect x="95" y="50" width="12" height="30" />
+          <text x="110" y="70" fontSize="70" fontFamily="Arial Black">O</text>
         </svg>
-        <p className='text-[10px] text-white -mt-4 mb-2' >We Serve You </p>
+        <p className='text-[10px] text-white -mt-4 mb-2 w-fit ml-16' >We Are Here to Serve You </p>
 
       </div>
     </div>

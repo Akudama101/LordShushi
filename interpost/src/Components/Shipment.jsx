@@ -3,11 +3,40 @@ import React, { useState, useEffect } from "react";
 import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
-import { Link, useNavigate} from "react-router-dom";
+import { data, Link, useNavigate} from "react-router-dom";
 import {X, ChevronUp, CircleCheckBig, Circle} from 'lucide-react'
 import Select from 'react-select'
+import {NumberPopup} from '../E wallet/paymentWallet'
 
 
+
+let selectedLocation = "";
+
+
+
+
+const Countries = [
+    {value:"Ghana" , label:"Ghana"},
+  {value:"USA" , label:"United States"},
+  {value:"UK" , label:"United Kingdom"},
+  {value:"Canada" , label:"Canada"},
+
+  {value:"Nigeria" , label:"Nigeria"},
+];
+
+
+const PaymentOptions =[
+  {value:"Mobile Money", label:"Mobile Money", countryPayment:"Ghana"},
+  {value:"Bank", label:"Bank Account", countryPayment:"Other" },
+  {value:"Bank", label:"Bank Account", countryPayment:"Ghana"},
+ {value:"CashApp", label:"CashApp", countryPayment:"Other" },
+  {value:"Paypal", label:"Paypal", countryPayment:"Other" },
+  {value:"Crypto", label:"Crypto", countryPayment:"Other" },
+
+];
+
+
+ 
 
 
 const Copytext = (elementId) => {
@@ -156,8 +185,7 @@ const [showShipmentDetail, setShowShipmentDetail] = useState(false)
 
     <div className="bg-gray-50 min-h-screen py-10 px-4 flex flex-col items-center ">
 
-  {!startTime && (
-    <div className="w-full max-w-3xl mx-auto">
+  {!startTime && ( <div className="w-full max-w-3xl mx-auto">
 
       <p className="text-gray-800 text-3xl lg:text-5xl 2xl:text-6xl font-extrabold uppercase text-center mb-6 tracking-wide">
         Track Your Package
@@ -742,45 +770,346 @@ export function CreateShipmentLogin(){
   )
 }
 
+ 
+
+
 export function PaymentPage(){
+
+
+  const MtnMOMODetails = {
+    AccountType: "MTN momo",
+    AccountName:"John DOe",
+    AccountNumber:"00521511",
+  }
+
+  const VodaphoneDetails = {
+   AccountType: "Telecel Cash",
+    AccountName:"Abigaial Aidu",
+    AccountNumber:"897897",
+  }
+
+  const AirtelTigoCash = {
+    AccountType: "Airtel Tigo Cash",
+    AccountName:"Prince Baidu",
+    AccountNumber:"5535464645",
+  }
+
+  const PaypalDetails = {
+      AccountType: "Paypal",
+    AccountName:"Jane Nice",
+    Email:"JaniceNIce@gmail.com",
+  }
+
+  const CashAppDetails = {
+      AccountType: "CashApp",
+    AccountName:"Mary jane",
+    CashTag:"@MaryJane",
+  }
+
+  const BankAccountDetails ={
+     AccountType: "EcoBank Account",
+     AccountName:"Sarah Dot",
+      AccountNumber:"00521fgbfg4511",
+
+  }
+
+  const [AccountDetails, setAccountDetails] = useState({
+   AccountName:"",
+   AccountNumber:"",
+   Email:"",
+   CashTag:"",
+  });
+
+  const [ShowHide , setShowHide] = useState({
+    CountryPage: false,
+    LocationPage:true,
+    PaymentDetailTag: false
+
+  })
+
+
+
+   const [selectPaymentCountry, setSelectPaymentCountry] = useState('');
+   const [Amount, setAmount] = useState("");
+   const HandleAmountInput = (e) => {
+        const data = e.target.value;
+        setAmount(data);
+
+   }
+
+const HandleSelectPayment = (data) => {
+  setSelectPaymentCountry(data.value)
+}
 
       const PurposeOfPayment = [
         {value:"Other Payment", label:"Other Payment"},
-        {value:"Payment of Clearance Fee", label:"Payment of Clearance Fee"},
-        {value:"MemberShip Fee", label:"MemberShip Fee"},
+        {value:"Clearance Payment", label:"Payment of Clearance Fee"},
+        {value:"MemberShip Fee Payment", label:"MemberShip Fee"},
         {value:"Delivery Payment", label:"Delivery Payment"},
-      ]
+      ];
+
+      const [MobilePaymentDisplay, setMobilePaymentDisplay] = useState(false);
+      const [Paywith, setPayWith] = useState({
+         PaywithPayement:"", PurposeOfPayment:""
+      });
+      const [LocalPayement, setLocalPayment] = useState("")
+
+      const HandleSelectChange = (data) => { setPayWith((prev) => ({...prev, PaywithPayement:data.value}))};
+
+      const handleSelectChanage2 = (data) => {setPayWith((prev) => ({...prev, PurposeOfPayment: data.value}))};
+
+      const HandleInputchange = (e) =>{ const data = e.target.value; setLocalPayment(data); }
+
+      useEffect(() => {
+        if(Paywith.PaywithPayement === "Mobile Money"){
+        setMobilePaymentDisplay(true);
+      } else{
+         setMobilePaymentDisplay(false);
+      }
+
+
+
+
+
+if(Paywith.PaywithPayement === "Bank"){
+setAccountDetails({
+AccountName: BankAccountDetails.AccountName,
+AccountNumber: BankAccountDetails.AccountNumber,
+   Email:"",
+   CashTag:"",
+
+})
+
+}
+else if(Paywith.PaywithPayement === "Paypal"){
+setAccountDetails({
+AccountName: PaypalDetails.AccountName,
+AccountNumber: PaypalDetails.AccountNumber,
+   Email: PaypalDetails.Email,
+   CashTag:"",
+
+})
+} 
+else if(Paywith.PaywithPayement === "CashApp"){
+  setAccountDetails({
+  AccountName: CashAppDetails.AccountName,
+  AccountNumber: "",
+   Email: "",
+   CashTag: CashAppDetails.CashTag,
+
+})
+}
+
+else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Momo"){
+  setAccountDetails({
+  AccountName: MtnMOMODetails.AccountName,
+  AccountNumber: MtnMOMODetails.AccountNumber,
+   Email: "",
+   CashTag: "",
+
+})
+} 
+else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Telecel-Cash"){
+  setAccountDetails({
+  AccountName: VodaphoneDetails.AccountName,
+  AccountNumber: VodaphoneDetails.AccountNumber,
+   Email: "",
+   CashTag: "",
+
+})
+}
+else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Cash"){
+  setAccountDetails({
+  AccountName: AirtelTigoCash.AccountName,
+  AccountNumber: AirtelTigoCash.AccountNumber,
+   Email: "",
+   CashTag: "",
+
+})
+}
+
+
+      }, [Paywith, LocalPayement]);
+
+      console.log(Paywith.PaywithPayement, )
 
   return(
    <>
    <HeaderPage/>
 
+ 
 
-   <div className="h-screen mt-20" >
 
+   <div className="h-screen mt-20 grid items-center" >
 
-<div>
-  <label htmlFor="">Bank</label>
-  <input type="radio" />
-</div>
+{  ShowHide.CountryPage  && ( <div className="w-80 lg:w-100 mx-auto bg-gray-100 p-5 space-y-5 " >
 
 <div>
-  <label htmlFor="">Mobile Money</label>
-  <input type="radio" />
+  <p>Pay With: </p>
+  <Select options={
+ selectPaymentCountry === "Ghana" ?   PaymentOptions.filter( data => data.countryPayment !== "Other") : PaymentOptions.filter( data => data.countryPayment === "Other")
+  
+  
+  } placeholder="Select Payment Option" className="mt-1" onChange={HandleSelectChange} value={PaymentOptions.find(data => data.value === Paywith.PaywithPayement)} />
 </div>
 
+{MobilePaymentDisplay && (<div>
+ <span className="grid grid-cols-3" > <img src="\images\69-691715_mtn-mm-logo-generic-mtn-mobile-money-logo.png" alt="Image1" className="h-10 w-20 col-span-1" />      <span className="flex  gap-2 col-span-2 mt-1" ><input type="radio" onChange={HandleInputchange} value={"Momo"} name="LocalPayement" className="h-7 w-7"/> <p className="font-bold text-lg" >MTN MoMo</p></span>     </span>
+ <span className="grid grid-cols-3" > <img src="\images\Rede-5f0f780acc6c05a6539d7e3229ac508c.webp" alt="FundsIcon" className="h-10 w-20 col-span-1" />     <span className="flex  gap-2 col-span-2 mt-1" > <input type="radio" onChange={HandleInputchange} value={"Telecel-Cash"} name="LocalPayement" className="h-7 w-7" /> <p className="font-bold text-lg" >Telecel Cash</p> </span>   </span>
+ <span className="grid grid-cols-3" > <img src="\images\463-4631269_logo-tigo-cash-png-transparent-png.png" alt="Image2" className="h-10 w-20 col-span-1" />   <span className="flex  gap-2 col-span-2 mt-1" ><input type="radio" onChange={HandleInputchange} value={'Tigo-Cash'} name="LocalPayement" className="h-7 w-7" /> <p className="font-bold text-lg" >Airtel Tigo Cash</p></span>   </span>
 
-<div>
- <span> <input type="radio" /> <p>MTN MoMo</p></span>
- <span> <input type="radio" /> <p>Telecel Cash</p></span>
- <span> <input type="radio" /> <p>Airtel Tigo Cash</p></span>
- <span> <input type="radio" /> <p>MTN</p></span>
-</div>
+</div>) }
+
 
 <div>
   <p>Purpose Of Payment</p>
-  <Select options={PurposeOfPayment}  />
+  <Select options={PurposeOfPayment} placeholder="Select Option" className="mt-1" value={PaymentOptions.find(data => data.value === Paywith.PurposeOfPayment)} onChange={handleSelectChanage2}  />
 </div>
+
+<div>
+  <p>Amount: </p>
+  <input type="number" className="border py-1 w-full border-gray-300 rounded-sm mt-1 px-3 outline-none" onChange={HandleAmountInput} value={Amount} name="Amount" />
+</div>
+
+
+
+
+
+<div className="bg-green-700 px-5 py-2 text-center text-white w-25" onClick={() => {
+   if(!Amount , !Paywith.PaywithPayement, !LocalPayement, !Paywith.PurposeOfPayment){
+
+    alert("Make Sure All Details are Correctly Entered")
+
+   }else{
+      setShowHide({
+           CountryPage: false,
+           LocationPage: false,
+           PaymentDetailTag: true
+        })
+   }
+}} >
+  Next
+</div>
+
+</div>
+
+  ) }
+
+
+
+
+
+{ ShowHide.LocationPage && (  <div className="w-80 lg:w-100 mx-auto bg-gray-100 h-50 p-5 grid items-center " >
+  <p>Which Country Are you Making Your Payment from</p>
+      <Select options={Countries} placeholder="Select Country" value={Countries.find(data => data.value === selectPaymentCountry)} onChange={HandleSelectPayment} />
+      <div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" onClick={() => {
+        if(!selectPaymentCountry){
+          alert("Select Your Country")
+        }
+       else{
+        setShowHide({
+           CountryPage: true,
+           LocationPage: false,
+           PaymentDetailTag: false
+        }) 
+       }
+      }} >
+        Next
+      </div>
+    </div>)}
+
+
+
+{ShowHide.PaymentDetailTag && <div className="bg-gray-100  lg:w-100 w-80 p-5 mx-auto space-y-5" >
+
+  <p className="font-bold text-center text-lg" >Account Details</p>
+
+  {Paywith.PaywithPayement === "Bank" ? (<div className="flex justify-between" >
+    <p>Bank Name: </p>
+    <p>EcoBank Bank Account</p>
+  </div>) : ""}
+ 
+ <span className="flex justify-between" >
+   <p>Account Type:</p>
+   <p>{ Paywith.PaywithPayement}</p>
+ </span>
+
+{Paywith.PaywithPayement === 'Mobile Money' ? ( <span className="flex justify-between" >
+  <p>ISP</p>
+  <p>{LocalPayement}</p>
+ </span>): "" }
+
+
+
+  {Paywith.PaywithPayement === "Crypto" ? ""  : (
+ <div className="flex justify-between" >
+     <p>Account Name: </p>
+    <p>{AccountDetails.AccountName}</p>
+ </div>
+    )}
+
+
+
+
+{Paywith.PaywithPayement === "Crypto" || Paywith.PaywithPayement === "Paypal" || Paywith.PaywithPayement === "CashApp" ? "" : ( <div className="flex justify-between" >
+   <p>Account Number:</p>
+   <p>{AccountDetails.AccountNumber}</p>
+ </div>)}
+
+
+  {Paywith.PaywithPayement === "Paypal" ? (
+    <span className="flex justify-between" >
+      <p>Email:  </p>
+      <p>{AccountDetails.Email}</p>
+    </span>
+  ) : ""}
+
+{Paywith.PaywithPayement === "CashApp" ? (
+  <div className="flex justify-between" >
+    <p>CashApp Tag: </p>
+    <p>{AccountDetails.CashTag}</p>
+  </div>
+) : "" }
+
+{Paywith.PaywithPayement === "Crypto" ? (
+  <div>
+    <p>BitCoin Address</p>
+<p>QR Code</p>
+  </div>
+) : ""}
+
+<div className="flex justify-between" >
+  <p>Amount To Be Paid: </p>
+  <p>{Amount}</p>
+</div>
+
+<div className="flex justify-between" >
+  <p>Description / Reference: </p>
+  <p>{Paywith.PurposeOfPayment}</p>
+
+</div>
+
+
+<div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" >
+  Completed
+</div>
+
+  
+</div>
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    </div>
@@ -794,3 +1123,4 @@ export function PaymentPage(){
 }
 
 
+ 
