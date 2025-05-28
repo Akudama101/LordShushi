@@ -1,46 +1,54 @@
 
-import xpa from '/images/woman-box.jpg'
-import xpc from '/images/parcel-shipping-.jpg'
-import xpd from '/images/plane.svg'
-import xpe from '/images/fast-bus.svg'
+import xpa from '/images/woman-box.jpg';
+import xpc from '/images/parcel-shipping-.jpg';
+import xpd from '/images/plane.svg';
+import xpe from '/images/fast-bus.svg';
 
-import xpg from "/images/Warehouse.jpg"
-import xph from "/images/parcel-delivery.jpg"
-import xpi from "/images/New-innovations.jpg"
-import xpj from "/images/seaship.jpg"
-import ibm from "/images/cheerful-woman-with-box.jpg"
-import ibn from '/images/360_F_603227348_Hpid47cSby44NH5CEYXu1Io2F94utpu5.jpg'
-import { Newspaper, Headset, User, Phone, Contact, Mail, ChevronUp, PackageCheck, Truck } from 'lucide-react'
-import cb1 from "/images/what-is-a-courier-driver-HERO.webp"
-import cb2 from "/images/driver.webp"
-import cb3 from "/images/lady driver.jpeg"
-import cb4 from "/images/Delivery-Driver5.jpeg"
-import cb5 from "/images/delivery man.jpg"
-import { useState, useEffect } from 'react'
-import bb1 from "/images/Cathay-Pacific.jpg"
-import bb2 from "/images/Airbus-Wing-.webp"
-import bb3 from "/images/plane6.webp"
-import { Link, useNavigate } from 'react-router-dom'
-import { Footer } from './MainHomePage'
-import directorPic from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
+import xpg from "/images/Warehouse.jpg";
+import xph from "/images/parcel-delivery.jpg";
+import xpi from "/images/New-innovations.jpg";
+import xpj from "/images/seaship.jpg";
+import ibm from "/images/cheerful-woman-with-box.jpg";
+import ibn from '/images/360_F_603227348_Hpid47cSby44NH5CEYXu1Io2F94utpu5.jpg';
+import { Newspaper, Headset, User, Phone, Contact, Mail, ChevronUp, PackageCheck, Truck } from 'lucide-react';
+import cb1 from "/images/what-is-a-courier-driver-HERO.webp";
+import cb2 from "/images/driver.webp";
+import cb3 from "/images/lady driver.jpeg";
+import cb4 from "/images/Delivery-Driver5.jpeg";
+import cb5 from "/images/delivery man.jpg";
+import { useState, useEffect } from 'react';
+import bb1 from "/images/Cathay-Pacific.jpg";
+import bb2 from "/images/Airbus-Wing-.webp";
+import bb3 from "/images/plane6.webp";
+import { Link, useNavigate } from 'react-router-dom';
+import { Footer } from './MainHomePage';
+import directorPic from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg";
 import agentPic from "/images/2go_logo_main.png"
 
 import { MenuIcon, HomeIcon, PhoneCallIcon , UserIcon, NewspaperIcon, QuoteIcon, BookCheck, TruckIcon, X , PhoneIcon, MailIcon, Wallet} from 'lucide-react'
-import {AnimatePresence, motion} from 'framer-motion'
-import asusas from '/images/World_blank_map_countries.png'
+import {AnimatePresence, motion} from 'framer-motion';
+import asusas from '/images/World_blank_map_countries.png';
 
-import Select from "react-select"
-import TaxAgentImg from "/images/Tax-Agents.jpg"
-import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg"
-import CoronaImage from "/images/Loading-container-in-cargo-airplane.webp"
-import Happyrating from "/images/happyRating.png"
-import InnovationImage from "/images/logo-fpi.jpg"
+import Select from "react-select";
+import TaxAgentImg from "/images/Tax-Agents.jpg";
+import ManagerImg from "/images/cfpb_s-bessent-close-up_2025-02.original.jpg";
+import CoronaImage from "/images/Loading-container-in-cargo-airplane.webp";
+import Happyrating from "/images/happyRating.png";
+import InnovationImage from "/images/logo-fpi.jpg";
 import digidds from '/images/business-landing-express.png';
-import digijid from '/images/Connect.jpg';
+import digijid from '/images/ugggugug.jpg';
 import idnisoa from '/images/1710846499365.jpeg';
-import idnfidj from '/images/FCL.jpg';
-import dioasd from '/images/Special-Services.jpg'
-import { icon } from 'leaflet'
+import idnfidj from '/images/services-forwarding.png';
+import dioasd from '/images/Special-Services.jpg';
+import dignis from '/images/hero-3-highres.png';
+import dioaod from '/images/hero-2-highres.png';
+import sonoas from '/images/services-sea-solutions.png';
+import sonaoid from '/images/services-special-containers.png';
+import soanfoa from '/images/services-project-logisitcs.png';
+import sonfoja from '/images/services-logistics-and-warehousing.png';
+import aodnoa from '/images/media-coverage-thumbnail-5-r61ga08057pwjwd4yr6r596d2ih5p74tucw2k3ak5w.png';
+import sonaoif from '/images/media-coverage-thumbnail-4-r61g8oa8gnwa3sarqogs439urv1fsmuinrmb2z9mz8.png';
+import aoosij from '/images/hero-1-highres.png'
 
 
 
@@ -48,11 +56,11 @@ import { icon } from 'leaflet'
 
 
 
-const images = [ digidds, digijid,  xpa, ibn, ibm ]
+const images = [dioaod, dignis, digidds, digijid,  xpa, ibn ]
 
-const images2 = [idnfidj, cb1, cb2, cb3, cb4, cb5]
+const images2 = [idnfidj, sonoas, cb2, sonaoid, cb3, soanfoa, cb4, cb5, sonfoja]
 
-const images3 = [idnisoa, dioasd, bb1, bb2, bb3]
+const images3 = [idnisoa, dioasd, bb1, aoosij, bb2, aodnoa, bb3, sonaoif]
 //bg-[#41134E]
 
 export function Section1() {
