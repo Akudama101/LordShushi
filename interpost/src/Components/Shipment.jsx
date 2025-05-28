@@ -4,14 +4,13 @@ import siinsid from '/images/Tracking_Image.webp';
 import {MyMap} from "./Maps";
 import { Footer } from "./MainHomePage";
 import { data, Link, useNavigate} from "react-router-dom";
-import {X, ChevronUp, CircleCheckBig, Circle} from 'lucide-react'
+import {X, ChevronUp, CircleCheckBig, Circle, CopyIcon, Loader} from 'lucide-react'
 import Select from 'react-select'
 import {NumberPopup} from '../E wallet/paymentWallet'
+import whatsAppLogo from "/images/whatsAppLogo.png"
 
 
-
-let selectedLocation = "";
-
+ 
 
 
 
@@ -721,7 +720,7 @@ export function CreateShipmentLogin(){
   return(
 <>
 <HeaderPage/>
-<div className="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4">
+<div className="min-h-screen flex items-center justify-center bg-gray-50  px-4">
   <div className="w-80 lg:w-[32rem] bg-white text-center p-6 lg:p-10 shadow-lg border-l-8 border-l-pink-600 rounded-xl space-y-6 text-[12px] lg:text-[14px] font-medium">
     <h1 className="text-2xl font-bold uppercase text-pink-600">Login Access</h1>
 
@@ -732,7 +731,7 @@ export function CreateShipmentLogin(){
         id="token"
         name="Token"
         onChange={handleChange}
-        className="w-full bg-gray-100 border border-gray-200 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-pink-600 font-normal"
+        className="w-full bg-gray-100 border border-gray-200 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-pink-600 font-normal mt-1"
       />
     </div>
 
@@ -743,7 +742,7 @@ export function CreateShipmentLogin(){
         id="passkey"
         name="PassKey"
         onChange={handleChange}
-        className="w-full bg-gray-100 border border-gray-200 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-pink-600 font-normal"
+        className="w-full bg-gray-100 border border-gray-200 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-pink-600 font-normal mt-1"
       />
     </div>
 
@@ -822,8 +821,10 @@ export function PaymentPage(){
 
   const [ShowHide , setShowHide] = useState({
     CountryPage: false,
-    LocationPage:true,
-    PaymentDetailTag: false
+    LocationPage:false,
+    PaymentDetailTag: false,
+    WelcomeMessage:true,
+    ContactUs:false
 
   })
 
@@ -852,13 +853,22 @@ const HandleSelectPayment = (data) => {
       const [Paywith, setPayWith] = useState({
          PaywithPayement:"", PurposeOfPayment:""
       });
-      const [LocalPayement, setLocalPayment] = useState("")
+      const [LocalPayement, setLocalPayment] = useState("");
+      const[ TermsCondition, setTermsCondition] = useState("");
+    
+      
+      const HandleStermsCondition = (e) => {
+          const data = e.target.checked;
+          setTermsCondition(data)
+      }
+
+      console.log(TermsCondition)
 
       const HandleSelectChange = (data) => { setPayWith((prev) => ({...prev, PaywithPayement:data.value}))};
 
       const handleSelectChanage2 = (data) => {setPayWith((prev) => ({...prev, PurposeOfPayment: data.value}))};
 
-      const HandleInputchange = (e) =>{ const data = e.target.value; setLocalPayment(data); }
+      const HandleInputchange = (e) =>{ const data = e.target.value; setLocalPayment(data); };
 
       useEffect(() => {
         if(Paywith.PaywithPayement === "Mobile Money"){
@@ -866,10 +876,6 @@ const HandleSelectPayment = (data) => {
       } else{
          setMobilePaymentDisplay(false);
       }
-
-
-
-
 
 if(Paywith.PaywithPayement === "Bank"){
 setAccountDetails({
@@ -940,17 +946,77 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
  
 
 
-   <div className="h-screen mt-20 grid items-center" >
+   <div className="min-h-screen max-h-full  grid items-center text-sm py-20 bg-gray-50" >
 
-{  ShowHide.CountryPage  && ( <div className="w-80 lg:w-100 mx-auto bg-gray-100 p-5 space-y-5 " >
+
+
+
+
+{ShowHide.WelcomeMessage && ( <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 max-w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 " >
+  <h1 className="font-bold text-2xl text-pink-600 text-center uppercase" >Welcome to  2GO Payments </h1>
+  <p className=" text-center text-sm" >We Provide Easy Seamless Transaction , With Multiple Payment Options . </p>
+
+
+<div className="space-y-5" >
+  <p className="font-bold" >Complete Your Payment In 5 Simple Steps</p>
+  <ul className="list-decimal list-inside space-y-5 mt-5" >
+    <li><strong>Select Your Country</strong> - select the Country of Origin which you are making the payment from. </li>
+    <li><strong>Select Payment Type</strong> - Next Choose your prefered Payment Type option   </li>
+    <li><strong>Select Purpose of Payment </strong> - Choose the purpose of your payment.   </li>
+    <li><strong>Enter Amount</strong> - Accurately Enter Amount You are Paying. and Proceed to Next Step</li>
+    <li><strong>Use Account Details</strong> - Accurately copy the Account Details to prevent mistakes. </li>
+    <p><strong>Payment Verification</strong> - If The Automatic Payment Verification Fails , Please Proceed to contact us  </p>
+  </ul>
+  <p className="text-xs text-red-700 bg-yellow-600 p-5 rounded" ><em className="font-bold" >Note: </em> Payment Should be Completed within 20 minutes , or Automatic Verification fails and you will have to verify the Payment from us manually.      </p>
+  
+  
+  
+  
+  
+  <div className="flex gap-2" >
+   <input type="radio" onChange={HandleStermsCondition} checked={TermsCondition} name="TermsCondition" className="-mt-4.5"/>
+   <p> i have Read and Understand the Payment Process .</p>
+  </div>
+  
+  
+  <div className="bg-green-700 px-5 py-2  w-full text-center  text-white rounded"   onClick={() => {
+    if(TermsCondition === true){
+      setShowHide(
+        {
+    CountryPage: false,
+    LocationPage:true,
+    PaymentDetailTag: false,
+    WelcomeMessage:false,
+        }
+      )
+    } else {
+      alert("Please Read and Understand Instruction")
+    }
+  }}>
+    Start Payment Process
+  </div>
+ 
+</div>
+
+ 
+
+</div>
+
+)}
+
+
+
+
+
+{ ShowHide.CountryPage  && ( <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 " >
 
 <div>
   <p>Pay With: </p>
-  <Select options={
+  <Select options={ 
  selectPaymentCountry === "Ghana" ?   PaymentOptions.filter( data => data.countryPayment !== "Other") : PaymentOptions.filter( data => data.countryPayment === "Other")
+
   
-  
-  } placeholder="Select Payment Option" className="mt-1" onChange={HandleSelectChange} value={PaymentOptions.find(data => data.value === Paywith.PaywithPayement)} />
+  } placeholder="Select Payment Option" className="mt-1 w-full" onChange={HandleSelectChange} value={PaymentOptions.find(data => data.value === Paywith.PaywithPayement)} isSearchable={false} />
 </div>
 
 {MobilePaymentDisplay && (<div>
@@ -963,7 +1029,7 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
 
 <div>
   <p>Purpose Of Payment</p>
-  <Select options={PurposeOfPayment} placeholder="Select Option" className="mt-1" value={PaymentOptions.find(data => data.value === Paywith.PurposeOfPayment)} onChange={handleSelectChanage2}  />
+  <Select options={PurposeOfPayment} placeholder="Select Option" className="mt-1" value={PaymentOptions.find(data => data.value === Paywith.PurposeOfPayment)} onChange={handleSelectChanage2} isSearchable={false}  />
 </div>
 
 <div>
@@ -975,7 +1041,7 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
 
 
 
-<div className="bg-green-700 px-5 py-2 text-center text-white w-25" onClick={() => {
+<div className="bg-green-700 px-5 py-2 text-center text-white w-25 ml-auto" onClick={() => {
    if(!Amount , !Paywith.PaywithPayement, !LocalPayement, !Paywith.PurposeOfPayment){
 
     alert("Make Sure All Details are Correctly Entered")
@@ -996,12 +1062,9 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
   ) }
 
 
-
-
-
-{ ShowHide.LocationPage && (  <div className="w-80 lg:w-100 mx-auto bg-gray-100 h-50 p-5 grid items-center " >
-  <p>Which Country Are you Making Your Payment from</p>
-      <Select options={Countries} placeholder="Select Country" value={Countries.find(data => data.value === selectPaymentCountry)} onChange={HandleSelectPayment} />
+{ ShowHide.LocationPage && (  <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 max-w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 scroll-mt-10" >
+  <p className="" >Which Country Are you Making Your Payment from?</p>
+      <Select options={Countries} placeholder="Select Country" value={Countries.find(data => data.value === selectPaymentCountry)} onChange={HandleSelectPayment}  isSearchable={false}/>
       <div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" onClick={() => {
         if(!selectPaymentCountry){
           alert("Select Your Country")
@@ -1020,9 +1083,11 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
 
 
 
-{ShowHide.PaymentDetailTag && <div className="bg-gray-100  lg:w-100 w-80 p-5 mx-auto space-y-5" >
+{ShowHide.PaymentDetailTag && <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 max-w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 scroll-mt-10" >
 
-  <p className="font-bold text-center text-lg" >Account Details</p>
+  <h1 className="font-bold text-center text-lg uppercase text-pink-600" >Account Details</h1>
+  <p>Please Use The Payments Details Below for your Payment .</p>
+  <p className="text-xs text-red-700 bg-yellow-600 p-5 rounded" >Note: Please Verify if the account name Matches before Sending, and use your Name and Description as the Reference of your Transaction .</p>
 
   {Paywith.PaywithPayement === "Bank" ? (<div className="flex justify-between" >
     <p>Bank Name: </p>
@@ -1053,14 +1118,14 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
 
 {Paywith.PaywithPayement === "Crypto" || Paywith.PaywithPayement === "Paypal" || Paywith.PaywithPayement === "CashApp" ? "" : ( <div className="flex justify-between" >
    <p>Account Number:</p>
-   <p>{AccountDetails.AccountNumber}</p>
+  <span className="flex gap-2" > <p id="AccountNumber" >{AccountDetails.AccountNumber}</p> <CopyIcon size="10" className="mt-1.5" color="blue" onClick={() => Copytext("AccountNumber")} /></span>
  </div>)}
 
 
   {Paywith.PaywithPayement === "Paypal" ? (
     <span className="flex justify-between" >
       <p>Email:  </p>
-      <p>{AccountDetails.Email}</p>
+      <span className="flex gap-2"  ><p id="Email" >{AccountDetails.Email}</p> <CopyIcon size="10" className="mt-1.5" color="blue" onClick={() => Copytext("Email")} /></span>
     </span>
   ) : ""}
 
@@ -1085,14 +1150,54 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
 
 <div className="flex justify-between" >
   <p>Description / Reference: </p>
-  <p>{Paywith.PurposeOfPayment}</p>
+  <div className="flex gap-2" >
+    <p id="PaymentPurpose" >{Paywith.PurposeOfPayment}</p>  <CopyIcon size="10" className="mt-1.5" color="blue" onClick={() => Copytext("PaymentPurpose")} />
+  </div>
 
 </div>
 
 
-<div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" >
-  Completed
+<div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" onClick={() => {
+
+  if(ShowHide.ContactUs === false){
+    setShowHide((prev) => ({...prev, ContactUs: true}))
+  } else{
+    setShowHide((prev) => ({...prev, ContactUs: false}))
+  }
+
+}} >
+ {ShowHide.ContactUs ?  (<div className="animate-spin" ><Loader/></div> ) : (<p>Completed </p> ) }
 </div>
+
+
+{ShowHide.ContactUs && 
+(
+  <div>
+  <p>Submit a Screenshot the Transaction For Verification  </p>
+  <span>
+     <div className="text-xs bg-green-700 mt-1  py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center"
+                      onClick={() => {
+                      window.open("https://wa.me/+233504372398", "_blank");
+                      }}
+                    >
+                      <div className="w-4 h-4 ">
+                        <img src={whatsAppLogo} alt="whatsPPiCON" />
+                      </div>
+                      <p className="text-white">Contact us</p>
+                    </div>
+  </span>
+</div>
+)
+ }
+
+
+
+
+
+
+
+
+
 
   
 </div>

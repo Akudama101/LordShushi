@@ -604,7 +604,7 @@ const Copytext = (elementId) => {
   <>
   <HeaderPage />
 
-  <div className="relative min-h-screen bg-pink-50">
+  <div className="relative min-h-screen bg-gray-50">
     <section className="py-10 lg:py-20">
       <h1 className="text-3xl lg:text-5xl 2xl:text-7xl uppercase font-extrabold text-center text-pink-700 tracking-widest mt-10">
         Customer Service
@@ -717,7 +717,7 @@ const Copytext = (elementId) => {
     </section>
 
     {/* Feature Cards */}
-    <section className="grid lg:grid-cols-2 gap-5 px-5 bg-pink-50 pb-20">
+    <section className="grid lg:grid-cols-2 gap-5 px-5 bg-gray-50 pb-20">
       <div className="shadow-md bg-white border-l-4 border-pink-500 p-5 rounded-lg">
         <h1 className="text-sm lg:text-lg font-bold text-pink-700 flex gap-2">
           <PackageCheck size={20} /> <span>Clearance</span>
@@ -841,9 +841,10 @@ export function HeaderPage(){
 
 
                     </div>
-                   <div className='flex items-center gap-3 px-5' > 
+                   <div className='flex items-center gap-3 px-4' > 
                    <span onClick={() => handleNav("../TrackPage")}><Truck color='white' className='h-5 w-5' /></span>
                    <span onClick={() => handleNav("../CustomerService")}><Phone color='white' className='h-5 w-5' /></span>
+                   <span onClick={() => handleNav("../PaymentPage")}><Wallet color='white' className='h-5 w-5' /></span>
 
               
                    </div>
@@ -876,7 +877,7 @@ export function HeaderPage(){
     { label: 'About Us', icon: QuoteIcon, path: '../About_Us' },
     { label: 'Contact Us', icon: PhoneCallIcon, path: '../CustomerService' },
     { label: 'For Business', icon: BookCheck, path: '../CreateShipment' },
-    {label:"Payment", icon: Wallet, path:'../PaymentPage'}
+    {label:"Make A Payment", icon: Wallet, path:'../PaymentPage'}
   ].map(({ label, icon: Icon, path }) => (
     <div
       key={label}
@@ -1080,8 +1081,8 @@ export function About_Us() {
             <section className='text-sm lg:text-lg  '>
             <section className={`max-w-4xl mx-auto px-5 pb-20 pt-10 text-gray-800 leading-relaxed bg-gray-50 `}>
           
-  <h1 className="text-3xl lg:py-10 lg:text-4xl font-medium mb-4 text-gray-900 mt-15 libre-baskerville-regular-italic">
-    <span className='font-bold italic ' >2GO</span>: A Global Leader in Logistics and Delivery
+  <h1 className="text-3xl lg:py-10 lg:text-4xl font-medium mb-4 text-gray-900 mt-15 ">
+    <span className='font-bold italic text-pink-600' >2GO</span> :  A Global Leader in Logistics and Delivery.
   </h1>
 
 
@@ -1091,17 +1092,17 @@ export function About_Us() {
       
   <p>2GO is a multinational logistics brand, founded in the United States and now headquartered in Bonn, Germany. With a reputation for excellence and efficiency, 2GO has emerged as one of the world’s foremost logistics companies, delivering over 1.7 billion parcels annually and serving millions of customers across the globe. This article explores the expansive reach, history, operations, and future of 2GO, offering an in-depth understanding of what makes the company a cornerstone of modern global delivery systems.</p>
 
-  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">1. Origins and Evolution</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 font-sans">1. Origins and Evolution</h2>
   <p className='text-[12px] lg:text-[14px] mt-1' >Founded in the early 1980s in the United States, 2GO started as a small courier company with a vision of making international shipping seamless and reliable. As global commerce grew in the late 20th century, so did 2GO’s ambitions. By the mid-1990s, the company had expanded to major cities in Europe and Asia, establishing itself as a key player in cross-border logistics. The decision to move its headquarters to Bonn, Germany, reflected its commitment to serving European markets and optimizing its presence in the heart of the EU and the World.</p>
 
-  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">2. Global Reach and Infrastructure</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800font-sansc">2. Global Reach and Infrastructure</h2>
   <p className='text-[12px] lg:text-[14px] mt-1' >2GO operates in over 220 countries and territories, with more than 600 logistics hubs worldwide. These facilities include sorting centers, distribution warehouses, regional depots, and last-mile delivery stations. With a fleet of over 40,000 vehicles and partnerships with local couriers in remote regions, 2GO ensures packages are delivered efficiently, even in the most hard-to-reach areas.</p>
 
-  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">3. Technology and Tracking</h2>
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 font-sans">3. Technology and Tracking</h2>
   <p className='text-[12px] lg:text-[14px] mt-1' >One of 2GO’s core strengths is its investment in technology. The company offers real-time tracking for all parcels, allowing customers to follow their package from dispatch to delivery. Its systems integrate GPS, barcode scanning, RFID, and cloud-based logistics data, enabling transparency and operational efficiency. The 2GO tracking app is a customer favorite, offering updates, delivery customization, and chat support all in one place.</p>
 
-  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 libre-baskerville-regular-italic">4. Services Offered</h2>
-  <ul className="list-disc lg:px-12 px-6 text-[12px] lg:text-[14px]">
+  <h2 className="text-xl lg:text-2xl font-semibold mt-10 lg:mt-20 text-slate-800 font-sans">4. Services Offered</h2>
+  <ul className="list-disc lg:px-12 px-5 space-y-2 mt-2">
     <li>Standard and Express Parcel Delivery</li>
     <li>International Freight Forwarding</li>
     <li>Customs Brokerage and Documentation</li>
@@ -1109,20 +1110,20 @@ export function About_Us() {
     <li>Subscription-Based eCommerce Delivery Services</li>
   </ul>
 
-  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20  libre-baskerville-regular-italic">5. Commitment to Sustainability</h2>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20  font-sans">5. Commitment to Sustainability</h2>
   <p className='text-[12px] lg:text-[14px] mt-1' >Environmental sustainability is a key part of 2GO’s mission. The company has introduced electric delivery vans, invested in carbon-neutral shipping options, and implemented green logistics strategies across its supply chain. Packaging materials are recyclable, and their newer facilities meet LEED standards for energy efficiency.</p>
 
-  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">6. Customer Experience</h2>
-  <img src={Happyrating} alt="happy rating Image"  className='my-5 shadow-xl border-l-4 border-blue-500 rounded-sm' />
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 font-sans">6. Customer Experience</h2>
+  <img src={Happyrating} alt="happy rating Image"  className='my-5 shadow-xl border-l-4 border-pink-600 rounded-sm' />
   <p className='text-[12px] lg:text-[14px] mt-1' >2GO courier places a premium on customer satisfaction. It offers flexible delivery slots, secure drop-off options, and 24/7 customer service. In high-demand regions, 2GO has even piloted drone and autonomous robot deliveries to reduce congestion and improve delivery speed.</p>
 
-  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">7. Competitive Position</h2>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 font-sans">7. Competitive Position</h2>
   <p className='text-[12px] lg:text-[14px] mt-1' >In a market crowded with giants like FedEx, DHL, UPS, and regional players, 2GO courier stands out for its balance of reliability, pricing, and technology. By focusing on efficiency and customer satisfaction, 2GO has cultivated strong loyalty among businesses and individual customers alike.</p>
 
-  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">8. Challenges and Resilience</h2>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 font-sans">8. Challenges and Resilience</h2>
   <p className='text-[12px] lg:text-[14px] mt-1' >The logistics industry faces constant challenges: global pandemics, trade regulations, political instability, and rising costs. 2GO’s decentralized model and agile operations allow it to adapt quickly. During the COVID-19 pandemic, the company rapidly scaled up contactless delivery options and ensured uninterrupted service globally.</p>
 
-  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 libre-baskerville-regular-italic">9. Innovation and the Future</h2>
+  <h2 className="text-xl lg:text-2xl  font-semibold mt-10 lg:mt-20 text-gray-800 font-sans">9. Innovation and the Future</h2>
   <img src={InnovationImage} alt="iconImage" className='my-5 shadow-xl mx-auto lg:h-100 rounded-sm' />
   <p className='text-[12px] lg:text-[14px] mt-1' >Looking ahead, 2GO plans to expand its autonomous vehicle fleet, invest further in AI-based logistics planning, and explore new markets in Sub-Saharan Africa and Southeast Asia. Blockchain technology is also on the roadmap for securing cross-border transactions and improving parcel traceability.</p>
 

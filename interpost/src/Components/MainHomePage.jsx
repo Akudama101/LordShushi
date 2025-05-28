@@ -90,7 +90,7 @@ export function HomePage() {
     return (
         <>
       
-    <div className="text-slate-800 bg-slate-100 h-screen">
+    <div className="text-slate-800 bg-gray-100 h-screen">
     <div className="pb-10 lg:pb-40 md:pb-40">
         <Section1/>
         </div>
@@ -145,12 +145,12 @@ export function Footer(){
 
   return(
    <div>
-  <div className="p-5 bg-pink-600/90 space-y-10 py-10 lg:py-20 lg:px-20 text-white">
+  <div className="p-5 bg-white shadow-lg border-t-8 border-pink-600  space-y-10 py-10 lg:py-20 lg:px-20 text-black">
     <div className="space-y-10 grid lg:grid-cols-3">
       {/* Contact Info */}
       <ul className="space-y-2 text-sm cursor-pointer">
         <li className="flex gap-5">
-          <div className="p-2 bg-pink-800/70 w-fit h-fit rounded-full -mt-1">
+          <div className="p-2  w-fit h-fit rounded-full -mt-1">
             <LocateFixed size={15} />
           </div>
           <p>
@@ -159,39 +159,32 @@ export function Footer(){
             <span className="font-bold">San Francisco</span>
           </p>
         </li>
+      
         <li className="flex gap-5">
-          <div className="p-2 bg-pink-800/70 w-fit h-fit rounded-full -mt-1">
-            <Phone size={15} />
-          </div>
-          <p>
-            <span className="font-bold">+233 (504)-372-398</span>
-          </p>
-        </li>
-        <li className="flex gap-5">
-          <div className="p-2 bg-pink-800/70 w-fit h-fit rounded-full -mt-1">
+          <div className="p-2  w-fit h-fit rounded-full -mt-1">
             <Mail size={15} />
           </div>
           <p>
-            <span className="font-bold text-pink-200">2GODeliverycompany@gmail.com</span>
+            <span className="font-bold text-pink-700">2GODeliverycompany@gmail.com</span>
           </p>
         </li>
       </ul>
 
       {/* Navigation Links */}
       <ul className="space-y-2 hidden lg:block cursor-pointer">
-        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../TrackPage")}>
+        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../TrackPage")}>
           Track My Package
         </li>
-        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../About_Us")}>
+        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../About_Us")}>
           About Us
         </li>
-        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../Blog")}>
+        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../Blog")}>
           Blog
         </li>
-        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../CustomerService")}>
+        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../CustomerService")}>
           Contact Us
         </li>
-        <li className="underline text-pink-200 hover:text-white" onClick={() => handleNav("../CustomerService")}>
+        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../CustomerService")}>
           Speak to an Agent in your Country
         </li>
       </ul>
@@ -216,7 +209,7 @@ export function Footer(){
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 30 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={`h-fit bg-pink-600/90 space-y-2 py-2 flex gap-5 ml-auto`}
+                className={`h-fit white text-white space-y-2 py-2 flex gap-5 ml-auto`}
               >
                 <div
                   className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center"
@@ -258,7 +251,7 @@ export function Footer(){
     </div>
 
     {/* Footer bottom */}
-    <div className="text-center text-xs text-pink-200">
+    <div className="text-center text-xs text-black">
       <p>&copy; 2GO-Courier-Service</p>
     </div>
   </div>
