@@ -131,134 +131,128 @@ export function HomePage() {
     
 }
 
-export function Footer(){
+export function Footer() {
   const navigate = useNavigate();
   const handleNav = (path) => {
     navigate(path);
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
-  const [showWhatAppIcon, setSHowWhatAPP] = useState({
+  const [showWhatAppIcon, setShowWhatAppIcon] = useState({
     show: false,
-    Circle:"rounded-sm "
-  })
+    Circle: "rounded-sm",
+  });
 
-  return(
-   <div>
-  <div className="p-5 bg-white shadow-lg border-t-8 border-pink-600  space-y-10 py-10 lg:py-20 lg:px-20 text-black">
-    <div className="space-y-10 grid lg:grid-cols-3">
-      {/* Contact Info */}
-      <ul className="space-y-2 text-sm cursor-pointer">
-        <li className="flex gap-5">
-          <div className="p-2  w-fit h-fit rounded-full -mt-1">
-            <LocateFixed size={15} />
-          </div>
-          <p>
-            San Jose–San Francisco–Oakland
-            <br />
-            <span className="font-bold">San Francisco</span>
-          </p>
-        </li>
-      
-        <li className="flex gap-5">
-          <div className="p-2  w-fit h-fit rounded-full -mt-1">
-            <Mail size={15} />
-          </div>
-          <p>
-            <span className="font-bold text-pink-700">2GODeliverycompany@gmail.com</span>
-          </p>
-        </li>
-      </ul>
+  return (
+    <div className="bg-gray-100">
+      <div className="p-8 bg-white shadow-lg border-t-8 border-pink-600 space-y-12 lg:space-y-20 text-black lg:px-24">
+        <div className="grid gap-12 lg:grid-cols-3">
+          {/* Contact Info */}
+          <ul className="space-y-4 text-sm cursor-pointer">
+            <li className="flex items-start gap-4">
+              <div className="p-2 bg-pink-100 text-pink-600 rounded-full -mt-1">
+                <LocateFixed size={18} />
+              </div>
+              <p>
+                San Jose–San Francisco–Oakland
+                <br />
+                <span className="font-semibold">San Francisco</span>
+              </p>
+            </li>
 
-      {/* Navigation Links */}
-      <ul className="space-y-2 hidden lg:block cursor-pointer">
-        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../TrackPage")}>
-          Track My Package
-        </li>
-        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../About_Us")}>
-          About Us
-        </li>
-        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../Blog")}>
-          Blog
-        </li>
-        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../CustomerService")}>
-          Contact Us
-        </li>
-        <li className="underline text-blue-800 hover:text-text-black" onClick={() => handleNav("../CustomerService")}>
-          Speak to an Agent in your Country
-        </li>
-      </ul>
+            <li className="flex items-center gap-4">
+              <div className="p-2 bg-pink-100 text-pink-600 rounded-full -mt-1">
+                <Mail size={18} />
+              </div>
+              <p>
+                <span className="font-semibold text-pink-700">
+                  2GODeliverycompany@gmail.com
+                </span>
+              </p>
+            </li>
+          </ul>
 
-      {/* About Section */}
-      <ul className="space-y-5">
-        <li className="font-bold text-lg">
-          <h1>About 2GO</h1>
-        </li>
-        <li className="text-sm">
-          <span className="font-bold">2GO</span> is a multinational logistics brand, founded in the United States and
-          headquartered in Bonn, Germany. It provides courier, package delivery, and express mail service, delivering over
-          1.7 billion parcels per year.
-        </li>
-
-        {/* WhatsApp Button Row */}
-        <li className="flex h-15 -mb-8">
-          <AnimatePresence>
-            {showWhatAppIcon.show && (
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={`h-fit white text-white space-y-2 py-2 flex gap-5 ml-auto`}
+          {/* Navigation Links */}
+          <ul className="space-y-4 hidden lg:block cursor-pointer text-pink-700">
+            {[
+              { label: "Track My Package", path: "../TrackPage" },
+              { label: "About Us", path: "../About_Us" },
+              { label: "Blog", path: "../Blog" },
+              { label: "Contact Us", path: "../CustomerService" },
+              { label: "Speak to an Agent in your Country", path: "../CustomerService" },
+            ].map(({ label, path }) => (
+              <li
+                key={label}
+                className="underline hover:text-pink-900 transition-colors duration-200"
+                onClick={() => handleNav(path)}
               >
-                <div
-                  className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center"
-                  onClick={() => {
-                    window.open("https://wa.me/+233504372398", "_blank");
-                  }}
-                >
-                  <div className="w-4 h-4">
-                    <img src={whatsAppLogo} alt="whatsPPiCON" />
-                  </div>
-                  <p>Ghana Agent</p>
-                </div>
-                <div className="text-xs bg-green-500 py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center">
-                  <div className="w-4 h-4">
-                    <img src={whatsAppLogo} alt="whatsPPiCON" />
-                  </div>
-                  <p>USA Agent</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                {label}
+              </li>
+            ))}
+          </ul>
 
-          {/* Floating WhatsApp Icon */}
-          <div
-            className={`bg-green-500 ml-auto h-fit p-2 mt-1 shadow-xl ${showWhatAppIcon.Circle}`}
-            onClick={() => {
-              setSHowWhatAPP(!showWhatAppIcon.show);
-              if (!showWhatAppIcon.show) {
-                setSHowWhatAPP({ show: true, Circle: "rounded-full" });
-              } else {
-                setSHowWhatAPP({ show: false, Circle: "rounded-sm" });
-              }
-            }}
-          >
-            <img src={whatsAppLogo} alt="whatsPPiCON" />
+          {/* About Section */}
+          <div className="space-y-5 text-sm">
+            <h2 className="font-bold text-xl">About 2GO</h2>
+            <p>
+              <span className="font-semibold">2GO</span> is a multinational logistics brand,
+              founded in the United States and headquartered in Bonn, Germany. It provides courier,
+              package delivery, and express mail service, delivering over 1.7 billion parcels per year.
+            </p>
+
+            {/* WhatsApp Button Row */}
+            <div className="flex items-center gap-4 -mb-8">
+              <AnimatePresence>
+                {showWhatAppIcon.show && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 30 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="flex gap-4 ml-auto"
+                  >
+                    {[
+                      { label: "Ghana Agent", url: "https://wa.me/+233504372398" },
+                      { label: "USA Agent", url: "https://wa.me/+1234567890" }, // Replace with real URL
+                    ].map(({ label, url }) => (
+                      <div
+                        key={label}
+                        className="flex items-center gap-2 px-3 py-2 bg-green-500 text-white text-xs rounded shadow-lg cursor-pointer hover:bg-green-600 transition"
+                        onClick={() => window.open(url, "_blank")}
+                      >
+                        <img src={whatsAppLogo} alt="WhatsApp Icon" className="w-4 h-4" />
+                        <p>{label}</p>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Floating WhatsApp Icon */}
+              <div
+                className={`bg-green-500 p-2 mt-1 ml-auto shadow-xl cursor-pointer ${showWhatAppIcon.Circle}`}
+                onClick={() => {
+                  setShowWhatAppIcon((prev) => {
+                    if (!prev.show) return { show: true, Circle: "rounded-full" };
+                    else return { show: false, Circle: "rounded-sm" };
+                  });
+                }}
+              >
+                <img src={whatsAppLogo} alt="WhatsApp Icon" className="w-6 h-6" />
+              </div>
+            </div>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
 
-    {/* Footer bottom */}
-    <div className="text-center text-xs text-black">
-      <p>&copy; 2GO-Courier-Service</p>
+        {/* Footer bottom */}
+        <div className="text-center text-xs text-gray-600 select-none">
+          <p>&copy; 2GO-Courier-Service</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-  )
+  );
 }
+
 
 
 

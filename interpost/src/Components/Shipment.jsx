@@ -952,256 +952,319 @@ else if(Paywith.PaywithPayement === "Mobile Money" && LocalPayement === "Tigo-Ca
 
 
 
-{ShowHide.WelcomeMessage && ( <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 max-w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 " >
-  <h1 className="font-bold text-2xl text-pink-600 text-center uppercase" >Welcome to  2GO Payments </h1>
-  <p className=" text-center text-sm" >We Provide Easy Seamless Transaction , With Multiple Payment Options . </p>
+{ShowHide.WelcomeMessage && (
+  <div className="bg-white shadow-lg lg:w-full max-w-3xl p-6 mx-auto space-y-6 rounded-2xl border-l-8 border-pink-600">
+    <h1 className="font-bold text-3xl text-pink-600 text-center uppercase">
+      Welcome to 2GO Payments
+    </h1>
+    <p className="text-center text-sm text-gray-600">
+      We provide easy, seamless transactions with multiple payment options.
+    </p>
 
+    <div className="space-y-6">
+      <p className="font-bold text-gray-800">
+        Complete Your Payment in 5 Simple Steps
+      </p>
 
-<div className="space-y-5" >
-  <p className="font-bold" >Complete Your Payment In 5 Simple Steps</p>
-  <ul className="list-decimal list-inside space-y-5 mt-5" >
-    <li><strong>Select Your Country</strong> - select the Country of Origin which you are making the payment from. </li>
-    <li><strong>Select Payment Type</strong> - Next Choose your prefered Payment Type option   </li>
-    <li><strong>Select Purpose of Payment </strong> - Choose the purpose of your payment.   </li>
-    <li><strong>Enter Amount</strong> - Accurately Enter Amount You are Paying. and Proceed to Next Step</li>
-    <li><strong>Use Account Details</strong> - Accurately copy the Account Details to prevent mistakes. </li>
-    <p><strong>Payment Verification</strong> - If The Automatic Payment Verification Fails , Please Proceed to contact us  </p>
-  </ul>
-  <p className="text-xs text-red-700 bg-yellow-600 p-5 rounded" ><em className="font-bold" >Note: </em> Payment Should be Completed within 20 minutes , or Automatic Verification fails and you will have to verify the Payment from us manually.      </p>
-  
-  
-  
-  
-  
-  <div className="flex gap-2" >
-   <input type="radio" onChange={HandleStermsCondition} checked={TermsCondition} name="TermsCondition" className="-mt-4.5"/>
-   <p> i have Read and Understand the Payment Process .</p>
+      <ul className="list-decimal list-inside space-y-4 text-gray-700">
+        <li><strong>Select Your Country</strong> – Choose the country you are making the payment from.</li>
+        <li><strong>Select Payment Type</strong> – Choose your preferred payment method.</li>
+        <li><strong>Select Purpose of Payment</strong> – Indicate the reason for your payment.</li>
+        <li><strong>Enter Amount</strong> – Enter the exact amount you're paying, then proceed to the next step.</li>
+        <li><strong>Use Account Details</strong> – Carefully copy the account details to avoid errors.</li>
+      </ul>
+
+      <p className="text-gray-700 font-medium">
+        <strong>Payment Verification</strong> – If automatic payment verification fails, please contact us for manual verification.
+      </p>
+
+      <p className="text-xs text-gray-800 bg-yellow-400/70 border border-yellow-400 p-4 rounded-lg">
+        <strong className="text-red-500">Note:</strong> Payment should be completed within 20 minutes. Otherwise, automatic verification will fail, and you will need to verify the payment manually.
+      </p>
+
+      <div className="flex items-center gap-3">
+        <input
+          type="radio"
+          onChange={HandleStermsCondition}
+          checked={TermsCondition}
+          name="TermsCondition"
+          className="accent-pink-600 w-4 h-4"
+        />
+        <p className="text-sm text-gray-700">
+          I have read and understand the payment process.
+        </p>
+      </div>
+
+      <button
+        className="bg-pink-600 hover:bg-pink-700 transition-all duration-200 text-white px-6 py-2 rounded-lg w-full font-semibold"
+        onClick={() => {
+          if (TermsCondition === true) {
+            setShowHide({
+              CountryPage: false,
+              LocationPage: true,
+              PaymentDetailTag: false,
+              WelcomeMessage: false,
+            });
+          } else {
+            alert("Please read and understand the instructions.");
+          }
+        }}
+      >
+        Start Payment Process
+      </button>
+    </div>
   </div>
-  
-  
-  <div className="bg-green-700 px-5 py-2  w-full text-center  text-white rounded"   onClick={() => {
-    if(TermsCondition === true){
-      setShowHide(
-        {
-    CountryPage: false,
-    LocationPage:true,
-    PaymentDetailTag: false,
-    WelcomeMessage:false,
-        }
-      )
-    } else {
-      alert("Please Read and Understand Instruction")
-    }
-  }}>
-    Start Payment Process
-  </div>
- 
-</div>
-
- 
-
-</div>
-
 )}
 
 
 
 
 
-{ ShowHide.CountryPage  && ( <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 " >
-
-<div>
-  <p>Pay With: </p>
-  <Select options={ 
- selectPaymentCountry === "Ghana" ?   PaymentOptions.filter( data => data.countryPayment !== "Other") : PaymentOptions.filter( data => data.countryPayment === "Other")
-
-  
-  } placeholder="Select Payment Option" className="mt-1 w-full" onChange={HandleSelectChange} value={PaymentOptions.find(data => data.value === Paywith.PaywithPayement)} isSearchable={false} />
-</div>
-
-{MobilePaymentDisplay && (<div>
- <span className="grid grid-cols-3" > <img src="\images\69-691715_mtn-mm-logo-generic-mtn-mobile-money-logo.png" alt="Image1" className="h-10 w-20 col-span-1" />      <span className="flex  gap-2 col-span-2 mt-1" ><input type="radio" onChange={HandleInputchange} value={"Momo"} name="LocalPayement" className="h-7 w-7"/> <p className="font-bold text-lg" >MTN MoMo</p></span>     </span>
- <span className="grid grid-cols-3" > <img src="\images\Rede-5f0f780acc6c05a6539d7e3229ac508c.webp" alt="FundsIcon" className="h-10 w-20 col-span-1" />     <span className="flex  gap-2 col-span-2 mt-1" > <input type="radio" onChange={HandleInputchange} value={"Telecel-Cash"} name="LocalPayement" className="h-7 w-7" /> <p className="font-bold text-lg" >Telecel Cash</p> </span>   </span>
- <span className="grid grid-cols-3" > <img src="\images\463-4631269_logo-tigo-cash-png-transparent-png.png" alt="Image2" className="h-10 w-20 col-span-1" />   <span className="flex  gap-2 col-span-2 mt-1" ><input type="radio" onChange={HandleInputchange} value={'Tigo-Cash'} name="LocalPayement" className="h-7 w-7" /> <p className="font-bold text-lg" >Airtel Tigo Cash</p></span>   </span>
-
-</div>) }
-
-
-<div>
-  <p>Purpose Of Payment</p>
-  <Select options={PurposeOfPayment} placeholder="Select Option" className="mt-1" value={PaymentOptions.find(data => data.value === Paywith.PurposeOfPayment)} onChange={handleSelectChanage2} isSearchable={false}  />
-</div>
-
-<div>
-  <p>Amount: </p>
-  <input type="number" className="border py-1 w-full border-gray-300 rounded-sm mt-1 px-3 outline-none" onChange={HandleAmountInput} value={Amount} name="Amount" />
-</div>
-
-
-
-
-
-<div className="bg-green-700 px-5 py-2 text-center text-white w-25 ml-auto" onClick={() => {
-   if(!Amount , !Paywith.PaywithPayement, !LocalPayement, !Paywith.PurposeOfPayment){
-
-    alert("Make Sure All Details are Correctly Entered")
-
-   }else{
-      setShowHide({
-           CountryPage: false,
-           LocationPage: false,
-           PaymentDetailTag: true
-        })
-   }
-}} >
-  Next
-</div>
-
-</div>
-
-  ) }
-
-
-{ ShowHide.LocationPage && (  <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 max-w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 scroll-mt-10" >
-  <p className="" >Which Country Are you Making Your Payment from?</p>
-      <Select options={Countries} placeholder="Select Country" value={Countries.find(data => data.value === selectPaymentCountry)} onChange={HandleSelectPayment}  isSearchable={false}/>
-      <div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" onClick={() => {
-        if(!selectPaymentCountry){
-          alert("Select Your Country")
+{ShowHide.CountryPage && (
+  <div className="bg-white shadow-lg max-w-2xl p-6 mx-auto space-y-6 rounded-2xl border-l-8 border-pink-600">
+    {/* Payment Method */}
+    <div>
+      <p className="text-gray-800 font-semibold">Pay With:</p>
+      <Select
+        options={
+          selectPaymentCountry === "Ghana"
+            ? PaymentOptions.filter(data => data.countryPayment !== "Other")
+            : PaymentOptions.filter(data => data.countryPayment === "Other")
         }
-       else{
-        setShowHide({
-           CountryPage: true,
-           LocationPage: false,
-           PaymentDetailTag: false
-        }) 
-       }
-      }} >
-        Next
+        placeholder="Select Payment Option"
+        className="mt-2 w-full"
+        onChange={HandleSelectChange}
+        value={PaymentOptions.find(data => data.value === Paywith.PaywithPayement)}
+        isSearchable={false}
+      />
+    </div>
+
+    {/* Mobile Payment Options */}
+    {MobilePaymentDisplay && (
+      <div className="space-y-4">
+        {[
+          { label: "MTN MoMo", value: "Momo", img: "/images/69-691715_mtn-mm-logo-generic-mtn-mobile-money-logo.png" },
+          { label: "Telecel Cash", value: "Telecel-Cash", img: "/images/Rede-5f0f780acc6c05a6539d7e3229ac508c.webp" },
+          { label: "Airtel Tigo Cash", value: "Tigo-Cash", img: "/images/463-4631269_logo-tigo-cash-png-transparent-png.png" }
+        ].map((option, index) => (
+          <div key={index} className="grid grid-cols-3 items-center gap-2">
+            <img src={option.img} alt={option.label} className="h-10 w-20 object-contain" />
+            <div className="col-span-2 flex items-center gap-2">
+              <input
+                type="radio"
+                value={option.value}
+                name="LocalPayement"
+                onChange={HandleInputchange}
+                className="h-5 w-5"
+              />
+              <p className="font-bold text-gray-800 text-sm">{option.label}</p>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>)}
-
-
-
-{ShowHide.PaymentDetailTag && <div className="bg-white shadow-lg  lg:w-100 min-w-4/5 max-w-88 p-5 mx-auto space-y-5 rounded-lg border-l-5 border-pink-600 scroll-mt-10" >
-
-  <h1 className="font-bold text-center text-lg uppercase text-pink-600" >Account Details</h1>
-  <p>Please Use The Payments Details Below for your Payment .</p>
-  <p className="text-xs text-red-700 bg-yellow-600 p-5 rounded" >Note: Please Verify if the account name Matches before Sending, and use your Name and Description as the Reference of your Transaction .</p>
-
-  {Paywith.PaywithPayement === "Bank" ? (<div className="flex justify-between" >
-    <p>Bank Name: </p>
-    <p>EcoBank Bank Account</p>
-  </div>) : ""}
- 
- <span className="flex justify-between" >
-   <p>Account Type:</p>
-   <p>{ Paywith.PaywithPayement}</p>
- </span>
-
-{Paywith.PaywithPayement === 'Mobile Money' ? ( <span className="flex justify-between" >
-  <p>ISP</p>
-  <p>{LocalPayement}</p>
- </span>): "" }
-
-
-
-  {Paywith.PaywithPayement === "Crypto" ? ""  : (
- <div className="flex justify-between" >
-     <p>Account Name: </p>
-    <p>{AccountDetails.AccountName}</p>
- </div>
     )}
 
+    {/* Purpose of Payment */}
+    <div>
+      <p className="text-gray-800 font-semibold">Purpose of Payment:</p>
+      <Select
+        options={PurposeOfPayment}
+        placeholder="Select Option"
+        className="mt-2"
+        value={PaymentOptions.find(data => data.value === Paywith.PurposeOfPayment)}
+        onChange={handleSelectChanage2}
+        isSearchable={false}
+      />
+    </div>
 
+    {/* Amount Input */}
+    <div>
+      <p className="text-gray-800 font-semibold">Amount:</p>
+      <input
+        type="number"
+        name="Amount"
+        value={Amount}
+        onChange={HandleAmountInput}
+        className="border border-gray-300 rounded-lg px-3 py-2 mt-2 w-full focus:outline-pink-600"
+        placeholder="Enter amount"
+      />
+    </div>
 
-
-{Paywith.PaywithPayement === "Crypto" || Paywith.PaywithPayement === "Paypal" || Paywith.PaywithPayement === "CashApp" ? "" : ( <div className="flex justify-between" >
-   <p>Account Number:</p>
-  <span className="flex gap-2" > <p id="AccountNumber" >{AccountDetails.AccountNumber}</p> <CopyIcon size="10" className="mt-1.5" color="blue" onClick={() => Copytext("AccountNumber")} /></span>
- </div>)}
-
-
-  {Paywith.PaywithPayement === "Paypal" ? (
-    <span className="flex justify-between" >
-      <p>Email:  </p>
-      <span className="flex gap-2"  ><p id="Email" >{AccountDetails.Email}</p> <CopyIcon size="10" className="mt-1.5" color="blue" onClick={() => Copytext("Email")} /></span>
-    </span>
-  ) : ""}
-
-{Paywith.PaywithPayement === "CashApp" ? (
-  <div className="flex justify-between" >
-    <p>CashApp Tag: </p>
-    <p>{AccountDetails.CashTag}</p>
+    {/* Next Button */}
+    <div
+      className="bg-pink-600 hover:bg-pink-700 transition-all duration-200 px-6 py-2 text-center text-white font-semibold rounded-lg w-fit ml-auto cursor-pointer"
+      onClick={() => {
+        if (!Amount || !Paywith.PaywithPayement  || !Paywith.PurposeOfPayment) {
+          alert("Make sure all details are correctly entered.");
+        } else {
+          setShowHide({
+            CountryPage: false,
+            LocationPage: false,
+            PaymentDetailTag: true,
+          });
+        }
+      }}
+    >
+      Next
+    </div>
   </div>
-) : "" }
+)}
 
-{Paywith.PaywithPayement === "Crypto" ? (
-  <div>
-    <p>BitCoin Address</p>
-<p>QR Code</p>
+
+
+{ShowHide.LocationPage && (
+  <div className="bg-white shadow-lg lg:w-full max-w-2xl p-6 mx-auto space-y-6 rounded-2xl border-l-8 border-pink-600 scroll-mt-10">
+    <p className="text-gray-800 font-semibold text-lg">
+      Which country are you making your payment from?
+    </p>
+
+    <Select
+      options={Countries}
+      placeholder="Select Country"
+      value={Countries.find((data) => data.value === selectPaymentCountry)}
+      onChange={HandleSelectPayment}
+      isSearchable={false}
+      className="text-sm"
+    />
+
+    <div
+      className="bg-pink-600 hover:bg-pink-700 transition-all duration-200 px-6 py-2 w-fit text-white font-medium rounded-lg ml-auto cursor-pointer"
+      onClick={() => {
+        if (!selectPaymentCountry) {
+          alert("Select your country");
+        } else {
+          setShowHide({
+            CountryPage: true,
+            LocationPage: false,
+            PaymentDetailTag: false,
+          });
+        }
+      }}
+    >
+      Next
+    </div>
   </div>
-) : ""}
+)}
 
-<div className="flex justify-between" >
-  <p>Amount To Be Paid: </p>
-  <p>{Amount}</p>
-</div>
 
-<div className="flex justify-between" >
-  <p>Description / Reference: </p>
-  <div className="flex gap-2" >
-    <p id="PaymentPurpose" >{Paywith.PurposeOfPayment}</p>  <CopyIcon size="10" className="mt-1.5" color="blue" onClick={() => Copytext("PaymentPurpose")} />
+
+
+{ShowHide.PaymentDetailTag && (
+  <div className="bg-white shadow-xl lg:w-[90%] w-[95%] max-w-3xl mx-auto mt-10 space-y-6 rounded-2xl border-l-8 border-pink-600 px-6 py-8 transition-all duration-300">
+    
+    <h1 className="text-center text-xl font-extrabold uppercase text-pink-600 tracking-wide">
+      Account Details
+    </h1>
+
+    <p className="text-gray-700 text-sm text-center">
+      Please use the payment details below to complete your transaction.
+    </p>
+
+    <div className="bg-yellow-100 border-l-4 border-yellow-500 text-red-700 text-sm p-4 rounded-md">
+      <strong>Note:</strong> Please verify if the account name matches before sending. Use your <strong>Name</strong> and <strong>Description</strong> as the transaction reference.
+    </div>
+
+    {Paywith.PaywithPayement === "Bank" && (
+      <div className="flex justify-between text-gray-800">
+        <p className="font-medium">Bank Name:</p>
+        <p>EcoBank Bank Account</p>
+      </div>
+    )}
+
+    <div className="flex justify-between text-gray-800">
+      <p className="font-medium">Account Type:</p>
+      <p>{Paywith.PaywithPayement}</p>
+    </div>
+
+    {Paywith.PaywithPayement === "Mobile Money" && (
+      <div className="flex justify-between text-gray-800">
+        <p className="font-medium">ISP:</p>
+        <p>{LocalPayement}</p>
+      </div>
+    )}
+
+    {Paywith.PaywithPayement !== "Crypto" && Paywith.PaywithPayement !== "Paypal" && Paywith.PaywithPayement !== "CashApp" && (
+      <div className="flex justify-between text-gray-800">
+        <p className="font-medium">Account Name:</p>
+        <p>{AccountDetails.AccountName}</p>
+      </div>
+    )}
+
+    {Paywith.PaywithPayement !== "Crypto" && Paywith.PaywithPayement !== "Paypal" && Paywith.PaywithPayement !== "CashApp" && (
+      <div className="flex justify-between text-gray-800 items-center">
+        <p className="font-medium">Account Number:</p>
+        <span className="flex items-center gap-2">
+          <p id="AccountNumber" className="font-mono text-blue-600">{AccountDetails.AccountNumber}</p>
+          <CopyIcon size="12" className="cursor-pointer hover:text-blue-800" onClick={() => Copytext("AccountNumber")} />
+        </span>
+      </div>
+    )}
+
+    {Paywith.PaywithPayement === "Paypal" && (
+      <div className="flex justify-between text-gray-800 items-center">
+        <p className="font-medium">Email:</p>
+        <span className="flex items-center gap-2">
+          <p id="Email" className="font-mono text-blue-600">{AccountDetails.Email}</p>
+          <CopyIcon size="12" className="cursor-pointer hover:text-blue-800" onClick={() => Copytext("Email")} />
+        </span>
+      </div>
+    )}
+
+    {Paywith.PaywithPayement === "CashApp" && (
+      <div className="flex justify-between text-gray-800">
+        <p className="font-medium">CashApp Tag:</p>
+        <p className="text-green-600">{AccountDetails.CashTag}</p>
+      </div>
+    )}
+
+    {Paywith.PaywithPayement === "Crypto" && (
+      <div className="text-gray-800 space-y-2">
+        <p className="font-medium">Bitcoin Address:</p>
+        <p className="font-mono text-blue-600">{AccountDetails.BitcoinAddress}</p>
+        <div>
+          <p className="text-sm">QR Code:</p>
+          <img src={AccountDetails.QRImage} alt="Crypto QR Code" className="w-32 h-32 mt-1" />
+        </div>
+      </div>
+    )}
+
+    <div className="flex justify-between text-gray-800">
+      <p className="font-medium">Amount To Be Paid:</p>
+      <p className="text-green-600 font-bold">{Amount}</p>
+    </div>
+
+    <div className="flex justify-between text-gray-800 items-center">
+      <p className="font-medium">Description / Reference:</p>
+      <div className="flex items-center gap-2">
+        <p id="PaymentPurpose" className="font-mono text-blue-600">{Paywith.PurposeOfPayment}</p>
+        <CopyIcon size="12" className="cursor-pointer hover:text-blue-800" onClick={() => Copytext("PaymentPurpose")} />
+      </div>
+    </div>
+
+    <div className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 w-fit rounded-md ml-auto cursor-pointer font-semibold shadow-md transition"
+      onClick={() => {
+        setShowHide(prev => ({
+          ...prev,
+          ContactUs: !prev.ContactUs
+        }));
+      }}
+    >
+      {ShowHide.ContactUs ? (<div className="animate-spin"><Loader /></div>) : (<p>Completed</p>)}
+    </div>
+
+    {ShowHide.ContactUs && (
+      <div className="bg-rose-100 p-4 rounded-md mt-3 space-y-2 border border-pink-200">
+        <p className="text-sm text-gray-700">Submit a screenshot of the transaction for verification:</p>
+        <div className="flex items-center gap-2 cursor-pointer bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow w-fit text-sm"
+          onClick={() => window.open("https://wa.me/+233504372398", "_blank")}>
+          <img src={whatsAppLogo} alt="WhatsApp Icon" className="w-5 h-5" />
+          <span>Contact Us</span>
+        </div>
+      </div>
+    )}
   </div>
+)}
 
-</div>
-
-
-<div className="bg-green-700 px-5 py-2  w-fit  text-white ml-auto" onClick={() => {
-
-  if(ShowHide.ContactUs === false){
-    setShowHide((prev) => ({...prev, ContactUs: true}))
-  } else{
-    setShowHide((prev) => ({...prev, ContactUs: false}))
-  }
-
-}} >
- {ShowHide.ContactUs ?  (<div className="animate-spin" ><Loader/></div> ) : (<p>Completed </p> ) }
-</div>
-
-
-{ShowHide.ContactUs && 
-(
-  <div>
-  <p>Submit a Screenshot the Transaction For Verification  </p>
-  <span>
-     <div className="text-xs bg-green-700 mt-1  py-2 text-center w-30 shadow-2xl flex gap-1 px-2 rounded-sm h-fit justify-center"
-                      onClick={() => {
-                      window.open("https://wa.me/+233504372398", "_blank");
-                      }}
-                    >
-                      <div className="w-4 h-4 ">
-                        <img src={whatsAppLogo} alt="whatsPPiCON" />
-                      </div>
-                      <p className="text-white">Contact us</p>
-                    </div>
-  </span>
-</div>
-)
- }
-
-
-
-
-
-
-
-
-
-
-  
-</div>
- }
 
 
 
